@@ -1,6 +1,26 @@
-const requestURL = 'https://jsonplaceholder.typicode.com/users';
+const xhr = new XMLHttpRequest(),
+      requestURL = 'https://jsonplaceholder.typicode.com/usersx',
+      method = 'GET'
 
-const xhr = new XMLHttpRequest();
+xhr.open(method, requestURL) 
+//xhr.responseType = 'json'
 
-xhr.open('GET', requestURL) 
+// https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequestEventTarget/onload
+xhr.onload = function callback () {
+    if (xhr.status >= 400){
+        console.error(xhr.response)
+    }
+    else {
+        console.log(xhr.response);
+        console.log('Response type:', typeof xhr.response);
+        console.log(JSON.parse(xhr.response));
+    }
+};
+
+// https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequestEventTarget/onerror
+
+xhr.onerror = () => {
+    console.log("** An error occurred during the transaction");
+};
+
 xhr.send();
