@@ -1,5 +1,5 @@
 const xhr = new XMLHttpRequest(),
-      requestURL = 'https://jsonplaceholder.typicode.com/usersx',
+      requestURL = 'https://jsonplaceholder.typicode.com/users',
       method = 'GET'
 
 xhr.open(method, requestURL) 
