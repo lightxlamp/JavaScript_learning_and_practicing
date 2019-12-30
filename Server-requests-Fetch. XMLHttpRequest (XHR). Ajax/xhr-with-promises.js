@@ -21,7 +21,14 @@ function sendRequest(method, url) {
     })
 }
 
-requestURL = 'https://jsonplaceholder.typicode.com/users'
-sendRequest('GET', requestURL)
-    .then(data => console.log(data))
-    .catch(err => console.log(err));
+
+async function accessUsers() {
+    requestURL = 'https://jsonplaceholder.typicode.com/users'
+     return await sendRequest('GET', requestURL)
+}
+
+let allUsers = accessUsers()
+        .then(data => console.log(data))
+        .catch(err => console.log(err));
+
+
