@@ -13,3 +13,17 @@ export function fetchTestByStas() {
       console.log(myJson);
     });
 }
+
+export function createModalWindow(title, content) {
+  //https://www.muicss.com/docs/v1/css-js/overlay
+  const modalWindow = document.createElement('div');
+  modalWindow.classList.add('modalWindow')
+
+  const html = `
+    <h1>${title}</h1>
+    <div class="modal-content">${content}</div>
+  `
+  modalWindow.innerHTML = html;
+
+  mui.overlay('on', modalWindow);
+}

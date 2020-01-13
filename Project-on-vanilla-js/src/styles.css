@@ -47,3 +47,25 @@
      margin-left: 180px;
    }
  }
+
+ .floating-btn {
+   position: fixed;
+   bottom: 50px;
+   right: 50px;
+ }
+
+ .modalWindow {
+   max-width: 600px;
+   max-height: 300px;
+   margin: 100px auto;
+   overflow-y: auto;
+   background: '#fff';
+ }
+
+ .modalWindow h1 {
+   text-align: center;
+ }
+
+ .modalWindow .modal-content{
+   padding: 1rem;
+ }
