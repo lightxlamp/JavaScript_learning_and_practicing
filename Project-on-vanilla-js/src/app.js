@@ -1,5 +1,6 @@
 import "./styles.css";
 import { Question } from "./question";
+import { getAuthForm, authWithEmailAndPassword } from "./auth";
 import {
   fetchTestByStas,
   createModalWindow,
@@ -42,5 +43,30 @@ function SubmitHandler(event) {
 }
 
 function openModal() {
-  createModalWindow("Authorization", "Enter user name and password");
+  createModalWindow("Authorization", getAuthForm());
+  document
+    .getElementById("authForm")
+    .addEventListener("submit", authFormHandler);
+}
+
+function authFormHandler(event) {
+  event.preventDefault();
+
+  const email = event.target.querySelector("#email").value;
+  const password = event.target.querySelector("#password").value;
+  const loginButton = event.target.querySelector("#loginBtn");
+  loginButton.disabled = true;
+
+  authWithEmailAndPassword(email, password)
+    .then(Question.getQuestionsFromDB)
+    .then(renderModalAfterAuth)
+    .then(() => (loginButton.disabled = false));
+}
+
+function renderModalAfterAuth(content) {
+  if (typeof content === "string") {
+    createModalWindow("Error", content);
+  } else {
+    createModalWindow("List of questions", Question.listToHTML(content));
+  }
 }
