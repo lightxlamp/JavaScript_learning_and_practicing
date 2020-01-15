@@ -1,0 +1,11 @@
+{
+    "name": "fetch-example",
+    "version": "1.0.0",
+    "description": "",
+    "author": "lightxlamp",
+    "private": true,
+    "dependencies": {
+        "node-fetch": "^2.6.0"
+    },
+    "devDependencies": {}
+}
