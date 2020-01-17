@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Async lesson - https://www.youtube.com/watch?v=vIZs5tH-HGQ</title>
+</head>
+<body>
+
+<script>
+    //http://latentflip.com/loupe/
+
+    console.log('Start')
+    console.log('Start 2')
+
+    setTimeout(() => {
+        console.log('SetTimeout: 0')
+    }, 0)
+
+    function timeoutAfterNMsSeconds(){
+        console.log('Timeout after: 5000')
+    }
+
+    //setTimeout is a browser function
+    window.setTimeout(() => {
+        console.log('Inside timeout, after 3000 ms')
+    }, 3000)
+
+    // Async: Event listeners: scroll, button clicks, working with server
+    setTimeout(() => {
+        console.log('Inside timeout, after 3500 ms')
+    }, 3500)
+
+    setTimeout(timeoutAfterNMsSeconds, 5000)
+
+    console.log('End')
+
+</script>
+</body>
+</html>

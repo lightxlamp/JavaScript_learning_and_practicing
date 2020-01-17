@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Async/Await</title>
+</head>
+<body>
+
+<script>
+    // == Async/Await version ==
+    async function multiplyValuesFromDB() {
+        let calculationResult = new Promise((resolve, reject) =>{
+            setTimeout(() => {
+                console.log('Database request completed')
+                let valueFromDB1 = 5;
+                let valueFromDB2 = 11;
+                resolve(valueFromDB1 * valueFromDB2)
+            }, 3000)
+        })
+
+        let result = await calculationResult
+        console.log(result)
+    }
+
+    multiplyValuesFromDB()
+
+    // console.info(multiplyValuesFromDB().then())
+
+    // async function printCalculationResult(){
+    //     let result = await multiplyValuesFromDB()
+    //     //console.log(result)
+    // }
+
+    // multiplyValuesFromDB.then(function(x){
+    //     console.log(x)
+    // })
+
+    // printCalculationResult().then(function fnc(x){
+    //     console.log(x)
+    // })
+
+
+</script>
+
+</body>
+</html>
