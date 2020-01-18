@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EcmaScript 6 - New Methods</title>
+</head>
+<body>
+    <h1>New methods of EcmaScript6</h1>
+    <h3>Please see console</h3>
+</body>
+
+<script>
+    //Objects
+    let obj1 = {a: 1}
+    let obj2 = {b: 2, c: 3}
+
+    Object.assign(obj1, obj2)
+
+    console.log('Obj1: ', obj1)
+    console.log('Obj2: ', obj2)
+
+    //assign method also can accept 3 parameters
+    let obj3 = Object.assign({}, obj1, obj2)
+    console.log('Obj3: ', obj3)
+
+    let obj4 = Object.assign({d:4}, obj1, obj2)
+    console.log('Obj4: ', obj4)
+
+    //Arrays
+    let foundItem = [1, 2, 3, 4].find(x => x > 3)
+    console.log(foundItem)
+
+    //Strings
+    let welcomeMessage = 'Hello!'
+    console.log(welcomeMessage.repeat(3))
+    console.log(welcomeMessage.startsWith('el', 1))
+    console.log(welcomeMessage.includes('llo'))
+</script>
+</html>

@@ -1,0 +1,432 @@
+<!-- Based on lesson: https://www.youtube.com/watch?v=b6Ac0jcqJIg -->
+<html>
+	<head>
+		<title> Back to Vue / Vue Review :D </title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	</head>
+
+	<body>
+        <div class="sample" :title="'Nice title. We are going to change this attribute reactively' + ' + ' + title">
+            <!-- we can just type :title instead of v-bind:title -->
+            <h1> Remembering Vue </h1>
+            <h4>Lesson #1: v-model and v-if, v-else</h4>
+            Type something here:
+            <div class="m_input">
+                <input class="form-control" type="text" aria-label="Default"
+                       aria-describedby="inputGroup-sizing-default" v-model="name">
+            </div>
+
+            <h4>-- If entered name is "Stas" then display "True" - else display "False"</h4>
+            <div class="wrapper" :class="[name == 'Stas' ? 'wrapper_ok' : 'wrapper_error', 'default']">
+                <h3 class="positive_result positive_negative_result_shadow" v-if="name == 'Stas'">True</h3>
+                <h3 class="negative_result positive_negative_result_shadow" v-else>False</h3>
+            </div>
+            <hr>
+
+
+            <h4>Lesson #2: v-else-if and &lt;template&gt; tag </h4>
+            <p>Please type "Jeff Kaplan" or "Leeroy Jenkins" in a name field located above to
+                see one of two additional articles</p>
+            <template v-if="name == 'Leeroy Jenkins'">
+                <div class="sample inner_sample">
+                    <p class="name_of_a_person name_of_a_person_shadow">Leeroy Jenkins</p>
+                    <p>Forty-three million YouTube hits later, the legendary World of Warcraft meme Leeroy Jenkins is
+                        now 10 years old.
+                        <br/>
+                        <br/>
+                        The meme evolved from a video of a group of WoW players planning a raid when one player, known
+                        as Leeroy Jenkins, went rogue and spoiled the raid. The video, uploaded in May 2005, went viral
+                        before “going viral” was really even a thing. It was alluded to on TV shows including My Name
+                        is Earl and in movies like Wreck-it-Ralph. There were spinoffs on YouTube and a hit on
+                        South Park.
+                        <br/>
+                        <br/>
+                        And yet, one question remains—was the whole thing staged?
+                        <br/>
+                        <br/>
+                        According to the real-life Leeroy, Ben Schultz, it’s up to the viewer to decide.
+                    </p>
+                </div>
+            </template>
+
+            <template v-else-if="name == 'Jeff Kaplan'">
+                <div class="sample inner_sample">
+                    <p class="name_of_a_person name_of_a_person_shadow">Jeffrey Kaplan</p>
+                    <p>Jeffrey Kaplan is an American video game designer who is vice president
+                        of Blizzard Entertainment.
+                        <br/>
+                        He designed elements of World of Warcraft and is the lead designer on Overwatch.
+                        Kaplan became involved in the massively multiplayer online game (MMO) Everquest. Under his
+                        online handle "Tigole", he joined the "Legacy of Steel" guild, as well as became a
+                        well-recognized player for his accomplishments and his commentary about the game posted to the
+                        guild's website. He discussed some of his map making attempts which caught the attention of the
+                        guild's leader, Rob Pardo, who at the time was the lead designer at Blizzard for Warcraft III;
+                        Kaplan was aware that some of his guild members worked at Blizzard, but he had not recognized
+                        the importance of the company at that point. Around 2001, Pardo invited Kaplan to come visit
+                        Blizzard's offices in Los Angeles, during which he was introduced to several other Blizzard
+                        guild members, and they showed him the yet-unannounced MMO World of Warcraft (WoW) project they
+                        had been working on. Several similar meetings happened over the next few months. Later, after
+                        World of Warcraft was announced, Pardo suggested that Kaplan apply for a recently-posted job
+                        for a WoW quest designer there; Kaplan realized that the job description was tailor-made for
+                        his background, and that his previous visit to Blizzard had been an informal job interview.
+                        Kaplan applied and was hired into Blizzard by May 2002. On 2017, Kaplan was awarded with the
+                        Vanguard Award at the Fun & Serious Game Festival, which takes place in the Spanish city of
+                        Bilbao.
+                    </p>
+                </div>
+            </template>
+
+            <template v-else-if="name == 'Stas'">
+                <div class="sample inner_sample">
+                    <p class="name_of_a_person name_of_a_person_shadow">Stanislav Sheveliukhin</p>
+                    <p>Sheveliukhin Stanislav - QA Automation Engineer
+                        <br/>
+                        Currently trying to learn Vue.JS
+                    </p>
+                </div>
+            </template>
+
+            <template v-else>
+                <div class="sample inner_sample">
+                    <p class="name_of_a_person name_of_a_person_shadow">No one</p>
+                    <p>A girl has no name
+                    <br>
+                    Please type one of three available names
+                    </p>
+                </div>
+            </template>
+
+            <h4>Lesson #3: Dynamic class</h4>
+            <input type="checkbox" id="scalesId" name="scales" v-model="isRed">
+            <label for="scalesId">Add/Remove Class from the element below</label>
+            <div :class="{redBackround: isRed}" id="dynamicClassDiv"></div>
+            <h5>More complex example with two classes. Added later</h5>
+            <div :class="isRed ? 'redBackround' : 'antiquewhiteBackground'" id="dynamicClassDiv2"></div>
+            <h5>A "complex" part was different syntax. With no { } in assigning class </h5>
+            <hr>
+
+            <h4>Lesson #4: Visibility Scope</h4>
+            <h4> Hello {{ name }} </h4>
+            <p>Pay attention to a DIV below</p>
+            <p>&#8595;&#8595;&#8595;&#8595;&#8595;&#8595;&#8595;&#8595;&#8595;&#8595;&#8595;&#8595;&#8595;
+                &#8595;&#8595;&#8595;&#8595;&#8595;&#8595;&#8595;&#8595;&#8595;&#8595;&#8595;&#8595;&#8595;</p>
+
+        </div>
+
+        <div class="sample">
+            <h4> Hello {{ name }} </h4>
+            <p>-- Vue can't print a value for "name" as it was done above.
+                We are trying to print {{name}} inside a div with the same class - "sample".
+                But it is another div, so a current vue instance can't access {{name}} here
+           </p>
+            <hr>
+        </div>
+
+        <div class="sample" id="data_lesson">
+            <h4>Lesson #5: Working with a list, array, table. Creating the first click-event</h4>
+            <p>Functions for two click events declared differently</p>
+            <div id="list-of-names" @click="listOfNamesIsClicked">
+                <p>List of names</p>
+                <ol>
+                    <li v-for="name in list_of_names">{{name}}</li>
+                </ol>
+            </div>
+
+            <div id="list-of-users">
+                <p>List of users</p>
+                <ul>
+                    <li v-for="user in array_of_users">{{user.id}} - {{user.login}}</li>
+                </ul>
+            </div>
+
+            <div id="table-of-users" @click="tableOfUsersIsClicked">
+                <table border="1">
+                    <thead>
+                        <th>ID</th>
+                        <th>Login</th>
+                    </thead>
+                    <tbody>
+                        <tr v-for="user in array_of_users">
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.login }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>* Click at "List of names" to see an alert</p>
+            <p>** Click at a table above to see an alert</p>
+        </div>
+
+        <div class="sample" id="buttonLesson">
+            <h4>Lesson #6: The first event and the first Lifecycle Hook: "Created"</h4>
+            <p>Counter's value: {{counter}}</p>
+            <!--trying bootstrap btn -->
+            <button class="btn btn-primary" @click="increase">Increase counter by 1</button>
+            <p>* Initial value of the "counter" variable is 1. But using a hook "created" we assigning a new value to
+                counter - "3". Then we call "increase" function once</p>
+        </div>
+
+        <div class="sample" id="axiosLesson">
+            <h4>Lesson #7: Work with "Axios" library</h4>
+            <p>List of hashtags:</p>
+            <ol>
+                <li v-for="hashtag in hashtags">{{hashtag}}</li>
+            </ol>
+            <button class="btn btn-primary" @click="getHashtags">Get Hashtags</button>
+
+            <hr>
+
+            <p>List of cities</p>
+            <ol>
+                <li v-for="city in cities">{{city.region}} : {{city.city}}</li>
+            </ol>
+            <button class="btn btn-primary" @click="getCities">Get Cities</button>
+        </div>
+
+        <div class="sample" id="watchLesson">
+            <h4>Lesson #8 Watch</h4>
+            <p>length: {{textSearch.length}}</p>
+            <input type="text" size="50" v-model="textSearch">
+        </div>
+
+        <script type="text/javascript">
+            const sample = new Vue({
+                el: '.sample',
+                data: {
+                    name: 'Stas',
+                    title: "New value for 'Title' was added to the old one",
+                    status: false,
+                    isRed: false
+                }
+            });
+
+            const watchLesson = new Vue({
+                el: '#watchLesson',
+                data: {
+                    textSearch: ''
+                },
+                watch: {
+                    // If value of 'textSearch' variable changes then this function activates
+                    textSearch: function(){
+                        if(this.textSearch.length > 3){
+                            this.textSearch = "Value of this field was changed with code"
+                        }
+                    }
+                }
+            })
+
+            const buttonlesson = new Vue({
+                el: "#buttonLesson",
+                data: {
+                    counter: 1
+                },
+                methods: {
+                    increase()
+                    {
+                        this.counter++;
+                    }
+                },
+                created: function(){
+                    this.counter = 3;
+                    this.increase();
+                }
+            })
+
+            const dataLesson = new Vue({
+                el: "#data_lesson",
+                data: {
+                    list_of_names: ['Tilek', 'Dmitry', 'Vladimir', 'Chyngyz'],
+                    array_of_users: [
+                        {id: 0, login: 'lightxlamp'},
+                        {id: 1, login: 'tilek.eshenaliev'},
+                        {id: 2, login: 'romerokg'},
+                        {id: 3, login: 'hideokojima'}
+                    ]
+                },
+                methods:
+                    {
+                        tableOfUsersIsClicked(){
+                            alert("Hey, you've clicked at \"Table of Users\"");
+                        },
+                        listOfNamesIsClicked: function(){
+                            alert("Hey, you've clicked at \"List of names\" block");
+                        }
+                    }
+            })
+
+            const axiosLesson = new Vue({
+                el: '#axiosLesson',
+                data: {
+                    hashtags: [],
+                    cities: [],
+                    url: {
+                        hashtags: 'https://dka-develop.ru/api?type=hashtag',
+                        cities: 'https://dka-develop.ru/api?type=city'
+                    }
+                },
+                created () {
+                    console.log('============= Stas test log of url: ' + this.url.hashtags)
+                    console.log('')
+                },
+                methods: {
+                    getHashtags() {
+                        axios.get(this.url.hashtags).then((response) => {
+                            console.log(response.data)
+                            this.hashtags = response.data;
+                        }) //We assign all data received from response to our 'свойство'
+                    },
+                    getCities(){
+                        axios.get(this.url.cities).then((response) =>{
+                            console.log(response.data)
+                            this.cities = response.data;
+                        })
+                    }
+                }
+            })
+            // 48: 38 author mentioning closures
+        </script>
+	</body>
+	<style>
+		body{
+			background-color: beige;
+			padding: 0px 20px 20px 20px;
+		}
+
+        .wrapper{
+            padding: 0px 0px 0px 10px;
+            width: 80px;
+        }
+
+        .wrapper_ok{
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+        .wrapper_error{
+            border: 1px solid red;
+            border-radius: 10px;
+        }
+
+		.sample{
+			margin: 10px 10px 10px 10px;
+			padding: 0px 10px 10px 10px;
+			border: 1px solid lightslategray;
+			border-radius: 10px;
+			background-color: whitesmoke;
+		}
+
+        #list-of-names
+        {
+            float: left;
+            width: 200px;
+            height: 150px;
+            border: 1px solid black;
+        }
+
+        #list-of-users{
+            height: 150px;
+            width: 200px;
+            margin-left: 5px;
+            float: left;
+            border: 1px solid black;
+        }
+
+        #table-of-users{
+            height: 150px;
+            width: 200px;
+            margin-left: 410px;
+            border: 1px solid black;
+            padding: 20px 0px 0px 30px;
+        }
+
+		.inner_sample{
+			background-color: antiquewhite;
+		}
+
+		.m_input{
+			width: 500px;
+		}
+
+		.positive_result {
+			color: #1dff0f;
+		}
+
+		.negative_result {
+			color: red;
+		}
+
+		hr {
+			border-top: 1px solid grey;
+		}
+
+		.name_of_a_person{
+			color: gold;
+			font-style: italic;
+		}
+
+        #dynamicClassDiv{
+            width: 305px;
+            height: 20px;
+            border: 1px solid black;
+        }
+
+        #dynamicClassDiv2{
+            width: 305px;
+            height: 20px;
+            border: 1px solid black;
+        }
+
+        .redBackround{
+            background-color: red;
+        }
+
+        .antiquewhiteBackground{
+            background-color: antiquewhite;
+        }
+
+		.positive_negative_result_shadow{
+			text-shadow:
+					-0   -1px 3px #000000,
+					0   -1px 3px #000000,
+					-0    1px 3px #000000,
+					0    1px 3px #000000,
+					-1px -0   3px #000000,
+					1px -0   3px #000000,
+					-1px  0   3px #000000,
+					1px  0   3px #000000,
+					-1px -1px 3px #000000,
+					1px -1px 3px #000000,
+					-1px  1px 3px #000000,
+					1px  1px 3px #000000,
+					-1px -1px 3px #000000,
+					1px -1px 3px #000000,
+					-1px  1px 3px #000000,
+					1px  1px 3px #000000;
+		}
+
+		.name_of_a_person_shadow{
+			text-shadow:
+					-0   -1px 0   #000000,
+					0   -1px 0   #000000,
+					-0    1px 0   #000000,
+					0    1px 0   #000000,
+					-1px -0   0   #000000,
+					1px -0   0   #000000,
+					-1px  0   0   #000000,
+					1px  0   0   #000000,
+					-1px -1px 0   #000000,
+					1px -1px 0   #000000,
+					-1px  1px 0   #000000,
+					1px  1px 0   #000000,
+					-1px -1px 0   #000000,
+					1px -1px 0   #000000,
+					-1px  1px 0   #000000,
+					1px  1px 0   #000000;
+		}
+	</style>
+</html>
+

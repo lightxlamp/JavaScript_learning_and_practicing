@@ -1,0 +1,88 @@
+<!-- Based on lesson: https://www.youtube.com/watch?v=_Pa2DYAvIoc-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Small game using Methods and calculated.</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="container">
+        <p>=================================================</p>
+        <p>==Press the button below. Number from -5 to 5 will be generated===</p>
+        <p>=====All generated numbers are summarized after clicking=======</p>
+        <p>====If your score after 10 clicks will be more then 0 - you win!====</p>
+        <p>==================================================</p>
+		
+        <p>*** Your score is {{sum()}} ***</p>
+        <p>--- Clicks left: {{limitForGenerateFunction}} ---</p>
+        <button @click="generateNumber">Generate Number</button>
+        <p>*** List of generated numbers ***</p>
+        <ul style="list-style-type:none;">
+            <li v-for="number in numbers">user rolls: {{number}}</li>
+        </ul>
+
+        <button @click="showHr = !showHr">{{buttonText}}</button>
+        <p>* You can check in a console, that the "sum()" function is calling even when we are just pressing not-related
+        to calculations - "Hide/Show line" button. Unnecessary calling. Ineffective. Bad code! Bad!</p>
+        <hr v-show="showHr">
+        <p>Your score is {{sumFromComputed}}</p>
+    </div>
+
+    <script>
+        let vue = new Vue({
+            el: '#container',
+            data: {
+                numbers: [],
+                showHr: true,
+                limitForGenerateFunction: 10
+            },
+            methods: {
+                generateNumber(){
+                    if(this.limitForGenerateFunction > 0){
+                        let rnd = Math.floor(Math.random() * 11) - 5;
+                        this.numbers.push(rnd)
+                        this.checkWinOrLose();
+                    }
+                },
+                sum(){
+                    console.log('Sum function is called');
+                    let sum = 0;
+                    for (let i = 0; i < this.numbers.length; i++){
+                        sum += this.numbers[i];
+                    }
+                    return sum;
+                },
+                checkWinOrLose(){
+                    this.limitForGenerateFunction--;
+                    if(this.limitForGenerateFunction == 0)
+                    {
+                        let sum = this.sum();
+
+                        setTimeout(() => {
+                            if (sum > 0) {
+                                alert("You won!")
+                            } else {
+                                alert("You lose! Try again")
+                            }
+                        }, 100);
+                    }
+                }
+            },
+            computed: {
+                sumFromComputed(){
+                    console.log('SumFromComputed function is called');
+                    let sum = 0;
+                    for (let i = 0; i < this.numbers.length; i++){
+                        sum += this.numbers[i];
+                    }
+                    return sum;
+                },
+                buttonText(){
+                    return this.showHr ? "Hide line" : "Show Line";
+                }
+            }
+        });
+    </script>
+</body>
+</html>

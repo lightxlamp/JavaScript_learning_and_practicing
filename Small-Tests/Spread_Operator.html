@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spread Operator</title>
+</head>
+<body>
+
+</body>
+
+<script>
+    let rpgGamesList = ['Gothic', 'Elex', 'WoW']
+    let fpsGamesList = ['CS', 'BattleField', 'Call of Duty']
+
+    console.log(...rpgGamesList, 'Borderlands', 'Zelda', fpsGamesList)
+
+    let numsArray = [1, 2, 3]
+
+    function sumThreeNums(x, y, z){
+        console.log(x + y + z)
+    }
+
+    sumThreeNums(0, 0, 0)
+	
+	console.log("=======")
+	
+    sumThreeNums(numsArray)
+	
+	console.log("=======")
+
+    sumThreeNums(...numsArray)
+
+</script>
+</html>

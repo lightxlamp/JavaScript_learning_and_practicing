@@ -1,0 +1,32 @@
+<script>
+
+    function myFunc(a, b, ...other){
+        console.log(a)
+        console.log(b)
+        console.log(...other)
+    }
+
+    myFunc(1, 2, 3, 4, 5, 6, 7, 8)
+
+    console.log('---------------------------------------------------------')
+
+    function myFunc2(a, b, ...other){
+        console.log(a)
+        console.log(b)
+        console.log(other)
+    }
+
+    const inputArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+    myFunc2(...inputArray)
+
+    console.log('---------------------------------------------------------')
+
+    const meObj = {name: 'Stas', age: 30, birthplace: 'Kyrgyzstan'}
+    let languages = {languages: ['Russian', 'English']}
+    const eyeColor = 'green'
+
+    const mergedObject = {...meObj, ...languages, eyeColor}
+
+    console.log('Merged Object: ', mergedObject)
+
+</script>

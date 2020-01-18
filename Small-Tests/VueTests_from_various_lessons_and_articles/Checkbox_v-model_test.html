@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing checkbox with Vue</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <label for="hey">Label for Hey</label>
+        <br>
+		<input type="checkbox" id="scalesId" name="scales" v-model="isRed">
+<!--        <input type="text" id="hey" :class="{ redBackground : isRed}">-->
+        <input type="text" id="hey" :class="isRed ? 'redBackground' : 'yellowBackground'">
+		<div :class="isRed ? 'redBackground' : 'yellowBackground'" id="dynamicClassDiv2">2121</div>
+    </div>
+
+    <script type="text/javascript">
+        const v = new Vue({
+            el:  '#app',
+            data:
+            {
+				isRed: false
+            }
+        })
+    </script>
+
+    <style>
+        .redBackground {
+            background-color: red;
+        }
+
+        .yellowBackground{
+            background-color: yellow;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue"></script>
+    <title>Components. Local and Global registration</title>
+</head>
+<body>
+<div id="app">
+    <h1>App 1</h1>
+    <my-counter></my-counter>
+</div>
+<hr>
+<div id="app2">
+    <h1>App 2</h1>
+    <p>We can't access &lt;my-counter&gt; component in App 2 anymore. </p>
+    <p>Because we removed this component from Global registration</p>
+    <p>And registered it locally, for App 1 only.</p>
+    <p>Please see console for error log</p>
+    <my-counter></my-counter>
+</div>
+
+<div id="app3">
+    <h1>App 3. Component registered with cAmElCaSe</h1>
+    <my-counter></my-counter>
+</div>
+
+<script>
+    let component = {
+        template:
+            `
+                <div class="counter">
+                    <h2>Counter: {{counter}}</h2>
+                    <button @click="increaseCounter">Increase Counter</button>
+                </div>
+            `,
+			
+        data(){
+            return {
+                counter: 0
+            }
+        },
+		
+        methods: {
+            increaseCounter() {
+                this.counter++;
+            }
+        }
+    }
+
+    let app = new Vue({
+        el: '#app',
+        components:{
+            "my-counter": component
+            // Linter could advice you. Do not use '' in this case!
+            // So we use camel case below
+        }
+    });
+
+    let app2 = new Vue({
+        el: '#app2'
+    })
+
+    let app3 = new Vue({
+        el: '#app3',
+        components:{
+            myCounter: component
+        }
+    })
+</script>
+<style>
+	.counter{ 
+		border: 1px solid red;
+		padding: 15px;
+		width: 300px;
+		margin: 10px;
+		background-color: bisque; border-radius: 10px"
+	}
+</style>
+</body>
+</html>

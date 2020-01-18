@@ -1,0 +1,26 @@
+<script>
+    // let age = 30,
+    //     name = 'Stas',
+    //     language = 'russian'
+
+    let [age, name, language] = [30, 'Stas', 'Russian']
+
+    console.log(age)
+    console.log(name)
+    console.log(language)
+
+    let a = 1;
+    let b = 99;
+    [a, b] = [b, a]
+    console.log(a, b)
+
+    const destructObject = { nickName: 'Player1', x: 44, y: 109}
+    const {nickName: playerName, x: playerX, y: playerY} = destructObject
+
+    console.log(playerName, playerX, playerY)
+
+    const {nickName, x, y} = destructObject
+
+    console.log(nickName, x, y)
+
+</script>

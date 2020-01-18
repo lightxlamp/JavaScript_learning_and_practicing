@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise All Lesson</title>
+</head>
+<body>
+
+<script>
+    const sleep = ms => {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                console.log('ms', ms)
+                resolve()
+            }, ms)
+        })
+    }
+
+    Promise.all([sleep(2000), sleep(5000)]).then(() => {
+        console.log('All promises')
+    })
+
+    Promise.race([sleep(3000), sleep(5000)]).then(() => {
+        console.log('Promise Race. First promise out of 2')
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<script>
+    ///////////////////////////////////////////////////////////////////
+    const originalFunction = function() {
+        return 100;
+    }
+
+    console.log(originalFunction())
+
+    ///////////////////////////////////////////////////////////////////
+    const arrowFunction = () => {
+        return 300
+    }
+
+    console.log(arrowFunction())
+
+    ///////////////////////////////////////////////////////////////////
+    const arrowFunctionWithParameter = (num) => {
+        return 300 + num
+    }
+
+    console.log(arrowFunctionWithParameter(300))
+
+    ///////////////////////////////////////////////////////////////////
+    const arrowFunctionWithParameterInSingleLine = (num) =>  300 + num
+
+    console.log(arrowFunctionWithParameterInSingleLine(700))
+
+    ///////////////////////////////////////////////////////////////////
+    const arrowFunctionWithParameterInSingleLine2 = num =>  300 + num
+
+    console.log(arrowFunctionWithParameterInSingleLine2(1200))
+
+    ///////////////////////////////////////////////////////////////////
+
+    const obj = {
+        name: 'Stas',
+
+        logName: function(){
+            setTimeout(function(){
+                console.log('=== Simple function')
+                console.log('Name: ' + this.name) //Context issue
+            }, 3000)
+        },
+
+        logNameOldCorrectWay: function(){
+            const self = this
+            setTimeout(function(){
+                console.log('=== Remembering context of "this" keyword')
+                console.log('Name: ' + self.name) //Context issue resolved by remembering previous context
+            }, 3500)
+        },
+
+        logNameNewCorrectWay: function(){
+            setTimeout(() => {
+                console.log('=== Using array function')
+                console.log('Name: ' + this.name) //Context issue resolved with array function
+            }, 4000)
+        }
+        //Array function do not create a new context
+        // Interrupter saves old context for us. _this = this.
+    }
+
+    obj.logName()
+    obj.logNameOldCorrectWay()
+    obj.logNameNewCorrectWay()
+</script>

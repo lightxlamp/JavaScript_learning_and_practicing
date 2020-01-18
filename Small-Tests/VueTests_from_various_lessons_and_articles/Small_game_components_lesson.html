@@ -1,0 +1,113 @@
+<!-- Based on lesson: https://www.youtube.com/watch?v=a_0pPwoeS4E -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Small game using Methods and calculated.</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="container">
+    <p>=================================================</p>
+    <p>==Press the button below. Number from -5 to 5 will be generated===</p>
+    <p>=====All generated numbers are summarized after clicking=======</p>
+    <p>=====If your score after 10 clicks is more then 0 - you won!======</p>
+    <p>==================================================</p>
+    <p>*** Your score is {{sumFromComputed}} out of {{maxNumber * 5}} ***</p>
+    <game-progress :val="sumFromComputed" :max="maxNumber * 5"></game-progress>
+    <p>--- Clicks left: {{limitForGenerateFunction}} ---</p>
+    <game-progress :val="numbers.length" :max="maxNumber"></game-progress>
+    <button @click="generateNumber">Generate Number</button>
+    <p>*** List of generated numbers ***</p>
+    <ul style="list-style-type:none;">
+        <li v-for="number in numbers">user rolls: {{number}}</li>
+    </ul>
+
+    <button @click="showHr = !showHr">{{buttonText}}</button>
+    <p>* You can check in a console, that the "sum()" function is calling even when we are just pressing not-related
+        to calculations - "Hide/Show line" button. Unnecessary calling. Ineffective. Bad code! Bad!</p>
+    <hr v-show="showHr">
+    <p>Your score is {{sumFromComputed}}</p>
+</div>
+
+<script>
+    Vue.component('game-progress', {
+        props: {
+            max: Number,
+            val: Number
+        },
+        computed: {
+            computedWidth(){
+                let w = this.val / this.max * 100;
+                return {
+                  width: w + '%'
+                }
+            }
+        },
+
+        template: `
+            <div class="progress" style="width: 200px">
+                <div class="progress-bar" v-bind:style="computedWidth">
+                </div>
+            </div>
+            `
+    })
+
+    let vue = new Vue({
+        el: '#container',
+        data: {
+            numbers: [],
+            showHr: true,
+            limitForGenerateFunction: 10,
+            maxNumber: 10
+        },
+        methods: {
+            generateNumber(){
+                if(this.limitForGenerateFunction > 0){
+                    let rnd = Math.floor(Math.random() * 11) - 5;
+                    this.numbers.push(rnd)
+                    this.checkWinOrLose();
+                }
+            },
+            sum(){
+                console.log('Sum function is called');
+                let sum = 0;
+                for (let i = 0; i < this.numbers.length; i++){
+                    sum += this.numbers[i];
+                }
+                return sum;
+            },
+            checkWinOrLose(){
+                this.limitForGenerateFunction--;
+                if(this.limitForGenerateFunction == 0)
+                {
+                    let sum = this.sum();
+
+                    setTimeout(() => {
+                        if (sum > 0) {
+                            alert("You won!")
+                        } else {
+                            alert("You lose! Try again")
+                        }
+                    }, 600);
+                }
+            }
+        },
+        computed: {
+            sumFromComputed(){
+                console.log('SumFromComputed function is called');
+                let sum = 0;
+                for (let i = 0; i < this.numbers.length; i++){
+                    sum += this.numbers[i];
+                }
+                return sum;
+            },
+            buttonText(){
+                return this.showHr ? "Hide line" : "Show Line";
+            }
+        }
+    });
+</script>
+</body>
+</html>

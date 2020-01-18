@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object.create. Getters, setters - https://www.youtube.com/watch?v=cS6nTVNzOPw</title>
+</head>
+<body>
+
+<script>
+    const person = Object.create(
+        {
+            calculateAge(){
+                console.log('Age: ', new Date().getFullYear() - this.birthYear)
+            }
+        },
+        {
+            name: {
+                value: 'Stas',
+                enumerable: true,
+                writable: false,
+                configurable: true
+            },
+            birthYear: {
+                value: 1990,
+                enumerable: true,
+                writable: true,
+                configurable: false
+            },
+            age: {
+                get(){
+                    return new Date().getFullYear() - this.birthYear
+                },
+                set(value){
+                    document.body.style.backgroundColor = 'red'
+                    console.log('Set age', value)
+                }
+            }
+        }
+    )
+
+    const person2 = {
+        name: 'Tilek',
+        birthYear: 1987
+    }
+
+    for(let key in person2) {
+        console.log('Key: ', key, person2[key])
+    }
+
+    person.name = 'Dmitry' // Does not work. Because "Writable" is set to false
+    person.birthYear = 1989 // Works,
+
+    console.log('--- Birth year of a person was reassigned')
+
+    for(let key in person) {
+        console.log('Key: ', key, person[key])
+    }
+
+    console.log('--- Name key was removed from person')
+    delete person.name
+
+    for(let key in person) {
+        if(person.hasOwnProperty(key)) // to exclude prototype "calculateAge" from results
+        {
+            console.log('Key: ', key, person[key])
+        }
+    }
+
+
+    console.log(person)
+    console.log("Person.age: ", person.age)
+    person.calculateAge()
+    console.log("!-- Try to assign another value to person.age and see result")
+	// person.age = 10;
+</script>
+</body>
+</html>

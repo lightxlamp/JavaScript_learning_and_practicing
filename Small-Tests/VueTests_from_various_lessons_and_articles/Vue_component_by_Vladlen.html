@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue"></script>
+    <title>Quick test of component</title>
+</head>
+<body>
+    <div id="app">
+        <div style="border: 1px solid black; padding: 15px; width: 300px; margin: 10px">
+            <h2>Counter: {{counter}}</h2>
+            <button @click="increaseCounter">Increase Counter</button>
+        </div>
+        <my-counter v-for="i in 3"></my-counter>
+    </div>
+
+    <script>
+        Vue.component("my-counter",
+        {
+            template:
+                `
+                <div id="app" style="border: 1px solid red; padding: 15px; width: 300px; margin: 10px;
+                background-color: bisque; border-radius: 10px">
+                    <h2>Counter: {{counter}}</h2>
+                    <button @click="increaseCounter">Increase Counter</button>
+                </div>
+            `,
+            data(){
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+                increaseCounter() {
+                    this.counter++;
+                }
+            }
+        });
+
+        let v = new Vue({
+           el: '#app',
+           data: {
+               counter: 0
+           } ,
+           methods: {
+               increaseCounter(){
+                   this.counter++;
+               }
+           }
+        });
+    </script>
+</body>
+</html>

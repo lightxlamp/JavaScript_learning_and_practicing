@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise lesson #2 - https://www.youtube.com/watch?v=NJo_pv-mH-I</title>
+</head>
+<body>
+
+<script>
+    let asyncSum = (a, b) => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if(typeof a === 'number' && typeof b === 'number'){
+                    resolve(a + b)
+                }
+                else {
+                    reject('Arguments must be numbers')
+                }
+            }, 2000)
+        })
+    }
+
+    function asyncSumV0(a, b)
+    {
+        return new Promise(function delayAndCalc(resolve, reject) {
+            setTimeout(() => {
+                if(typeof a === 'number' && typeof b === 'number'){
+                    resolve(a + b)
+                }
+                else {
+                    reject('Arguments must be numbers')
+                }
+            }, 2000)
+        })
+    }
+
+    asyncSum('1', '2')
+        .then((result) => {
+            console.log(result)
+        })
+        .catch((errorMessage) =>{
+            console.log(errorMessage)
+        })
+
+    asyncSum(1, 2)
+        .then((result) => {
+            console.log(result)
+        })
+        .catch((errorMessage) =>{
+            console.log(errorMessage)
+        })
+
+    asyncSumV0(4, 11)
+        .then((result) => {
+            console.log(result)
+        })
+        .catch((errorMessage) =>{
+            console.log(errorMessage)
+        })
+</script>
+</body>
+</html>
