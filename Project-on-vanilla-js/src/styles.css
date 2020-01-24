@@ -54,7 +54,7 @@ button {
 
 .modalWindow {
   max-width: 600px;
-  max-height: 350px;
+  max-height: 380px;
   margin: 100px auto;
   overflow-y: auto;
   background: #fff;
@@ -70,4 +70,19 @@ button {
 
 .error {
   color: red;
+}
+
+.testInfoDiv{
+  color: gray;
+  font-size: 13px;
+}
+
+#authForm legend {
+  text-align: center;
+  color: gray;
+  font-size: 15px;
+}
+
+#authTitle {
+  text-align: center;
 }

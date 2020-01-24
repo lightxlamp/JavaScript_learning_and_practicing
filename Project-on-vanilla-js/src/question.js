@@ -61,6 +61,7 @@ function addToLocalStorage(question) {
 }
 
 function getAllQuestionsInLocalStorage() {
+  console.log('localStorage.getItem("questions")', localStorage.getItem("questions"));
   return JSON.parse(localStorage.getItem("questions") || "[]");
 }
 

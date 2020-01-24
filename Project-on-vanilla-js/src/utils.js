@@ -20,7 +20,7 @@ export function createModalWindow(title, content) {
   modalWindow.classList.add('modalWindow')
 
   const html = `
-    <h1>${title}</h1>
+    <h2 id="authTitle">${title}</h2>
     <div class="modal-content">${content}</div>
   `
   modalWindow.innerHTML = html;
