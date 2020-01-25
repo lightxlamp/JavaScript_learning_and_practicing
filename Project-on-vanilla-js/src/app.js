@@ -13,6 +13,7 @@ const form = document.getElementById("myForm");
 const textField = form.querySelector("#questionTextField");
 const submitButton = form.querySelector("#submitBtn");
 const modalButton = document.getElementById("modalBtn");
+const listOfQuestionsDiv = document.getElementById("listOfQuestions");
 
 window.addEventListener("load", Question.renderListOfQuestions);
 form.addEventListener("submit", SubmitHandler);
@@ -67,6 +68,8 @@ function renderModalAfterAuth(content) {
   if (typeof content === "string") {
     createModalWindow("Error", content);
   } else {
-    createModalWindow("List of questions", Question.listToHTML(content));
+    //createModalWindow("List of questions", Question.listToHTML(content));
+    listOfQuestionsDiv.innerHTML = Question.listToHTML(content);
+    mui.overlay('off');
   }
 }

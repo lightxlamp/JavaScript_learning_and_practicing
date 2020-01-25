@@ -68,6 +68,6 @@ function getAllQuestionsInLocalStorage() {
 function toCard(question) {
   return `<div class="mui--text-title">${question.text}</div>
     <div class="mui--text-black-54">
-      By <a href="#">Stas</a> ${question.date}
+      By Stas <a href="#"></a> ${question.date}
     </div>`;
 }
