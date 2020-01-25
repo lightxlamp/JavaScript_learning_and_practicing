@@ -3,8 +3,7 @@ export function getAuthForm() {
         <form class="mui-form" id="authForm">
             <legend>Please login or signup to see all questions</legend>
             <div
-                class="mui-textfield mui-textfield--float-label"
-                id="textField"
+                class="mui-textfield mui-textfield--float-label textField"
             >
                 <input
                     type="email"
@@ -15,8 +14,7 @@ export function getAuthForm() {
             </div>
 
             <div
-                class="mui-textfield mui-textfield--float-label"
-                id="textField"
+                class="mui-textfield mui-textfield--float-label textField"
             >
                 <input
                 type="password"
@@ -28,7 +26,7 @@ export function getAuthForm() {
             </div>
 
             <div class="testInfoDiv">
-                <p>For Test puproses you could login as a "User: test@gmail.com" with a "Password: 123456"</p>
+                <p>For test puproses you could login as a "User: sheveliukhin.s@gmail.com" with a "Password: 123456"</p>
             </div>
 
             <button

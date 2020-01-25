@@ -28,7 +28,8 @@ function SubmitHandler(event) {
   if (isQuestionLengthValid(textField.value)) {
     question = {
       text: textField.value,
-      date: moment().format("DD/MM/YYYY")
+      date: moment().format("MMM D 'YY аt HH:mm") // stackoverflow.com answer date style - Aug 26 '19 at 16:26 
+                                                  // + russian 'a' at 'at' wording. Do not repeat this bad hack XD ... 
     };
     fetchTestByStas();
   }
@@ -69,6 +70,7 @@ function renderModalAfterAuth(content) {
     createModalWindow("Error", content);
   } else {
     //createModalWindow("List of questions", Question.listToHTML(content));
+    console.log('content', content);
     listOfQuestionsDiv.innerHTML = Question.listToHTML(content);
     mui.overlay('off');
   }

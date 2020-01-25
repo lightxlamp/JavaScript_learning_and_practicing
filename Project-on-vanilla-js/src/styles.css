@@ -48,16 +48,17 @@ button {
 
 .floating-btn {
   position: fixed;
-  bottom: 50px;
-  right: 50px;
+  top: 50px;
+  left: 230px;
 }
 
 .modalWindow {
-  max-width: 600px;
+  max-width: 615px;
   max-height: 380px;
   margin: 100px auto;
   overflow-y: auto;
   background: #fff;
+  border-radius: 10px;
 }
 
 .modalWindow h1 {
@@ -72,17 +73,52 @@ button {
   color: red;
 }
 
-.testInfoDiv{
+.testInfoDiv {
   color: gray;
   font-size: 13px;
+  padding-top: 40px;
+  width: 400px;
+  margin: auto;
+  text-align: center;
 }
 
 #authForm legend {
   text-align: center;
-  color: gray;
+  color: #6a737c;
   font-size: 15px;
 }
 
 #authTitle {
   text-align: center;
+}
+
+.dateOfQuestionSpan{
+  color: #6a737c;
+  font-size: 13px;
+}
+
+.question{
+  padding: 10px 0 0 0;
+}
+
+.mui-textfield.mui-textfield--float-label.textField {
+  width: 400px;
+  margin: auto;
+}
+
+button#loginBtn {
+  float: right;
+  margin-bottom: 10px;
+}
+
+.stas-textfield-on-main-page{
+  width: 800px;
+}
+
+.mui-divider-changed-by-stas{
+  width: 800px;
+}
+
+#listOfQuestions .mui--text-headline{
+  font-size: 21px;
 }

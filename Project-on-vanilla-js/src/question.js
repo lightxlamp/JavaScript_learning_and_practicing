@@ -49,7 +49,7 @@ export class Question {
 
   static listToHTML(questions) {
     return questions.length
-      ? `<ol>${questions.map(q => `<li>${q.text}</li>`).join("")}</ol>`
+      ? `<ol>${questions.map(q => `<li class="mui--text-title">${q.text} <div class="dateOfQuestionSpan mui--text-black-54"> asked ${q.date} </div></li>`).join("")}</ol>`
       : `<p>No questions yet</p>`;
   }
 }
@@ -66,8 +66,8 @@ function getAllQuestionsInLocalStorage() {
 }
 
 function toCard(question) {
-  return `<div class="mui--text-title">${question.text}</div>
-    <div class="mui--text-black-54">
-      By Stas <a href="#"></a> ${question.date}
+  return `<div class="mui--text-title question">${question.text}</div>
+    <div class="mui--text-black-54 dateOfQuestionSpan">
+      asked ${question.date}
     </div>`;
 }
