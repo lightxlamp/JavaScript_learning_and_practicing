@@ -17,8 +17,12 @@ export function fetchTestByStas() {
 export function createModalWindow(title, content) {
   //https://www.muicss.com/docs/v1/css-js/overlay
   const modalWindow = document.createElement('div');
-  modalWindow.classList.add('modalWindow')
+  modalWindow.classList.add('modalWindow');
 
+  if(title === "Information"){ //To reduce width of Info modalWindow only
+    modalWindow.classList.add('modalInfoWindow'); 
+  }
+ 
   const html = `
     <h2 id="authTitle">${title}</h2>
     <div class="modal-content">${content}</div>

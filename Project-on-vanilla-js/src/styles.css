@@ -22,7 +22,7 @@ button {
 
   */
 #sidebar {
-  background-color: #e57373;
+  background-color: #2E4D84;
   padding: 15px;
 }
 
@@ -123,4 +123,24 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#infoForm .testInfoDiv{
+  padding-top: 0px;
+}
+
+.testInfoDiv ul{
+  color: red;
+}
+
+.divWithCenteredText{
+  text-align: center;
+}
+
+.modalWindow.modalInfoWindow {
+  width: 450px;
+}
+
+.divWithCenteredText p:first-child{
+  color: #2196F3;
 }

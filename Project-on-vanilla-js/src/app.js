@@ -56,9 +56,6 @@ function openModal() {
 
 function openModalInfo(){
   createModalWindow("Information", getInfoForm());
-  document
-    .getElementById("authForm")
-    .addEventListener("submit", authFormHandler);
 }
 
 function authFormHandler(event) {
