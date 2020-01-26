@@ -1,6 +1,7 @@
 import "./styles.css";
 import { Question } from "./question";
 import { getAuthForm, authWithEmailAndPassword } from "./auth";
+import { getInfoForm } from "./information";
 import {
   fetchTestByStas,
   createModalWindow,
@@ -13,6 +14,7 @@ const form = document.getElementById("myForm");
 const textField = form.querySelector("#questionTextField");
 const submitButton = form.querySelector("#submitBtn");
 const modalButton = document.getElementById("modalBtn");
+const modalInfoButton = document.getElementById("modalInfoBtn");
 const listOfQuestionsDiv = document.getElementById("listOfQuestions");
 
 window.addEventListener("load", Question.renderListOfQuestions);
@@ -21,6 +23,7 @@ textField.addEventListener("input", function() {
   submitButton.disabled = !isQuestionLengthValid(textField.value);
 });
 modalButton.addEventListener("click", openModal);
+modalInfoButton.addEventListener("click", openModalInfo);
 
 function SubmitHandler(event) {
   event.preventDefault();
@@ -46,6 +49,13 @@ function SubmitHandler(event) {
 
 function openModal() {
   createModalWindow("Authorization", getAuthForm());
+  document
+    .getElementById("authForm")
+    .addEventListener("submit", authFormHandler);
+}
+
+function openModalInfo(){
+  createModalWindow("Information", getInfoForm());
   document
     .getElementById("authForm")
     .addEventListener("submit", authFormHandler);

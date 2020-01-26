@@ -29,13 +29,15 @@ export function getAuthForm() {
                 <p>For test puproses you could login as a "User: sheveliukhin.s@gmail.com" with a "Password: 123456"</p>
             </div>
 
-            <button
-                id="loginBtn"
-                type="submit"
-                class="mui-btn mui-btn mui-btn--primary"
-                >
-                Login
-            </button>
+            <div class="buttonWrapper">
+                <button
+                    id="loginBtn"
+                    type="submit"
+                    class="mui-btn mui-btn mui-btn--primary"
+                    >
+                    Login
+                </button>
+            </div>
         </form>`;
 }
 

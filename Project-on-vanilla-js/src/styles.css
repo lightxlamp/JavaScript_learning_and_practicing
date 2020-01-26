@@ -82,7 +82,7 @@ button {
   text-align: center;
 }
 
-#authForm legend {
+.modalWindow legend {
   text-align: center;
   color: #6a737c;
   font-size: 15px;
@@ -106,11 +106,6 @@ button {
   margin: auto;
 }
 
-button#loginBtn {
-  float: right;
-  margin-bottom: 10px;
-}
-
 .stas-textfield-on-main-page{
   width: 800px;
 }
@@ -121,4 +116,11 @@ button#loginBtn {
 
 #listOfQuestions .mui--text-headline{
   font-size: 21px;
+}
+
+.buttonWrapper{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
