@@ -19,7 +19,6 @@ button {
 
 /**
   * Sidebar CSS
-
   */
 #sidebar {
   background-color: #2E4D84;
@@ -35,6 +34,14 @@ button {
     height: 100%;
     padding-top: 30px;
   }
+  #sidebar2 {
+    position: fixed;
+    left: 210px;
+    height: 100%;
+    padding-top: 30px;
+    width: 70px;
+    /* border: 1px salmon solid; */
+  }
 }
 
 /**
@@ -42,14 +49,13 @@ button {
   */
 @media (min-width: 768px) {
   #content {
-    margin-left: 180px;
+    margin-left: 280px;
+    padding-top: 30px;
   }
 }
 
-.floating-btn {
-  position: fixed;
-  top: 50px;
-  left: 230px;
+button#modalInfoBtn {
+  margin-left: 10px;
 }
 
 .modalWindow {
@@ -77,7 +83,8 @@ button {
   color: gray;
   font-size: 13px;
   padding-top: 40px;
-  width: 400px;
+  min-width: 290px;
+  max-width: 425px;
   margin: auto;
   text-align: center;
 }
@@ -102,16 +109,17 @@ button {
 }
 
 .mui-textfield.mui-textfield--float-label.textField {
-  width: 400px;
+  max-width: 425px;
+  min-width: 290px;
   margin: auto;
 }
 
 .stas-textfield-on-main-page{
-  width: 800px;
+  max-width: 800px;
 }
 
 .mui-divider-changed-by-stas{
-  width: 800px;
+  max-width: 800px;
 }
 
 #listOfQuestions .mui--text-headline{
@@ -138,7 +146,8 @@ button {
 }
 
 .modalWindow.modalInfoWindow {
-  width: 450px;
+  min-width: 360px;
+  max-width: 460px;
 }
 
 .divWithCenteredText p:first-child{
