@@ -153,3 +153,11 @@ button#modalInfoBtn {
 .divWithCenteredText p:first-child{
   color: #2196F3;
 }
+
+#logoText{
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 40px;
+  color: white;
+}
+
