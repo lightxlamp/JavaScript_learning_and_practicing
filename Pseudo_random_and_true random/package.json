@@ -1,0 +1,24 @@
+{
+  "name": "npm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "random-org": "^2.0.1",
+    "randomorg-js": "^1.0.0",
+    "xhr2": "^0.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  },
+  "description": ""
+}

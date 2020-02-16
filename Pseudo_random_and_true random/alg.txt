@@ -1,0 +1,11 @@
+True random. Getting card number using real dice(s) :p
+
+#1 - How many rolls? 
+#2 - Perform amount of rolls and sum result
+#3 - Sum is equal of a card number in array...
+
+3 + 5 + 2 + 1
+1 4 5 4 2
+
+Not so good idea XD 
+So .. let's use a "noise" randomness 
