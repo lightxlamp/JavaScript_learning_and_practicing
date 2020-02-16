@@ -8663,6 +8663,7 @@ Small-Tests/Fetch/node_modules/node-fetch/README.md
 Small-Tests/Fetch/node_modules/node-fetch/lib/index.es.js
 Small-Tests/Fetch/node_modules/node-fetch/lib/index.js
 Small-Tests/Fetch/node_modules/node-fetch/lib/index.mjs
+<<<<<<< HEAD
 Pseudo_random_and_true random/node_modules/.bin/acorn
 Pseudo_random_and_true random/node_modules/.bin/atob
 Pseudo_random_and_true random/node_modules/.bin/errno
@@ -15804,3 +15805,7 @@ Pseudo_random_and_true random/node_modules/yargs-parser/package.json
 Pseudo_random_and_true random/node_modules/yargs-parser/README.md
 Pseudo_random_and_true random/node_modules/yargs-parser/lib/tokenize-arg-string.js
 Pseudo_random_and_true random/key.js
+=======
+Project-on-vanilla-js.rar
+>>>>>>> e81d8a80669bbb9d1bdfecbf5a5a381c1d97cebf
+
