@@ -1,0 +1,56 @@
+.my-modal{}
+
+.my-modal.open .my-modal-overlay,
+.my-modal.open .modal-window{
+    opacity: 1;
+    z-index: 1000;
+}
+
+.my-modal-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+}
+
+.modal-window{
+    width: 600px;
+    border-radius: 5px;
+    background-color: white;
+    margin: 120px auto;
+}
+
+.modal-window, .my-modal-overlay{
+    opacity: 0;
+    z-index: -1;
+}
+
+.modal-header{
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid skyblue;
+}
+
+.modal-title{
+    font-size: 1.2rem;
+}
+
+.modal-close{
+    cursor: pointer;
+}
+
+.modal-footer{
+    padding: 5px 10px;
+    border-top: 1px solid skyblue;
+}
+
+.modal-body{
+    padding: 10px;
+}
+
+.modal-body p {
+    margin: 0 0 5px;
+}
