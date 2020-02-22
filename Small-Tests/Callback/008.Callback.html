@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Callback</title>
+</head>
+
+<body>
+    <script>
+        function logPerson() {
+            console.log(`Person: ${this.name}, ${this.age}, ${this.job}`);
+        }
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply
+        function bind(context, fn){
+            return function(...args){
+                fn.apply(context, args)
+            }
+        }
+
+        const person1 = {name: "Stas", age: 30, job: "QA"}
+        const person2 = {name: "Erbol", age: 24, job: "Frontend Developer"}
+
+        bind(person1, logPerson);
+        bind(person2, logPerson); // Does not work! It was condition...
+        
+        bind(person1, logPerson)(); // Works now..
+        bind(person2, logPerson)();
+
+        
+    </script>
+</body>
+
+</html>
