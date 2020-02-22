@@ -15809,3 +15809,28 @@ Pseudo_random_and_true random/key.js
 Project-on-vanilla-js.rar
 >>>>>>> e81d8a80669bbb9d1bdfecbf5a5a381c1d97cebf
 
+slick_1/.gitignore
+slick_1/bower.json
+slick_1/component.json
+slick_1/CONTRIBUTING.markdown
+slick_1/index.html
+slick_1/ISSUE_TEMPLATE.md
+slick_1/LICENSE
+slick_1/Makefile
+slick_1/package.json
+slick_1/README.markdown
+slick_1/slick.jquery.json
+slick_1/slick/ajax-loader.gif
+slick_1/slick/config.rb
+slick_1/slick/slick-theme.css
+slick_1/slick/slick-theme.less
+slick_1/slick/slick-theme.scss
+slick_1/slick/slick.css
+slick_1/slick/slick.js
+slick_1/slick/slick.less
+slick_1/slick/slick.min.js
+slick_1/slick/slick.scss
+slick_1/slick/fonts/slick.eot
+slick_1/slick/fonts/slick.svg
+slick_1/slick/fonts/slick.ttf
+slick_1/slick/fonts/slick.woff

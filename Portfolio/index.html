@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>List of projects</title>
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <!-- Desktop Screen Resolution Stats Worldwide 
+    https://gs.statcounter.com/screen-resolution-stats/desktop/worldwide -->
+  </head>
+
+  <body>
+    <div id="headerWrapper">
+      <div id="header">
+        <h2>
+          Hello my name is Stas <br />
+          I am a beginner in VueJS development.
+        </h2>
+        <h2>Here is a list of my recent projects:</h2>
+      </div>
+    </div>
+
+    <div id="sliderDivWrapper">
+      <div id="sliderDiv">
+        <div class=".multiple-items">
+          <img src="img/vue_store_common.png" />
+        </div>
+        <div class=".multiple-items">
+          <img src="img/vue_store_common.png" />
+        </div>
+      </div>
+    </div>
+
+    <div id="slider-2-DivWrapper">
+        <div id="slider-2-Div">
+            <div class=".multiple-items">
+                <li>
+                    Project on VueJS:
+                    <a href="https://vue-ad-project-stas.firebaseapp.com"> E-Shop </a>
+                    <ul>
+                      <li>Keywords: VueJS, Firebase, Localization, Vuetify</li>
+                      <li>
+                        Description: Simple version of e-shop where, users can place their
+                        ads, buy goods, edit their profiles
+                      </li>
+                      <li>
+                        <a href="https://github.com/lightxlamp/WebForMyself_VueJS_Course"
+                          >Source on Github</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+              </div>    
+              <div class=".multiple-items">
+                <li>
+                    Project on NuxtJS / Socket.IO:
+                    <a href="https://socket-io-nuxt-chat.herokuapp.com/"> Chat </a>
+                    <ul>
+                      <li>Keywords: NuxtJS, Express, Socket.IO</li>
+                      <li>
+                        Description: Simple chat. Users can create a room and chat there
+                      </li>
+                      <li>
+                        <a href="https://github.com/lightxlamp/VueJS_NuxtJS_SocketIO-Chat"
+                          >Source on Github</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+              </div>
+        </div>
+    </div>
+
+    <!-- <ul>
+      <li>
+        Project on VueJS:
+        <a href="https://vue-ad-project-stas.firebaseapp.com"> E-Shop </a>
+        <ul>
+          <li>Keywords: VueJS, Firebase, Localization, Vuetify</li>
+          <li>
+            Description: Simple version of e-shop where, users can place their
+            ads, buy goods, edit their profiles
+          </li>
+          <li>
+            <a href="https://github.com/lightxlamp/WebForMyself_VueJS_Course"
+              >Source on Github</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        Project on NuxtJS / Socket.IO:
+        <a href="https://socket-io-nuxt-chat.herokuapp.com/"> Chat </a>
+        <ul>
+          <li>Keywords: NuxtJS, Express, Socket.IO</li>
+          <li>
+            Description: Simple chat. Users can create a room and chat there
+          </li>
+          <li>
+            <a href="https://github.com/lightxlamp/VueJS_NuxtJS_SocketIO-Chat"
+              >Source on Github</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        Project on Node JS / Express:
+        <a href="https://desolate-fortress-70630.herokuapp.com">
+          Weather App
+        </a>
+        <ul>
+          <li>Keywords: NodeJS, Express, EJS, API Requests</li>
+          <li>Description: User can check weather in any city</li>
+          <li>
+            <a
+              href="https://github.com/lightxlamp/NodeJS_First_Project-Weather_API"
+              >Source on Github</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        Project on Vanilla JS:
+        <a href="https://question-js-proj.web.app/"> Question platform </a>
+        <ul>
+          <li>
+            Keywords: Vanilla JS, Local Storage, MUI CSS, Firebase DB / Hosting
+          </li>
+          <li>
+            Description: User can leave his/her/their question and see questions
+            of other users
+          </li>
+          <li>
+            <a
+              href="https://github.com/lightxlamp/JavaScript_learning_and_practicing/tree/master/Project-on-vanilla-js"
+              >Source on Github</a
+            >
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <div id="purposeOfthisPage">
+      <p>
+        * This page was created to test GitHub pages and also to list all my
+        recent projects
+      </p>
+    </div> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.1.0/jquery-migrate.js"
+    ></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#sliderDiv").slick({
+          infinite: true,
+          //   dots: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 7000,
+          asNavFor: '#slider-2-Div',
+          responsive: [
+            {
+              breakpoint: 1320,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: true
+              }
+            }
+          ]
+        }),
+        $("#slider-2-Div").slick({
+            dots: false,
+            arrows: false,
+            asNavFor: '#sliderDiv'
+        })
+      });
+    </script>
+  </body>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial;
+      font-size: 1rem;
+      /* background-color: #3498db; */
+      /* color: white; */
+      /* padding: 0 20px 0 20px; */
+    }
+    #purposeOfthisPage {
+      color: yellow;
+      font-size: 14px;
+    }
+
+    #sliderDivWrapper,
+    #slider-2-DivWrapper {
+      width: 100%;
+      background-color: #7510f7;
+    }
+
+    #sliderDivWrapper {
+        padding-top: 20px;
+    }
+
+    #slider-2-DivWrapper{
+        padding-bottom: 20px;
+    } 
+  
+    #sliderDiv {
+      background-color: white;
+      padding: 10px;
+      /* max-width: 460px;
+        max-height: 215px; */
+      max-width: 1320px;
+      height: 500px;
+      margin: auto;
+      /* overflow: hidden; */
+      border-top-left-radius: 50px;
+      border-top-right-radius: 50px;
+    }
+
+    #slider-2-Div{
+    background-color: black;
+      padding: 10px;
+      color: white;
+      /* max-width: 460px;
+        max-height: 215px; */
+      max-width: 1320px;
+      height: 100px;
+      margin: auto;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+    }
+
+    #descSlidersDiv {
+        height: 100px; 
+    }
+
+    #header {
+      text-align: center;
+      max-width: 1320px;
+      margin: auto;
+    }
+
+  </style>
+</html>
