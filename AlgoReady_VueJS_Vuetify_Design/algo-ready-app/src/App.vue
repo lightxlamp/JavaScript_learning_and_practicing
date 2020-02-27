@@ -120,6 +120,14 @@
 
     <v-app-bar app clipped-right>
       <v-toolbar>
+        <v-text-field
+          label="Search"
+          prepend-icon="mdi-magnify"
+          dense
+          flat
+          
+        ></v-text-field>
+
         <v-spacer></v-spacer>
 
         <v-btn text>
