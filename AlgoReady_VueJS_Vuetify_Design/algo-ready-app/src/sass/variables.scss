@@ -11,10 +11,13 @@ $font-size-root: 16px;
 $btn-letter-spacing: 0;
 $btn-font-weight: 400;
 // $list-item-title-font-size: 0.929rem;
-$list-item-title-font-size: 1rem;
-$list-item-title-subtitle-line-height: 21px;
-$list-item-title-line-height: 21px;
-$list-item-dense-title-font-size: 1rem;
+$list-item-title-font-size: 1rem !default;
+$list-item-title-subtitle-line-height: 21px !default;
+$list-item-title-line-height: 21px !default;
+$list-item-dense-title-font-size: 1rem !default;
+$list-group-items-item-padding: 0px !default;
+$list-group-nav-no-action-item-padding: 10px !default;
+$list-group-no-action-item-padding: 20px !default;
 // $list-item-dense-title-font-weight: initial;
 
 
@@ -80,10 +83,11 @@ $material-dark: (
   "dividers": rgba(map-get($shades, "white"), 0.12),
   "text": (
     "theme": map-get($shades, "white"),
-    "primary": #00BFC5,
+    "primary": map-get($shades, "white"),
     "secondary": rgba(map-get($shades, "white"), 0.7),
     "disabled": rgba(map-get($shades, "white"), 0.5),
-    "link": map-get($blue, "accent-1"),
+    //"link": map-get($blue, "accent-1"),
+    "link": #00BFC5,  
     "link-hover": map-get($grey, "lighten-3")
   ),
   "icons": (
