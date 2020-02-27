@@ -3,16 +3,28 @@
 @import '../../node_modules/vuetify/src/styles/styles.sass';
 
 // Globals
-$body-font-family: "Work Sans", serif;
-$border-radius-root: 6px;
-$font-size-root: 14px;
+$body-font-family: "Verdana", serif;
+$border-radius-root: 4px;
+$font-size-root: 16px;
 
 // Variables must come before the import
 $btn-letter-spacing: 0;
 $btn-font-weight: 400;
-$list-item-title-font-size: 0.929rem;
-$list-item-dense-title-font-size: 0.929rem;
-$list-item-dense-title-font-weight: initial;
+// $list-item-title-font-size: 0.929rem;
+$list-item-title-font-size: 1rem;
+$list-item-title-subtitle-line-height: 21px;
+$list-item-title-line-height: 21px;
+$list-item-dense-title-font-size: 1rem;
+// $list-item-dense-title-font-weight: initial;
+
+
+
+// font-weight: 500;
+// font-size: 16px;
+// line-height: 21px;
+// /* or 131% */
+// letter-spacing: 0.1px;
+
 $fab-icon-sizes: (
   "small": 20
 );
@@ -37,11 +49,11 @@ $material-dark-elevation-colors: (
   '1': #1E1E1E,
   '2': #222222,
   '3': #252525,
-  '4': #272727,
+  '4': #0C2243,
   '6': #2C2C2C,
   '8': #2E2E2E,
   '12': #333333,
-  '16': #363636,
+  '16': #0C2243,
   '24': #373737
 );
 
@@ -68,7 +80,7 @@ $material-dark: (
   "dividers": rgba(map-get($shades, "white"), 0.12),
   "text": (
     "theme": map-get($shades, "white"),
-    "primary": map-get($shades, "white"),
+    "primary": #00BFC5,
     "secondary": rgba(map-get($shades, "white"), 0.7),
     "disabled": rgba(map-get($shades, "white"), 0.5),
     "link": map-get($blue, "accent-1"),

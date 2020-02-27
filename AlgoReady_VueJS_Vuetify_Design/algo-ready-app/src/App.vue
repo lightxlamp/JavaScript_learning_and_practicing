@@ -1,96 +1,155 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-    >
-    <v-row justify="space-around">
-      <v-col cols="8">
+    <v-navigation-drawer v-model="drawer" app>
+      <v-row justify="space-around" id="logoRow">
+        <v-col cols="8">
           <v-img src="./assets/logo.png"></v-img>
-      </v-col>
-    </v-row>
-
-      <div class="my-2">
-        <v-btn text color="primary">Primary</v-btn>
-      </div>
-      <div class="my-2">
-        <v-btn text color="secondary">Secondary</v-btn>
-      </div>
+        </v-col>
+      </v-row>
 
       <v-list dense>
-        <v-list-item link class="left-menu">
-          <v-list-item-action>
-            <v-icon>mdi-view-dashboard</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
+        <v-list-group prepend-icon="mdi-view-dashboard" value="true">
+          <template v-slot:activator>
             <v-list-item-title>Portfolio Analysis</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item link>
-          <v-list-item-action>
-            <v-icon>mdi-settings</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
+          </template>
+
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Portfolio List</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Analyze</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Portfolio</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Positioning</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-group>
+
+        <!-- Stocks -->
+
+        <v-list-group prepend-icon="mdi-chart-bar" value="true">
+          <template v-slot:activator>
             <v-list-item-title>Stocks</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item link>
-          <v-list-item-action>
-            <v-icon>mdi-settings</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
+          </template>
+
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Stocks List</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Idea Generation</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Analyze</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Positioning</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-group>
+
+        <!-- Investors -->
+
+        <v-list-group prepend-icon="mdi-account" value="true">
+          <template v-slot:activator>
             <v-list-item-title>Investors</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>        
-        <v-list-item link>
-          <v-list-item-action>
-            <v-icon>mdi-settings</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
+          </template>
+
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Investors List</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Analyze</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Positioning</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-group>
+
+        <!-- Market -->
+
+        <v-list-group prepend-icon="mdi-chart-pie" value="true">
+          <template v-slot:activator>
             <v-list-item-title>Market</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+          </template>
+
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Flows Overview</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Market Tracker</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-group>
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar
-      app
-      clipped-right
-    >
-        <v-toolbar>
-
+    <v-app-bar app clipped-right>
+      <v-toolbar>
         <v-spacer></v-spacer>
 
- <v-list >
-        <v-list-item link>
-          <v-list-item-action>
-            <v-icon>mdi-view-dashboard</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Portfolio Analysis</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
- </v-list>
-        <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
+        <v-btn text>
+          <v-icon left>mdi-plus-thick</v-icon>
+          Add
+        </v-btn>
+
+        <v-btn text>
+          <v-icon left>mdi-settings</v-icon>
+          New Set
+        </v-btn>
+
+        <v-btn text>
+          <v-icon left>mdi-settings-transfer-outline</v-icon>
+          Settings
+        </v-btn>
+
+        <v-btn text>
+          <v-icon left>mdi-account</v-icon>
+          Log out
         </v-btn>
 
         <v-btn icon>
-          <v-icon>mdi-heart</v-icon>
-        </v-btn>
-
-        <v-btn icon>
-          <v-icon>mdi-dots-vertical</v-icon>
+          <v-icon left>mdi-bell</v-icon>
         </v-btn>
       </v-toolbar>
     </v-app-bar>
 
     <v-content>
-      <v-container
-        class="fill-height"
-        fluid
-      >
-      </v-container>
+      <v-container class="fill-height" fluid> </v-container>
     </v-content>
 
     <v-footer app>
@@ -100,35 +159,19 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      source: String,
-    },
-    data: () => ({
-      drawer: null,
-    }),
-    created () {
-      // this.$vuetify.theme.dark = true
-      // this.$vuetify.theme.themes.dark.base = '#4caf50'
-      // this.$vuetify.theme.themes.dark.lighten5 = '#4caf50'
-      // this.$vuetify.theme.themes.dark.lighten4 = '#4caf50'
-      // this.$vuetify.theme.themes.dark.lighten3 = '#4caf50'
-      // this.$vuetify.theme.themes.dark.lighten2 = '#4caf50'
-      // this.$vuetify.theme.themes.dark.lighten1 = '#4caf50'
-      // this.$vuetify.theme.themes.dark.darken4 = '#4caf50'
-      // this.$vuetify.theme.themes.dark.darken3 = '#4caf50'
-      // this.$vuetify.theme.themes.dark.darken2 = '#4caf50'
-      // this.$vuetify.theme.themes.dark.darken1 = '#4caf50'
-      // this.$vuetify.theme.themes.dark.tertiary = '#4caf50'
-      // this.$vuetify.theme.themes.dark.secondary = '#4caf50'
-      // this.$vuetify.theme.themes.dark.primary = '#4caf50'
-    },
-  }
+export default {
+  props: {
+    source: String
+  },
+  data: () => ({
+    drawer: null
+  }),
+  created() {}
+};
 </script>
 
 <style scoped>
-.left-menu {
-    border: 2px solid white;
-    color: #00bfc5 !important
-  }
+#logoRow {
+  border-bottom: 1px solid #313c4e;
+}
 </style>
