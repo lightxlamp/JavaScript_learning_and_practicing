@@ -10,8 +10,15 @@
       </v-col>
     </v-row>
 
+      <div class="my-2">
+        <v-btn text color="primary">Primary</v-btn>
+      </div>
+      <div class="my-2">
+        <v-btn text color="secondary">Secondary</v-btn>
+      </div>
+
       <v-list dense>
-        <v-list-item link>
+        <v-list-item link class="left-menu">
           <v-list-item-action>
             <v-icon>mdi-view-dashboard</v-icon>
           </v-list-item-action>
@@ -101,7 +108,27 @@
       drawer: null,
     }),
     created () {
-      this.$vuetify.theme.dark = true
+      // this.$vuetify.theme.dark = true
+      // this.$vuetify.theme.themes.dark.base = '#4caf50'
+      // this.$vuetify.theme.themes.dark.lighten5 = '#4caf50'
+      // this.$vuetify.theme.themes.dark.lighten4 = '#4caf50'
+      // this.$vuetify.theme.themes.dark.lighten3 = '#4caf50'
+      // this.$vuetify.theme.themes.dark.lighten2 = '#4caf50'
+      // this.$vuetify.theme.themes.dark.lighten1 = '#4caf50'
+      // this.$vuetify.theme.themes.dark.darken4 = '#4caf50'
+      // this.$vuetify.theme.themes.dark.darken3 = '#4caf50'
+      // this.$vuetify.theme.themes.dark.darken2 = '#4caf50'
+      // this.$vuetify.theme.themes.dark.darken1 = '#4caf50'
+      // this.$vuetify.theme.themes.dark.tertiary = '#4caf50'
+      // this.$vuetify.theme.themes.dark.secondary = '#4caf50'
+      // this.$vuetify.theme.themes.dark.primary = '#4caf50'
     },
   }
 </script>
+
+<style scoped>
+.left-menu {
+    border: 2px solid white;
+    color: #00bfc5 !important
+  }
+</style>
