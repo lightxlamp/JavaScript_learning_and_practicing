@@ -8,7 +8,7 @@
       </v-row>
 
       <v-list >
-        <v-list-group prepend-icon="mdi-view-dashboard" value="true" color="#00BFC5">
+        <v-list-group prepend-icon="mdi-view-dashboard" value="true" color="#00BFC5" no-action>
           <template v-slot:activator>
             <v-list-item-title>Portfolio Analysis</v-list-item-title>
           </template>
@@ -40,7 +40,7 @@
 
         <!-- Stocks -->
 
-        <v-list-group prepend-icon="mdi-chart-bar" value="true" color="#00BFC5">
+        <v-list-group prepend-icon="mdi-chart-bar" value="true" color="#00BFC5" no-action>
           <template v-slot:activator>
             <v-list-item-title>Stocks</v-list-item-title>
           </template>
@@ -72,18 +72,18 @@
 
         <!-- Investors -->
 
-        <v-list-group prepend-icon="mdi-account" value="true" color="#00BFC5">
+        <v-list-group prepend-icon="mdi-account" value="true" color="#00BFC5" no-action>
           <template v-slot:activator>
             <v-list-item-title>Investors</v-list-item-title>
           </template>
 
-          <v-list-item>
+          <v-list-item link>
             <v-list-item-content>
               <v-list-item-title>Investors List</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item link>
             <v-list-item-content>
               <v-list-item-title>Analyze</v-list-item-title>
             </v-list-item-content>
@@ -98,7 +98,7 @@
 
         <!-- Market -->
 
-        <v-list-group prepend-icon="mdi-chart-pie" value="true" color="#00BFC5">
+        <v-list-group prepend-icon="mdi-chart-pie" value="true" color="#00BFC5" no-action>
           <template v-slot:activator>
             <v-list-item-title>Market</v-list-item-title>
           </template>

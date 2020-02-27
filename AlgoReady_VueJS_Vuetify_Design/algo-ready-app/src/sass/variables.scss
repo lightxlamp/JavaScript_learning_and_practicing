@@ -10,23 +10,15 @@ $font-size-root: 16px;
 // Variables must come before the import
 $btn-letter-spacing: 0;
 $btn-font-weight: 400;
-// $list-item-title-font-size: 0.929rem;
-$list-item-title-font-size: 1rem !default;
-$list-item-title-subtitle-line-height: 21px !default;
-$list-item-title-line-height: 21px !default;
-$list-item-dense-title-font-size: 1rem !default;
-$list-group-items-item-padding: 0px !default;
-$list-group-nav-no-action-item-padding: 10px !default;
-$list-group-no-action-item-padding: 20px !default;
-// $list-item-dense-title-font-weight: initial;
-
-
-
-// font-weight: 500;
-// font-size: 16px;
-// line-height: 21px;
-// /* or 131% */
-// letter-spacing: 0.1px;
+// // $list-item-title-font-size: 0.929rem;
+// $list-item-title-font-size: 1rem !default;
+// $list-item-title-subtitle-line-height: 21px !default;
+// $list-item-title-line-height: 21px !default;
+// $list-item-dense-title-font-size: 1rem !default;
+// $list-group-items-item-padding: 0px !default;
+// $list-group-nav-no-action-item-padding: 10px !default;
+// $list-group-no-action-item-padding: 20px !default;
+// // $list-item-dense-title-font-weight: initial;
 
 $fab-icon-sizes: (
   "small": 20
