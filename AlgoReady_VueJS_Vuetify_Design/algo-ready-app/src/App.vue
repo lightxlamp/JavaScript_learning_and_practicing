@@ -15,12 +15,12 @@
           no-action
         >
           <template v-slot:activator>
-            <v-list-item-title>Portfolio Analysis</v-list-item-title>
+            <v-list-item-title>Portfolio</v-list-item-title>
           </template>
-
+          
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title color="#00BFC5"
+              <v-list-item-title class="grey-list-item" 
                 >Portfolio List</v-list-item-title
               >
             </v-list-item-content>
@@ -28,19 +28,19 @@
 
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>Analyze</v-list-item-title>
+              <v-list-item-title class="grey-list-item">Analyze</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>Update / Add</v-list-item-title>
+              <v-list-item-title class="grey-list-item">Update / Add</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>Positioning</v-list-item-title>
+              <v-list-item-title class="grey-list-item">Positioning</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list-group>
@@ -54,25 +54,25 @@
 
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>Stocks List</v-list-item-title>
+              <v-list-item-title class="grey-list-item">Stocks List</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>Idea Generation</v-list-item-title>
+              <v-list-item-title class="grey-list-item">Idea Generation</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>Analyze</v-list-item-title>
+              <v-list-item-title class="grey-list-item">Analyze</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>Positioning</v-list-item-title>
+              <v-list-item-title class="grey-list-item">Positioning</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list-group>
@@ -86,19 +86,19 @@
 
           <v-list-item link>
             <v-list-item-content>
-              <v-list-item-title>Investors List</v-list-item-title>
+              <v-list-item-title class="grey-list-item">Investors List</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 
           <v-list-item link>
             <v-list-item-content>
-              <v-list-item-title>Analyze</v-list-item-title>
+              <v-list-item-title class="grey-list-item">Analyze</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>Positioning</v-list-item-title>
+              <v-list-item-title class="grey-list-item">Positioning</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list-group>
@@ -112,13 +112,13 @@
 
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>Flows Overview</v-list-item-title>
+              <v-list-item-title class="grey-list-item">Flows Overview</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>Market Tracker</v-list-item-title>
+              <v-list-item-title class="grey-list-item">Market Tracker</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list-group>
@@ -126,43 +126,48 @@
     </v-navigation-drawer>
 
     <v-app-bar app clipped-right flat>
+      <v-btn small elevation="0" @click.stop="drawer = !drawer">
+        <v-icon left>mdi-menu</v-icon>
+      </v-btn>
       <v-toolbar flat>
-        <v-col cols="4" sm="2" md="2">
+        <v-toolbar-items class="hidden-sm-and-down">
           <v-text-field
             label="Search"
             prepend-icon="mdi-magnify"
             dense
+            
+    
             flat
-            id="searchField"
-            width="200px"
           ></v-text-field>
-        </v-col>
+        </v-toolbar-items>
 
         <v-spacer></v-spacer>
 
-        <v-btn text>
-          <v-icon left>mdi-plus-thick</v-icon>
-          Add
-        </v-btn>
+        <v-toolbar-items>
+          <v-btn text small>
+            <v-icon left>mdi-plus-thick</v-icon>
+            Add
+          </v-btn>
 
-        <v-btn text>
-          <v-icon left>mdi-settings</v-icon>
-          New Set
-        </v-btn>
+          <v-btn text small>
+            <v-icon left>mdi-settings</v-icon>
+            New Set
+          </v-btn>
 
-        <v-btn text>
-          <v-icon left>mdi-settings-transfer-outline</v-icon>
-          Settings
-        </v-btn>
+          <v-btn text small>
+            <v-icon left>mdi-settings-transfer-outline</v-icon>
+            Settings
+          </v-btn>
 
-        <v-btn text>
-          <v-icon left>mdi-account</v-icon>
-          Log out
-        </v-btn>
+          <v-btn text small>
+            <v-icon left>mdi-account</v-icon>
+            Log out
+          </v-btn>
 
-        <v-btn icon>
-          <v-icon left>mdi-bell</v-icon>
-        </v-btn>
+          <v-btn icon>
+            <v-icon left>mdi-bell</v-icon>
+          </v-btn>
+        </v-toolbar-items>
       </v-toolbar>
     </v-app-bar>
 
@@ -170,7 +175,7 @@
       <v-container fluid>
         <h2>Algoready european Small caps</h2>
         <p>Last Updated: 20/08/2019</p>
-        <div class="my-2">
+        <!-- <div class="my-2">
           <v-btn small color="#00BFC5">Edit Portfolio</v-btn>
         </div>
 
@@ -191,9 +196,9 @@
             <p class="blackText">Potential Market Impact</p>
             <p class="whiteText">78%</p>
           </div>
-        </div>
-        
-         <v-row dense>
+        </div> -->
+
+        <v-row dense>
           <v-col>
             <v-card id="gradientBox" color="#2CA9CD" max-width="180">
               <v-card-title>Total Market Value</v-card-title>
@@ -219,7 +224,6 @@
             </v-card>
           </v-col>
         </v-row>
-
       </v-container>
     </v-content>
 
@@ -296,7 +300,17 @@ body {
   background: linear-gradient(180deg, #3b98ee 0%, #2ca9cd 100%);
 }
 
-/* #searchField{
-  padding-top: 10px !important;
-} */
+.v-btn {
+  text-transform: none !important;
+}
+
+.grey-list-item {
+  color: #56657F;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+}
+
 </style>
