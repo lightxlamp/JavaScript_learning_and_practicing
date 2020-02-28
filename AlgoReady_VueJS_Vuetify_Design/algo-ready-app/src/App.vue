@@ -200,25 +200,25 @@
 
         <v-row dense>
           <v-col>
-            <v-card id="gradientBox" color="#2CA9CD" max-width="180">
+            <v-card class="gradient-box" max-width="180px">
               <v-card-title>Total Market Value</v-card-title>
               <v-card-subtitle>$ 2589647,531</v-card-subtitle>
             </v-card>
           </v-col>
           <v-col>
-            <v-card id="gradientBox" color="#2CA9CD" max-width="180">
+            <v-card class="gradient-box" color="#2CA9CD" max-width="180px">
               <v-card-title>Total Potential Pressure</v-card-title>
               <v-card-subtitle>$1 Billion</v-card-subtitle>
             </v-card>
           </v-col>
           <v-col>
-            <v-card id="gradientBox" color="#2CA9CD" max-width="180">
+            <v-card class="gradient-box" color="#2CA9CD" max-width="180px">
               <v-card-title>Days to Trade</v-card-title>
               <v-card-subtitle>20</v-card-subtitle>
             </v-card>
           </v-col>
           <v-col>
-            <v-card id="gradientBox" color="#2CA9CD" max-width="180">
+            <v-card class="gradient-box" color="#2CA9CD" max-width="180px">
               <v-card-title>Potential Market Impact</v-card-title>
               <v-card-subtitle>78%</v-card-subtitle>
             </v-card>
@@ -296,8 +296,18 @@ body {
   line-height: 16px;
 }
 
-.gradientBox {
+.gradient-box{
+  /* background: linear-gradient(180deg, #3b98ee 0%, #2ca9cd 100%); */
   background: linear-gradient(180deg, #3b98ee 0%, #2ca9cd 100%);
+  text-align: center;
+}
+
+.gradient-box > p {
+  color: black;
+}
+
+.v-card-subtitle {
+
 }
 
 .v-btn {
