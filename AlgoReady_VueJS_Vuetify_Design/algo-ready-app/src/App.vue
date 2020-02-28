@@ -175,10 +175,7 @@
       <v-container fluid>
         <h2>Algoready european Small caps</h2>
         <p>Last Updated: 20/08/2019</p>
-        <!-- <div class="my-2">
-          <v-btn small color="#00BFC5">Edit Portfolio</v-btn>
-        </div>
-
+<!-- 
         <div id="four-div-wrapper">
           <div>
             <p class="blackText">Total Market Value</p>
@@ -198,32 +195,40 @@
           </div>
         </div> -->
 
-        <v-row dense>
-          <v-col>
-            <v-card class="gradient-box" max-width="180px">
+        <div style="background-color:black">
+          <v-card
+            class="d-flex flex-row mb-6"
+            color="#162750"
+            flat
+            tile
+          >
+        
+            <v-card class="gradient-box pt-2 mr-8" max-width="180px">
               <v-card-title>Total Market Value</v-card-title>
-              <v-card-subtitle>$ 2589647,531</v-card-subtitle>
+              <v-card-subtitle class="gradient-box-subtitle">$ 2589647,531</v-card-subtitle>
             </v-card>
-          </v-col>
-          <v-col>
-            <v-card class="gradient-box" color="#2CA9CD" max-width="180px">
+     
+            <v-card class="gradient-box pt-2 mr-8" color="#2CA9CD" max-width="210px">
               <v-card-title>Total Potential Pressure</v-card-title>
-              <v-card-subtitle>$1 Billion</v-card-subtitle>
+              <v-card-subtitle class="gradient-box-subtitle">$1 Billion</v-card-subtitle>
             </v-card>
-          </v-col>
-          <v-col>
-            <v-card class="gradient-box" color="#2CA9CD" max-width="180px">
+   
+            <v-card class="gradient-box pt-2 mr-8" color="#2CA9CD" max-width="180px">
               <v-card-title>Days to Trade</v-card-title>
-              <v-card-subtitle>20</v-card-subtitle>
+              <v-card-subtitle class="gradient-box-subtitle">20</v-card-subtitle>
             </v-card>
-          </v-col>
-          <v-col>
-            <v-card class="gradient-box" color="#2CA9CD" max-width="180px">
+  
+            <v-card class="gradient-box pt-2" color="#2CA9CD" max-width="210px">
               <v-card-title>Potential Market Impact</v-card-title>
-              <v-card-subtitle>78%</v-card-subtitle>
+              <v-card-subtitle class="gradient-box-subtitle">78%</v-card-subtitle>
             </v-card>
-          </v-col>
-        </v-row>
+         </v-card>
+        </div>
+
+        <div class="my-2">
+          <v-btn small color="#00BFC5">Edit Portfolio</v-btn>
+        </div>
+
       </v-container>
     </v-content>
 
@@ -297,17 +302,18 @@ body {
 }
 
 .gradient-box{
-  /* background: linear-gradient(180deg, #3b98ee 0%, #2ca9cd 100%); */
   background: linear-gradient(180deg, #3b98ee 0%, #2ca9cd 100%);
   text-align: center;
+  color: #13305C !important;
+  font-family: Montserrat;
+  font-style: normal;
 }
 
-.gradient-box > p {
-  color: black;
-}
-
-.v-card-subtitle {
-
+.gradient-box-subtitle{
+  color: #FFFFFF !important;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
 }
 
 .v-btn {
