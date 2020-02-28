@@ -134,9 +134,8 @@
           <v-text-field
             label="Search"
             prepend-icon="mdi-magnify"
+            class="pt-4"
             dense
-            
-    
             flat
           ></v-text-field>
         </v-toolbar-items>
