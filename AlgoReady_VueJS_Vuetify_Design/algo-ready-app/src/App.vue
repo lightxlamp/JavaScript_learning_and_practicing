@@ -127,13 +127,16 @@
 
     <v-app-bar app clipped-right flat>
       <v-toolbar flat>
-        <v-text-field
-          label="Search"
-          prepend-icon="mdi-magnify"
-          dense
-          flat
-          id="searchField"
-        ></v-text-field>
+        <v-col cols="4" sm="2" md="2">
+          <v-text-field
+            label="Search"
+            prepend-icon="mdi-magnify"
+            dense
+            flat
+            id="searchField"
+            width="200px"
+          ></v-text-field>
+        </v-col>
 
         <v-spacer></v-spacer>
 
@@ -165,33 +168,6 @@
 
     <v-content>
       <v-container fluid>
-        <!-- <v-row dense>
-          <v-col>
-            <v-card id="gradientBox" color="#2CA9CD" max-width="180">
-              <v-card-title>Total Market Value</v-card-title>
-              <v-card-subtitle>$ 2589647,531</v-card-subtitle>
-            </v-card>
-          </v-col>
-          <v-col>
-            <v-card id="gradientBox" color="#2CA9CD" max-width="180">
-              <v-card-title>Total Potential Pressure</v-card-title>
-              <v-card-subtitle>$1 Billion</v-card-subtitle>
-            </v-card>
-          </v-col>
-          <v-col>
-            <v-card id="gradientBox" color="#2CA9CD" max-width="180">
-              <v-card-title>Days to Trade</v-card-title>
-              <v-card-subtitle>20</v-card-subtitle>
-            </v-card>
-          </v-col>
-          <v-col>
-            <v-card id="gradientBox" color="#2CA9CD" max-width="180">
-              <v-card-title>Potential Market Impact</v-card-title>
-              <v-card-subtitle>78%</v-card-subtitle>
-            </v-card>
-          </v-col>
-        </v-row> -->
-
         <h2>Algoready european Small caps</h2>
         <p>Last Updated: 20/08/2019</p>
         <div class="my-2">
@@ -216,6 +192,34 @@
             <p class="whiteText">78%</p>
           </div>
         </div>
+        
+         <v-row dense>
+          <v-col>
+            <v-card id="gradientBox" color="#2CA9CD" max-width="180">
+              <v-card-title>Total Market Value</v-card-title>
+              <v-card-subtitle>$ 2589647,531</v-card-subtitle>
+            </v-card>
+          </v-col>
+          <v-col>
+            <v-card id="gradientBox" color="#2CA9CD" max-width="180">
+              <v-card-title>Total Potential Pressure</v-card-title>
+              <v-card-subtitle>$1 Billion</v-card-subtitle>
+            </v-card>
+          </v-col>
+          <v-col>
+            <v-card id="gradientBox" color="#2CA9CD" max-width="180">
+              <v-card-title>Days to Trade</v-card-title>
+              <v-card-subtitle>20</v-card-subtitle>
+            </v-card>
+          </v-col>
+          <v-col>
+            <v-card id="gradientBox" color="#2CA9CD" max-width="180">
+              <v-card-title>Potential Market Impact</v-card-title>
+              <v-card-subtitle>78%</v-card-subtitle>
+            </v-card>
+          </v-col>
+        </v-row>
+
       </v-container>
     </v-content>
 
@@ -238,9 +242,9 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
 
-body{
+body {
   font-family: Montserrat;
 }
 
