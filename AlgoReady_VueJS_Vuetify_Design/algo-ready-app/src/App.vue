@@ -228,6 +228,7 @@
           <v-btn small color="#00BFC5">Edit Portfolio</v-btn>
         </div>
 
+      <line-chart></line-chart>
       </v-container>
     </v-content>
 
