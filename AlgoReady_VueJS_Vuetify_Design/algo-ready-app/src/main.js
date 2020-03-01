@@ -32,28 +32,28 @@ Vue.component('line-chart', {
           label: "EU Tech",
           data: [9, 58, 5, 10, 5, 1, 9, 3, 2, 25, 1, 1],
           backgroundColor: "#512DA8",
-          hoverBackgroundColor: "#42CAEB",
+          hoverBackgroundColor: "#512DA8",
           hoverBorderWidth: 0
         },
         {
           label: "Japan Value",
           data: [15, 52, 12, 5, 4, 0, 4, 2, 1, 22, 3, 2],
           backgroundColor: "#FFA000",
-          hoverBackgroundColor: "#3EFFE8",
+          hoverBackgroundColor: "#FFA000",
           hoverBorderWidth: 0
         },
         {
           label: "Utilities",
           data: [17, 11, 22, 18, 12, 22, 22, 19, 24, 9, 8, 1],
           backgroundColor: "#D32F2F",
-          hoverBackgroundColor: "#FF9A3E",
+          hoverBackgroundColor: "#D32F2F",
           hoverBorderWidth: 0
         },
         {
           label: "US Momentum",
           data: [18, 13, 25, 10, 13, 25, 25, 21, 20, 1, 1, 9],
           backgroundColor: "#4D96BE",
-          hoverBackgroundColor: "#EF5350",
+          hoverBackgroundColor: "#4D96BE",
           hoverBorderWidth: 0
         },    
         {

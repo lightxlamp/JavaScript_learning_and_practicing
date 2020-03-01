@@ -8,21 +8,14 @@
       </v-row>
 
       <v-list>
-        <v-list-group
-          prepend-icon="mdi-view-dashboard"
-          value="true"
-          color="#00BFC5"
-          no-action
-        >
+        <v-list-group prepend-icon="mdi-view-dashboard" value="true" color="#00BFC5" no-action>
           <template v-slot:activator>
             <v-list-item-title>Portfolio</v-list-item-title>
           </template>
-          
+
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title class="grey-list-item" 
-                >Portfolio List</v-list-item-title
-              >
+              <v-list-item-title class="grey-list-item">Portfolio List</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 
@@ -131,36 +124,26 @@
       </v-btn>
       <v-toolbar flat>
         <v-toolbar-items class="hidden-sm-and-down">
-          <v-text-field
-            label="Search"
-            prepend-icon="mdi-magnify"
-            class="pt-4"
-            dense
-            flat
-          ></v-text-field>
+          <v-text-field label="Search" prepend-icon="mdi-magnify" class="pt-4" dense flat></v-text-field>
         </v-toolbar-items>
 
         <v-spacer></v-spacer>
 
         <v-toolbar-items>
           <v-btn text small>
-            <v-icon left>mdi-plus-thick</v-icon>
-            Add
+            <v-icon left>mdi-plus-thick</v-icon>Add
           </v-btn>
 
           <v-btn text small>
-            <v-icon left>mdi-settings</v-icon>
-            New Set
+            <v-icon left>mdi-settings</v-icon>New Set
           </v-btn>
 
           <v-btn text small>
-            <v-icon left>mdi-settings-transfer-outline</v-icon>
-            Settings
+            <v-icon left>mdi-settings-transfer-outline</v-icon>Settings
           </v-btn>
 
           <v-btn text small>
-            <v-icon left>mdi-account</v-icon>
-            Log out
+            <v-icon left>mdi-account</v-icon>Log out
           </v-btn>
 
           <v-btn icon>
@@ -172,63 +155,52 @@
 
     <v-content>
       <v-container fluid>
-        <h2>Algoready european Small caps</h2>
-        <p>Last Updated: 20/08/2019</p>
-<!-- 
-        <div id="four-div-wrapper">
-          <div>
-            <p class="blackText">Total Market Value</p>
-            <p class="whiteText">$ 2589647,531</p>
-          </div>
-          <div>
-            <p class="blackText">Total Potential Pressure</p>
-            <p class="whiteText">$1 Billion</p>
-          </div>
-          <div>
-            <p class="blackText">Days to Trade</p>
-            <p class="whiteText">20</p>
-          </div>
-          <div>
-            <p class="blackText">Potential Market Impact</p>
-            <p class="whiteText">78%</p>
-          </div>
-        </div> -->
+        <v-row no-gutters class="pt-2">
+          <v-col>
+            <h2>Algoready european Small caps</h2>
+          </v-col>
+          <v-col>
+            <p class="lastUpdate pt-2">Last Updated: 20/08/2019</p>
+          </v-col>
+          <v-col cols="6" align="end" class="pr-12">
+            <v-btn color="#00BFC5">Edit Portfolio</v-btn>
+          </v-col>
+        </v-row>
 
-        <div style="background-color:black">
-          <v-card
-            class="d-flex flex-row mb-6"
-            color="#162750"
-            flat
-            tile
-          >
-        
-            <v-card class="gradient-box pt-2 mr-8" max-width="180px">
-              <v-card-title>Total Market Value</v-card-title>
-              <v-card-subtitle class="gradient-box-subtitle">$ 2589647,531</v-card-subtitle>
-            </v-card>
-     
-            <v-card class="gradient-box pt-2 mr-8" color="#2CA9CD" max-width="210px">
-              <v-card-title>Total Potential Pressure</v-card-title>
-              <v-card-subtitle class="gradient-box-subtitle">$1 Billion</v-card-subtitle>
-            </v-card>
-   
-            <v-card class="gradient-box pt-2 mr-8" color="#2CA9CD" max-width="180px">
-              <v-card-title>Days to Trade</v-card-title>
-              <v-card-subtitle class="gradient-box-subtitle">20</v-card-subtitle>
-            </v-card>
-  
-            <v-card class="gradient-box pt-2" color="#2CA9CD" max-width="210px">
-              <v-card-title>Potential Market Impact</v-card-title>
-              <v-card-subtitle class="gradient-box-subtitle">78%</v-card-subtitle>
-            </v-card>
-         </v-card>
-        </div>
+        <v-card class="d-flex flex-row mb-6 pt-4" color="#162750" flat tile>
+          <v-card class="gradient-box pt-2 mr-8" max-width="180px">
+            <v-card-title>Total Market Value</v-card-title>
+            <v-card-subtitle class="gradient-box-subtitle">$ 2589647,531</v-card-subtitle>
+          </v-card>
 
-        <div class="my-2">
-          <v-btn small color="#00BFC5">Edit Portfolio</v-btn>
-        </div>
+          <v-card class="gradient-box pt-2 mr-8" color="#2CA9CD" max-width="210px">
+            <v-card-title>Total Potential Pressure</v-card-title>
+            <v-card-subtitle class="gradient-box-subtitle">$1 Billion</v-card-subtitle>
+          </v-card>
 
-      <line-chart></line-chart>
+          <v-card class="gradient-box pt-2 mr-8" color="#2CA9CD" max-width="180px">
+            <v-card-title>Days to Trade</v-card-title>
+            <v-card-subtitle class="gradient-box-subtitle">20</v-card-subtitle>
+          </v-card>
+
+          <v-card class="gradient-box pt-2" color="#2CA9CD" max-width="210px">
+            <v-card-title>Potential Market Impact</v-card-title>
+            <v-card-subtitle class="gradient-box-subtitle">78%</v-card-subtitle>
+          </v-card>
+        </v-card>
+
+        <v-row no-gutters class="pt-2">
+          <v-col class="info-block pa-5 pb-12 mb-6">
+            <h2>Insights</h2>
+          </v-col>
+        </v-row>
+
+        <v-row no-gutters class="pt-2">
+          <v-col class="info-block pa-5 pb-12">
+           <h2>Performance Breakdown By Factor</h2>
+           <line-chart></line-chart>
+          </v-col>
+        </v-row>
       </v-container>
     </v-content>
 
@@ -301,16 +273,16 @@ body {
   line-height: 16px;
 }
 
-.gradient-box{
+.gradient-box {
   background: linear-gradient(180deg, #3b98ee 0%, #2ca9cd 100%);
   text-align: center;
-  color: #13305C !important;
+  color: #13305c !important;
   font-family: Montserrat;
   font-style: normal;
 }
 
-.gradient-box-subtitle{
-  color: #FFFFFF !important;
+.gradient-box-subtitle {
+  color: #ffffff !important;
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
@@ -321,7 +293,7 @@ body {
 }
 
 .grey-list-item {
-  color: #56657F;
+  color: #56657f;
   font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
@@ -329,4 +301,11 @@ body {
   line-height: 21px;
 }
 
+.lastUpdate {
+  font-size: 12px;
+}
+
+.info-block{
+  background-color: #233767;
+}
 </style>
