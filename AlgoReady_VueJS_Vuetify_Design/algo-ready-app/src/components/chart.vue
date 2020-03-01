@@ -1,27 +1,20 @@
 <script>
-import { Bar } from 'vue-chartjs'
+// import { Bar } from 'vue-chartjs'
+import VueChartJs from '../../node_modules/vue-chartjs'
 
 export default {
-  extends: Bar,
-  data: () => ({
-    chartdata: {
-      labels: ['January', 'February'],
+ extends: VueChartJs.Line,
+  mounted () {
+    this.renderChart({
+      labels: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
       datasets: [
         {
-          label: 'Data One',
+          label: 'Коммиты на GitHub',
           backgroundColor: '#f87979',
-          data: [40, 20]
+          data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
         }
       ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false
-    }
-  }),
-
-  mounted () {
-    this.renderChart(this.chartdata, this.options)
+    }, {responsive: true, maintainAspectRatio: false})
   }
 }
 </script>
