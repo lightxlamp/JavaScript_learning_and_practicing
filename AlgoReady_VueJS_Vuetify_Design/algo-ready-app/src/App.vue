@@ -155,19 +155,19 @@
 
     <v-content>
       <v-container fluid>
-        <v-row no-gutters class="pt-2">
-          <v-col>
+        <v-row no-gutters class="pt-2 pl-2">
+          <v-col cols="5">
             <h2>Algoready european Small caps</h2>
           </v-col>
           <v-col>
             <p class="lastUpdate pt-2">Last Updated: 20/08/2019</p>
           </v-col>
-          <v-col cols="6" align="end" class="pr-12">
+          <v-col cols="4" align="end" class="pr-2">
             <v-btn color="#00BFC5">Edit Portfolio</v-btn>
           </v-col>
         </v-row>
 
-        <v-card class="d-flex flex-row mb-6 pt-4" color="#162750" flat tile>
+        <v-card class="d-flex flex-row mb-6 pt-4 pl-2" color="#162750" flat tile>
           <v-card class="gradient-box pt-2 mr-8" max-width="180px">
             <v-card-title>Total Market Value</v-card-title>
             <v-card-subtitle class="gradient-box-subtitle">$ 2589647,531</v-card-subtitle>
@@ -189,13 +189,13 @@
           </v-card>
         </v-card>
 
-        <v-row no-gutters class="pt-2">
+        <v-row no-gutters class="pt-2 mr-2 pl-2">
           <v-col class="info-block pa-5 pb-12 mb-6">
             <h2>Insights</h2>
           </v-col>
         </v-row>
 
-        <v-row no-gutters class="pt-2">
+        <v-row no-gutters class="pt-2 mr-2 pl-2">
           <v-col class="info-block pa-5 pb-12">
            <h2>Performance Breakdown By Factor</h2>
            <line-chart></line-chart>
@@ -204,9 +204,9 @@
       </v-container>
     </v-content>
 
-    <v-footer app>
-      <span>&copy; 2019</span>
-    </v-footer>
+    <!-- <v-footer app>
+      <span>&copy; 2020</span>
+    </v-footer> -->
   </v-app>
 </template>
 
