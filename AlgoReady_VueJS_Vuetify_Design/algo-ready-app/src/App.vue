@@ -200,7 +200,15 @@
            <h2>Performance Breakdown By Factor</h2>
            <line-chart></line-chart>
           </v-col>
+        </v-row>     
+        
+        <v-row no-gutters class="pt-8 mr-2 pl-2">
+          <v-col class="info-block pa-5 pb-12">
+           <h2> Volume Breakdown by Factor</h2>
+           <pie-chart></pie-chart>
+          </v-col>
         </v-row>
+
       </v-container>
     </v-content>
 

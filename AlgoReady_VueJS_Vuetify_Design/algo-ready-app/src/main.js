@@ -11,7 +11,7 @@ Vue.config.productionTip = false
 
 Vue.component('line-chart', {
   extends: VueChartJs.Line,
-  mounted () {
+  mounted() {
     this.renderChart({
       labels: [
         "January",
@@ -55,7 +55,7 @@ Vue.component('line-chart', {
           backgroundColor: "#4D96BE",
           hoverBackgroundColor: "#4D96BE",
           hoverBorderWidth: 0
-        },    
+        },
         {
           label: "Others",
           data: [20, 15, 7, 7, 1, 29, 24, 22, 1, 9, 9, 0],
@@ -64,7 +64,61 @@ Vue.component('line-chart', {
           hoverBorderWidth: 0
         }
       ],
-    }, {responsive: true, maintainAspectRatio: false})
+    }, { responsive: true, maintainAspectRatio: false })
+  }
+})
+
+Vue.component('pie-chart', {
+  extends: VueChartJs.Pie,
+  mounted() {
+    this.renderChart({
+      labels: [
+        "Value 30%",
+        "Size 20%",
+        "Risk 10%",
+        "Quality 50%",
+        "Momentum 10%"
+      ],
+      options:{
+        legend: {
+          labels: {
+            fontColor: 'red'
+          }
+        }
+      },
+      datasets: [
+        {
+          data: [30, 50, 10, 20, 10],
+          backgroundColor: [
+            "#2CA9CD",
+            "#00BFC5",
+            "#F085A5",
+            "#14E1F3",
+            "#EF3D48",
+          ],
+          hoverBackgroundColor: "white",
+          hoverBorderWidth: 1,
+          fontColor: 'red'
+        },
+      ],
+    }, {
+      responsive: true, maintainAspectRatio: false, legend: {
+        fontColor: 'red', scales: {
+          yAxes: [{
+            ticks: {
+
+              fontColor: 'white'
+            }
+          }],
+          xAxes: [{
+            ticks: {
+
+              fontColor: 'white',
+            }
+          }]
+        }
+      }
+    })
   }
 })
 
@@ -72,7 +126,7 @@ new Vue({
   router,
   store,
   vuetify,
-  components : {
+  components: {
     // 'random-chart-component': RandomChartComponent
     'chart': chart
   },
