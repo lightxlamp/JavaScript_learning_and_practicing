@@ -7,7 +7,18 @@
       </div>
     </div>
     <div>{{content}}</div>
-    <textarea name id cols="30" rows="10" v-model="content" @keypress.13.prevent @change="wordsLimitHandler" @keydown="wordsLimitHandler" @paste="wordsLimitHandler"></textarea> 
+    <textarea
+      name
+      id
+      cols="30"
+      rows="10"
+      v-model="content"
+      @keypress.13.prevent
+      :disabled="limitReached"
+      @change="wordsLimitHandler"
+      @keydown="wordsLimitHandler"
+      @paste="wordsLimitHandler"
+    ></textarea>
   </div>
 </template>
 
@@ -51,22 +62,19 @@ export default {
     },
     wordCount: function() {
       let wordsInForm = this.content.split(" ").length;
-      if(wordsInForm > this.wordAllowance){
-        this.content.replace(/\s?$/,''); // remove one space at the end. If limit exceeded
-        wordsInForm = this.content.split(" ").length;
-        return wordsInForm;
-      }
-      else return wordsInForm
+      if (wordsInForm > this.wordAllowance) {
+        this.limitReached = true;
+      } 
+      return wordsInForm;
     }
   },
   methods: {
-    wordsLimitHandler(){
-      if(this.content.split(' ').length > 5)
-      {
-        console.log('phpReadyEnteredText', this.phpReadyEnteredText);
-        console.log(this.content.split(' '));
-        let onlyLimitedNumberOfWords = this.content.split(' ').slice(0, 5); 
-        this.content = onlyLimitedNumberOfWords.join(' ');
+    wordsLimitHandler() {
+      if (this.content.split(" ").length > 5) {
+        console.log("phpReadyEnteredText", this.phpReadyEnteredText);
+        console.log(this.content.split(" "));
+        let onlyLimitedNumberOfWords = this.content.split(" ").slice(0, 5);
+        this.content = onlyLimitedNumberOfWords.join(" ");
       }
     },
     async fetch() {
