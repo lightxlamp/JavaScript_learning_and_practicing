@@ -3,7 +3,7 @@
     <div class="inline-flex w-full max-w-3xl mx-auto">
       <div class="ml-auto rounded-full px-5 py-1 bg-coral-100 border border-coral-300">
         <span class="text-sm mr-3 font-medium">Word allowance:</span>
-        <span class="text-sm font-medium">{{wordCount}} / 5</span>
+        <span class="text-sm font-medium">{{wordCount}} / {{wordAllowance}}</span>
       </div>
     </div>
     <div>{{content}}</div>
@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       content: "",
-      wordAllowance: 999,
+      wordAllowance: 5,
       limitReached: false,
       membershipCharacterLimit: "",
       form: {
@@ -53,6 +53,8 @@ export default {
       let wordsInForm = this.content.split(" ").length;
       if(wordsInForm > this.wordAllowance){
         this.content.replace(/\s?$/,''); // remove one space at the end. If limit exceeded
+        wordsInForm = this.content.split(" ").length;
+        return wordsInForm;
       }
       else return wordsInForm
     }
