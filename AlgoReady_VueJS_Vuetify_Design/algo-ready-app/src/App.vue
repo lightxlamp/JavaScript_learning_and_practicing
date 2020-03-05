@@ -197,24 +197,23 @@
 
         <v-row no-gutters class="pt-2 mr-2 pl-2">
           <v-col class="info-block pa-5 pb-12">
-           <h2>Performance Breakdown By Factor</h2>
-           <line-chart></line-chart>
-          </v-col>
-        </v-row>     
-        
-        <v-row no-gutters class="pt-8 mr-2 pl-2">
-          <v-col class="info-block pa-5 pb-12">
-           <h2> Volume Breakdown by Factor</h2>
-           <pie-chart></pie-chart>
+            <h2>Performance Breakdown By Factor</h2>
+            <line-chart></line-chart>
           </v-col>
         </v-row>
 
+        <v-row no-gutters class="pt-8 mr-2 pl-2">
+          <v-col class="info-block pa-5 pb-12">
+            <h2>Volume Breakdown by Factor</h2>
+            <pie-chart></pie-chart>
+          </v-col>
+        </v-row>
       </v-container>
     </v-content>
 
     <!-- <v-footer app>
       <span>&copy; 2020</span>
-    </v-footer> -->
+    </v-footer>-->
   </v-app>
 </template>
 
@@ -313,7 +312,7 @@ body {
   font-size: 12px;
 }
 
-.info-block{
+.info-block {
   background-color: #233767;
 }
 </style>
