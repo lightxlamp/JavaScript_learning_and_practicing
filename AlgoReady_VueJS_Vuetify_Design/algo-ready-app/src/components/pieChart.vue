@@ -38,7 +38,13 @@ export default {
       },
       {
         responsive: true,
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
+        legend: {
+          labels: {
+            fontColor: "#eaeaea"
+          },
+          position: 'left'
+        }
       }
     );
   }

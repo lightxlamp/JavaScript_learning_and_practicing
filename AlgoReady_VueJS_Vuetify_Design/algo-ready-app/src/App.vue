@@ -225,7 +225,7 @@ export default {
   data: () => ({
     drawer: null
   }),
-  created() {}
+  created() {},   
 };
 </script>
 
