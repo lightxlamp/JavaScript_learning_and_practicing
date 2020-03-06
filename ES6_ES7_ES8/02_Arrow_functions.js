@@ -33,15 +33,21 @@ setTimeout(function() {
     console.log('Hey after 1 second')
 }, 1000)
 
+ function print() {
+    console.log('Hey after 1 second')
+}
+
+setTimeout(print, 1000)
+
 setTimeout(() => console.log('Hey after 2 seconds'), 2000)
 
 // context
 
 function log(){
-    console.log(this)
+    console.log('log()', this)
 }
 
-const arrowLog = () => console.log(this)
+const arrowLog = () => console.log('() =>  log', this)
 
 const person = {
     name: 'Stas',

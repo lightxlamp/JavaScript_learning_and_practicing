@@ -27,6 +27,6 @@ const person = {
 };
 
 // Object Destructuring
-const { firstname, lastname, country } = person;
+const { x, lastname, country } = person;
 
-console.log('......', firstname, lastname, country); 
+console.log('......', x, lastname, country); 
