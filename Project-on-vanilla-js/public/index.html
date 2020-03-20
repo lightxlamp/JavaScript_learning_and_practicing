@@ -1,0 +1,70 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//cdn.muicss.com/mui-latest/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <link href="static/style.css" rel="stylesheet" type="text/css" />
+    <script src="//cdn.muicss.com/mui-latest/js/mui.min.js"></script>
+    <title>Vanilla JS APP</title>
+  </head>
+   
+  <body>
+    <div id="sidebar">
+      <div class="mui--text-white mui--text-display1 mui--align-vertical">
+        <a href="/" id="logoText">Vanilla JS App</a>
+      </div>
+    </div>
+    <div id="sidebar2">
+      <button class="mui-btn mui-btn--fab mui-btn--primary floating-btn" id="modalInfoBtn">Info</button>
+    </div>
+    <div id="content" class="mui-container-fluid">
+      <div class="mui-row">
+        <div class="mui-col-sm-12">
+          <form class="mui-form" id="myForm">
+            <legend>Ask a question</legend>
+            <div
+              class="mui-textfield mui-textfield--float-label stas-textfield-on-main-page"
+            >
+              <input
+                type="text"
+                id="questionTextField"
+                required
+                minlength="3"
+                maxlength="256"
+              />
+              <label for="questionTextField">Text of your question</label>
+            </div>
+
+            <button
+              type="submit"
+              class="mui-btn mui-btn mui-btn--primary"
+              id="submitBtn"
+              disabled
+            >
+              Submit
+            </button>
+          </form>
+          <br />
+          <div class="mui--text-black-54 mui--text-body2">
+            List of your questions:
+          </div>
+          <div class="mui-divider mui-divider-changed-by-stas"></div>
+          <br />
+          <div id="listOfQuestions"></div>
+          <br />
+          <button
+            id="modalBtn"
+            type="submit"
+            class="mui-btn mui-btn mui-btn--primary"
+            id="seeAllQuestionsBtn"
+          >
+          See questions of other users
+          </button>
+        </div>
+      </div>
+    </div>
+  <script type="text/javascript" src="output.c541801b1c57d57dc618.js"></script></body>
+</html>
