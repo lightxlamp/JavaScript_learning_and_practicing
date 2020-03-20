@@ -8,6 +8,8 @@ import {
   isQuestionLengthValid
 } from "./utils";
 
+var moment = require('moment');
+
 console.log("App working...");
 
 const form = document.getElementById("myForm");
