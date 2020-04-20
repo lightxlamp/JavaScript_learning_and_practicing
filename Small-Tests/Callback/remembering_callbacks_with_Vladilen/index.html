@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log('Start 1');
+
+        console.log('Start 2');
+
+        window.setTimeout(function () {
+            console.log('Start 0');
+        }, 2000);
+
+        window.setTimeout(function () {
+            alert('Completed')
+        }, 3000);
+
+        function printTimeoutText() {
+            console.log('time is out');
+        }
+
+        // 1) why we can use setTimeOut without window?
+        // 2) printTimeoutText has no (). If we write printTimeoutText() it will be called instantly. I've made this
+        // error with setTimeout(alert('Hey'), 2000)
+        setTimeout(printTimeoutText, 5000);
+
+    </script>
+</body>
+
+</html>

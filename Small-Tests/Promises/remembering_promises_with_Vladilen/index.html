@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log('Request data...');
+
+        // Bad Approach - too much nesting
+        setTimeout(() => {
+            console.log('Preparing data...');
+
+            const backendData = {
+                server: 'aws',
+                port: 7912,
+                status: 'online'
+            }
+
+            setTimeout(() => {
+                backendData.modified = true;
+                console.log('Data received', backendData);
+                console.log("*********************************");
+            }, 2000)
+
+        }, 2000)
+        //////////////////////////////////////////
+
+        // Option #2
+        const p = new Promise(function (resolve, reject) {
+            setTimeout(() => {
+                const backendData = {
+                    server: 'FireBase',
+                    port: 8804,
+                    status: 'online'
+                }
+                resolve(backendData); // to use data in then
+            }, 6000)
+        });
+
+        // will be called after resolved()
+        p.then((data) => {
+            console.log('Preparing data...');
+            const p2 = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    data.modified = "Modified in promise 2";
+                    resolve(data);
+                }, 2000)
+            });
+
+            p2.then(clientData => {
+                console.log('Data Received', clientData);
+            })
+        })
+        // The same nesting.... But, we can improve this
+
+    </script>
+</body>
+
+</html>
