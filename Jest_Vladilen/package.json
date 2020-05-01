@@ -1,0 +1,14 @@
+{
+  "name": "jest_vladilen",
+  "version": "1.0.0",
+  "description": "https://www.youtube.com/watch?v=IEDe8jl5efU",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^25.5.3"
+  }
+}
