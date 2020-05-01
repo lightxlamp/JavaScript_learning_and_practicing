@@ -1,7 +1,7 @@
 {
-  "name": "jest_vladilen",
+  "name": "jest",
   "version": "1.0.0",
-  "description": "https://www.youtube.com/watch?v=IEDe8jl5efU",
+  "description": "https://www.youtube.com/watch?v=7r4xVDI2vho",
   "main": "index.js",
   "scripts": {
     "test": "jest"
@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
     "jest": "^25.5.3"
   }
 }
