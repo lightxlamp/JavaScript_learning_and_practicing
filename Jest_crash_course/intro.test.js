@@ -46,16 +46,23 @@ test('Admin should be in usernames', () => {
 
 // Working with async data 
 // Expected one assertion to be called but received zero assertion calls.
-test('User fetched name should be Kurtis Weissnat', () => {
-        // https://assertible.com/docs/guide/assertions
-        // Assertions allow you to validate HTTP responses in your API tests
-        // For example, a basic assertion would ensure that a request to assertible.com returns a Status code 200 
-        // every time -- or that the homepage contains the text Assertible.
-        expect.assertions(1);
-        return functions.fetchUser().then(data => {
-            expect(data.name).toEqual('Kurtis Weissnat');
-        });
-    });
+// test('User fetched name should be Kurtis Weissnat', () => {
+//         // https://assertible.com/docs/guide/assertions
+//         // Assertions allow you to validate HTTP responses in your API tests
+//         // For example, a basic assertion would ensure that a request to assertible.com returns a Status code 200 
+//         // every time -- or that the homepage contains the text Assertible.
+//         expect.assertions(1);
+//         return functions.fetchUser().then(data => {
+//             expect(data.name).toEqual('Kurtis Weissnat');
+//         });
+//     });
 
 // Минут 40 потратил из-затого что посамовольничал и "toEqual" заменил на "toBe" типо имя это простой тип String
 // И ошибку потом искал в другом месте в assertion'ах. Читал документации, смотрел другие видео уроки
+
+// Async/ Await
+test('User fetched name should be Kurtis Weissnat', async () => {
+    expect.assertions(1);
+    const data = await functions.fetchUser();
+    expect(data.name).toEqual('Kurtis Weissnat');
+});
