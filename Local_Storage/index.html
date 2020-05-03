@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const myName = 'Stas'
+        // Local Storage is a browser API (so NODE JS does not have it)
+        // https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+        // localStorage is similar to sessionStorage, except that while data stored in localStorage has no 
+        // expiration time, data stored in sessionStorage gets cleared when the page session ends — that is, 
+        // when the page is closed.
+        localStorage.removeItem('sex')
+        console.log(localStorage.getItem('sex'))
+        localStorage.setItem('sex', 'male')
+        console.log(localStorage.getItem('sex'))
+        localStorage.clear()
+
+        const person = {
+            name: 'Stas',
+            age: 31
+        }
+
+        localStorage.setItem('person', person);
+        // Local storage is able to work with "string" type only.
+        // When we save object to Local Storage - toString() automatically applies to our object
+        // person.toString() so then we see only [Object, Object] in local storage
+        // How to save object? 
+        localStorage.setItem('person_s', person)
+        console.log('tyoe of person - ', typeof(person))
+        localStorage.setItem('person', JSON.stringify(person))
+        console.log('tyoe of JSON.stringify(person) - ', typeof(JSON.stringify(person)))
+        // This is easy info... I already knew if ftom Vladilen's course about 'Todo list on Vanilla JS'
+
+        const userFromLocalStorage = localStorage.getItem('person')
+        console.log(userFromLocalStorage)
+        userFromLocalStorage.name = 'Dmitry'
+        console.log(userFromLocalStorage.name)
+        const userFromLocalStorage_Object = JSON.parse(localStorage.getItem('person'))
+        userFromLocalStorage_Object.name = 'Indira'
+        console.log(userFromLocalStorage_Object.name)
+
+        // useful / new Information
+        // If we work with multiple browser tabs
+        window.addEventListener('storage', event => {
+            // This events calls when something is written to LocalStorage - FROM!!! Another tab!
+            console.log(event);
+        })
+
+        // another way is to write 
+
+        window.onstorage = () => {
+
+        }
+
+        // Local Storage VS Cookie 
+        // There are 2 main difference 
+        // Local storage significantly bigger than cookie (5mb for local storage)
+        // But the main difference is - Cookies are sent to server with request - it is not completely secure 
+
+    </script>
+</body>
+</html>
