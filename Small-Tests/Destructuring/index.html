@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        currentUser = {
+            "id": 24,
+            "name": "John Doe",
+            "website": "http://mywebsite.com",
+            "description": "I am an actor",
+            "email": "example@example.com",
+            "gender": "M",
+            "phone_number": "+12345678",
+            "username": "johndoe",
+            "birth_date": "1991-02-23",
+            "followers": 46263,
+            "following": 345,
+            "like": 204,
+            "comments": 9
+        }
+
+        let { id, username } = currentUser; 
+        console.log(id, username);
+
+        let { id:userID, username:JohnFullName} = currentUser; 
+        console.log(userID, JohnFullName);
+
+        function calcValues(a, b) {
+            return [
+                a + b, 
+                a - b
+            ]
+        }
+
+        console.log(calcValues(42, 10));
+
+        const result = calcValues(42, 10)
+        const sum = result[0];
+        const sub = result[1];
+        console.log(sum, sub);
+
+        const [sumD, subD] = result;
+        console.log(sumD, subD);
+
+        const [sumD2, subD2] = calcValues(42, 10);
+        console.log(sumD2, subD2);
+
+        function calcValuesV2(a, b) {
+            return [
+                a + b, 
+                a - b,
+                a * b,
+                a / b
+            ]
+        }
+
+        const [sum_, , mul_, ...other] = calcValuesV2(42, 10);
+        console.log(sum_, mul_, other);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<script>
+    const person = {
+        name : 'Stas', 
+        age: 30,
+        address:  {
+            country: 'Kyrgyzstan',
+            city: 'Bishkek'
+        }
+    }
+
+    // const name = person.name;
+    const { name } = person;
+    console.log(name);
+
+    const { age ,
+          address : {city: homeTown, country}
+    } = person;
+
+    console.log(age);
+    console.log(homeTown, country);
+
+    const {name: NName, ...info} = person
+    console.log(NName, info);
+</script>
