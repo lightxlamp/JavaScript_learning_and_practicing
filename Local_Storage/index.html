@@ -30,10 +30,10 @@
         // person.toString() so then we see only [Object, Object] in local storage
         // How to save object? 
         localStorage.setItem('person_s', person)
-        console.log('tyoe of person - ', typeof(person))
+        console.log('type of person - ', typeof(person))
         localStorage.setItem('person', JSON.stringify(person))
-        console.log('tyoe of JSON.stringify(person) - ', typeof(JSON.stringify(person)))
-        // This is easy info... I already knew if ftom Vladilen's course about 'Todo list on Vanilla JS'
+        console.log('type of JSON.stringify(person) - ', typeof(JSON.stringify(person)))
+        // It is an easy info... I already knew if ftom Vladilen's course about 'Todo list on Vanilla JS'
 
         const userFromLocalStorage = localStorage.getItem('person')
         console.log(userFromLocalStorage)
