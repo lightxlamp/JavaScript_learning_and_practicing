@@ -8,10 +8,7 @@ new Vue({
                 name: '',
                 value: ''
             },
-            contacts: [
-                {id: 1, name: 'Stanislav', value: '+996-555-40-24-25', isMarked: false},
-                {id: 2, name: 'Adilet', value: '+996-777-99-77-00', isMarked: true}
-            ]
+            contacts: []
         }
     },
 
@@ -39,7 +36,28 @@ new Vue({
 
         deleteContact(id) {
             this.contacts = this.contacts.filter(c => c.id !== id)
-        }
+        },
     }
 })
+
+// Async / Await - синтаксический сахар, оторый удобнее нам позволяет взаимодействовать с Promise'ами 
+async  function request(url, method = 'GET', data = null) {
+     try {
+        const headers = {}
+        let body
+
+        if (data) {
+            headers['Content-Type'] = 'application/json' 
+            body = JSON.stringify(data)
+        }
+
+        // метод встроенный в браузер... для AJAX запросов      
+        const response = await fetch(url, {method, headers, body  }) 
+
+        return await response.json(); 
+     }
+     catch(e) {
+        console.warn('Error', e.message )
+     }
+}
 
