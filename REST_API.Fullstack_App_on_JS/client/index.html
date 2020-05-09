@@ -17,10 +17,23 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
           crossorigin="anonymous">
-  
+
+    <style>
+        [v-cloak] {
+            display: none; /* Если Vue не готов рисовать. То ничего не показывай */
+        }
+
+        .card-title {
+            width: fit-content;
+            padding: 0 5px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container pt-3" id="app">
+    <!-- Before Vue mount into the page, you can see the unparsed {{tags}} for a fraction of a second.
+    v-cloak is a attribute that you can add to a element you want to hide, while Vue is mounting. 
+    Интересно, а в Nuxt это автоматом уже решено? Вроде не видел такого...-->
+    <div class="container pt-3" id="app" v-cloak>
         <h1>Hello Stas</h1>
 
         <!-- form-inline коротким поле ввода сделал. И перенес его на одну линию с label -->
@@ -36,17 +49,24 @@
                 <label for="value" class="mr-3">Value</label>
                 <input type="text" class="form-control" id="value" v-model="form.value">
             </div>
-            <button class="btn btn-primary" type="submit" >Create</button>
+            <button class="btn btn-primary" type="submit" :disabled="!isDataValid">Create</button>
         </form>
 
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">Name</h5>
-                <p class="card-text">Value</p>
-                <button class="btn btn-primary">Cancel</button>
-                <button class="btn btn-danger">Delete</button>
+
+        <div v-if="contacts.length">
+            <div class="card mb-3" v-for="contact in contacts">
+                <div class="card-body">
+                    <h5 class="card-title" :style="{backgroundColor: contact.isMarked ? 'yellow' : 'white'}">{{contact.name}}</h5>
+                    <p class="card-text">{{contact.value}}</p>
+                    <button class="btn btn-primary" @click="markContact(contact.id)" :disabled="contact.isMarked">Mark</button>
+                    <button class="btn btn-danger" @click="deleteContact(contact.id)">Delete</button>
+                </div>
             </div>
         </div>
+        <p v-else>
+            There is no contacts yet
+        </p>
+
     </div>
     <script type="module" src="frontend.js"></script>
 </body>
