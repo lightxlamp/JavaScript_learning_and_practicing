@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST API - Fullstack APP lesson </title>
+    <!-- <link rel="stylesheet" 
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+          crossorigin="anonymous"> 
+    -->
+    <!-- В моей ссылке почему-то MB, MR не работали. Взял ссылку с урока.
+    Не знаю, откуда я выкопал свою, но на офф сайте последняя 4.4.1 как раз
+    https://getbootstrap.com/docs/4.4/getting-started/introduction/ -->
+
+    <link rel="stylesheet" 
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+          crossorigin="anonymous">
+  
+</head>
+<body>
+    <div class="container pt-3" id="app">
+        <h1>Hello Stas</h1>
+
+        <!-- form-inline коротким поле ввода сделал. И перенес его на одну линию с label -->
+        <!-- По-умолчанию submit перезагружает страницу, поэтому и пишем prevent-->
+        <!-- Слушаем событие sumbit. При самбите формы предотвращаем перезагрузку формы и вызываем метод createContact-->
+        <!-- @sumbit.prevent написал. Конечно перезагрудается до сих пор :) @suMBit.prevent -->
+        <form class="form-inline mb-3" @submit.prevent="createContact"> 
+            <div class="form-group mr-5">
+                <label for="name" class="mr-3">Name</label>
+                <input type="text" class="form-control" id="name" v-model="form.name">
+            </div>
+            <div class="form-group mr-5">
+                <label for="value" class="mr-3">Value</label>
+                <input type="text" class="form-control" id="value" v-model="form.value">
+            </div>
+            <button class="btn btn-primary" type="submit" >Create</button>
+        </form>
+
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Name</h5>
+                <p class="card-text">Value</p>
+                <button class="btn btn-primary">Cancel</button>
+                <button class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="frontend.js"></script>
+</body>
+</html>
