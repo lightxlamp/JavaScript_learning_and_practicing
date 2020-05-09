@@ -1,13 +1,45 @@
 const express = require('express')
-const path = require('path'); // Для работы с путями подключаем метод
+const path = require('path')   // Для работы с путями подключаем метод
+const {v4} = require('uuid')
 const app = express()
 const port = 1789
 
 // It is like DB :P on server
-const CONTACTS = [
+let CONTACTS = [
     {id: 1, name: 'Stanislav', value: '+996-555-40-24-25', isMarked: false},
     {id: 2, name: 'Adilet', value: '+996-777-99-77-00', isMarked: true}
 ]
+
+// Поначалу request не умеет работать с JSON мы научим его с помощью Middleware 
+app.use(express.json() )
+
+app.get('/api/contacts', (req, res) => {
+    setTimeout(() => {
+        res.status(200).json(CONTACTS);
+    }, 1500)
+})
+
+app.post('/api/contacts', (req, res) => {
+    console.log(req.body);
+    // In real applications - client validation goes here. 
+    const contact = {...req.body, id: v4(), isMarked: false}
+    CONTACTS.push(contact)
+    // 201 Created. The request has been fulfilled and has resulted in one or more new resources being created
+    res.status(201).json(contact);
+})
+
+app.delete('/api/contacts/:id', (req, res) => {
+    console.log('Delee ');
+    CONTACTS = CONTACTS.filter(c => c.id !== req.params.id)
+    res.status(200).json({message: 'Contact has been deleted'})
+})
+
+app.put('/api/contacts/:id', (req, res) => {
+    const indexOfObject = CONTACTS.findIndex(c => c.id === req.params.id)
+    CONTACTS[indexOfObject] = req.body
+    // No need to write status 200, every time (200 is default status)
+    res.json(CONTACTS[indexOfObject])
+})
 
 // Для того чтобы корректно отдавать статические файлы с Client мы должны обозначить данную папку как статическую
 // С помощью USE добавляем middleware (вот оно и middleware)
