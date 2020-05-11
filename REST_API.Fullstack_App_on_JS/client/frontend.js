@@ -16,7 +16,7 @@ new Vue({
         return {
             form: {
                 name: '',
-                value: ''
+                phone: ''
             },
             isDataLoading: false,
             contacts: []
@@ -26,25 +26,27 @@ new Vue({
     computed: {
         isDataValid() {
             // trim() защитит от пробелов ) ... Капара на таком ловил в Highlanders :)
-            return this.form.value.trim() && this.form.name.trim();
+            return this.form.phone.trim() && this.form.name.trim();
         }
     },
         
     methods: {
         async  createContact() {
-            // console.log(this.form);
+            console.log("createContact");
+            //console.log("this.form", this.form);
             const {...contact} = this.form // destructuring and rest operator :P Я их уже понимаю ) 
-            // console.log(contact) 
+            console.log("contact", contact) 
             const response = await request('api/contacts', 'POST', contact)
-            console.log(response)
+            console.log('response', response)
 
             //this.contacts.push({...contact, id: Date.now(), isMarked: false}); 
-            this.contacts.push(contact); 
-            // this.form.name = this.form.value = '' // Clear fields after submit
+            this.contacts.push(response); // Response is a "contact obj + ID". We need to use it here to mark
+            // contact, just right after adding. If we use push(contact) and press "mark", we have "undefined" id;
+            this.form.name = this.form.phone = '' // Clear fields after submit
         },
 
         async markContact(id) {
-            // console.log(id);
+            console.log('id', id);
             const contact = this.contacts.find(c => c.id === id) 
             const updatedContact = await request(`/api/contacts/${id}`, 'PUT', {
                 ...contact, 
@@ -77,6 +79,7 @@ async function request(url, method = 'GET', data = null) {
         if (data) {
             headers['Content-Type'] = 'application/json' 
             body = JSON.stringify(data)
+            console.log('JSON.stringify(data)', JSON.stringify(data));
         }
 
         // метод встроенный в браузер... для AJAX запросов      

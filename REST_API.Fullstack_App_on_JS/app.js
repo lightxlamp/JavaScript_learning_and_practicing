@@ -6,8 +6,8 @@ const port = 1789
 
 // It is like DB :P on server
 let CONTACTS = [
-    {id: 1, name: 'Stanislav', value: '+996-555-40-24-25', isMarked: false},
-    {id: 2, name: 'Adilet', value: '+996-777-99-77-00', isMarked: true}
+    {id: 1, name: 'Stanislav', phone: '+996-555-40-24-25', isMarked: false},
+    {id: 2, name: 'Adilet', phone: '+996-777-99-77-00', isMarked: true}
 ]
 
 // Поначалу request не умеет работать с JSON мы научим его с помощью Middleware 
@@ -29,7 +29,7 @@ app.post('/api/contacts', (req, res) => {
 })
 
 app.delete('/api/contacts/:id', (req, res) => {
-    console.log('Delee ');
+    console.log('Delete ');
     CONTACTS = CONTACTS.filter(c => c.id !== req.params.id)
     res.status(200).json({message: 'Contact has been deleted'})
 })
