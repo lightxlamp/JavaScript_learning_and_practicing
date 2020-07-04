@@ -10,6 +10,14 @@ const Animal = function (options) {
     }
 }
 
+const Cat = function(options) {
+    Animal.apply(this, arguments)
+    this.isShortTail = options.isShortTail
+}
+
+const cat = new Cat({name: 'Dasha', color: '#000', isShortTail: true})
+console.log('cat', cat);
+
 // better way to add functions to class
 Animal.prototype.voice = function() {
     console.log('Voice of a ', this.name);
