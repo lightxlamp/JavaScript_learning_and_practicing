@@ -1,0 +1,15 @@
+{
+  "name": "TDD_and_Self_written_PROMISE_class",
+  "version": "1.0.0",
+  "description": "Based on video: https://www.youtube.com/watch?v=SQMCtWnCxEA",
+  "main": "promise.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.1.0"
+  }
+}
