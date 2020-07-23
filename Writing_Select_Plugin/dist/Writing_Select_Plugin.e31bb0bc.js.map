@@ -1,0 +1,1 @@
+{"version":3,"sources":["select/select.js","index.js"],"names":["Select","select"],"mappings":";;ACAA;;AAEA,IAAMC,MAAM,GAAG,IAAID,cAAJ,EAAf;;;;;IDFaA","file":"Writing_Select_Plugin.e31bb0bc.js","sourceRoot":"..","sourcesContent":["export class Select {\n    \n}","import {Select} from './select/select'\n\nconst select = new Select();"]}
