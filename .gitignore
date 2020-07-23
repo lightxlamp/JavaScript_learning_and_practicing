@@ -33,4 +33,5 @@ REST_API.Fullstack_App_on_JS/node_modules/
 Socket.io_simple-chat-rewriting/node_modules/
 TDD_and_Self_written_PROMISE_class/node_modules/
 Writing_Select_Plugin/.cache/
-
+Writing_Select_Plugin/node_modules/
+Writing_Select_Plugin/dist/
