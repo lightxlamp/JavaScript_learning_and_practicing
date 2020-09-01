@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+$height: 4.6rem;  
+
+body { 
+    font-family: 'Roboto';
+}
+
 .app {
     padding-top: 5rem;
     display: flex;
@@ -5,5 +12,30 @@
 
     &__wrapper {
         width: 500px;
+    }
+}
+
+.selector {
+    width: 100%;
+    position: relative;
+
+    &__input {
+        border: 1px sandybrown solid;
+        height: $height;
+        border-radius: .5rem;
+        display: flex;
+        align-items: center;
+        padding: 0 1rem ;
+    }
+
+    &__dropdown { 
+        position: absolute;
+        border: 1px sandybrown solid;
+        border-radius: .5rem;
+        left: 0;
+        right: 0;
+        max-height: 20rem;
+        overflow-y: auto;
+        box-shadow: 2px 3px 5px rgba(0, 0, 0, .3);
     }
 }
