@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .block {
+            border: 2px solid black;
+        }
+        .block_1 {
+            height: 300px;
+            width: 300px;
+            background-color: green;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .block_2 {
+            height: 100px;
+            width: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://google.com" target="_blank">Google</a>
+
+    <div class="block block_1">
+        <div class="block block_2"></div>
+    </div>
+   
+</body>
+</html>
+
+<script>
+    // Excercise #1 
+    const a = document.querySelector('a');
+    a.addEventListener('click', linkClickHandler)
+
+    function linkClickHandler(event) {
+        event.preventDefault();
+    } 
+
+    // Excercise #2
+    const blocks = document.querySelectorAll('.block')
+    for(let i = 0; i < blocks.length; i++){ 
+        blocks[i].addEventListener('click', function() {
+            alert(this.getAttribute("class"))
+        })
+    }
+</script>
