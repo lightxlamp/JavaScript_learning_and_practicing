@@ -21,15 +21,19 @@
             width: 100px;
             background-color: red;
         }
+        .active {
+            background-color: black !important;
+        }
     </style>
 </head>
 <body>
+    
     <a href="https://google.com" target="_blank">Google</a>
 
     <div class="block block_1">
         <div class="block block_2"></div>
     </div>
-   
+
 </body>
 </html>
 
@@ -37,15 +41,22 @@
     // Excercise #1 
     const a = document.querySelector('a');
     a.addEventListener('click', linkClickHandler)
+    const block_2 = document.querySelector('.block_1 > div')
 
     function linkClickHandler(event) {
         event.preventDefault();
+        block_2.classList.toggle('active');
+        console.log(window.getComputedStyle(block_2, null).backgroundColor)
+        console.log(window.getComputedStyle(block_2, null)) 
+        // pseudoEltOptional A string specifying the pseudo-element to match. Omitted (or null) for real elements. 
+        // getComputedStyle(h3, ':after').content;
     } 
 
     // Excercise #2
     const blocks = document.querySelectorAll('.block')
     for(let i = 0; i < blocks.length; i++){ 
         blocks[i].addEventListener('click', function() {
+            event.stopPropagation();
             alert(this.getAttribute("class"))
         })
     }
