@@ -15,12 +15,14 @@
 <script>
     var slider = document.getElementById('slider');
     noUiSlider.create(slider, {
-        start: [20, 80],
+        step: 1,
+        margin: 3,
+        start: [18, 99],
+        keyboardSupport: false,
         connect: true,
-        toolto
         range: {
-            'min': 0,
-            'max': 100
+            'min': 18,
+            'max': 99
         }
     });
 </script>
