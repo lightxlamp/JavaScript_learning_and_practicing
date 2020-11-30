@@ -7,37 +7,60 @@
 </head>
 <body>
     <h1>JS Events - Delegste</h1>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, quisquam.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit, quisquam.</p>
-    <p>Lorem ipsum dolor sit Reprehenderit, quisquam.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur elit. Reprehenderit, quisquam.</p> 
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, quisquam.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit, quisquam.</p>
-    <p>Lorem ipsum dolor sit Reprehenderit, quisquam.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur elit. Reprehenderit, quisquam.</p> 
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, quisquam.</p>
-    <p>Lorem ipsum dolor sit Reprehenderit, quisquam.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, quisquam.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit, quisquam.</p>
-    <p>Lorem ipsum dolor sit Reprehenderit, quisquam.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur elit. Reprehenderit, quisquam.</p> 
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, quisquam.</p>
-    <p>Lorem ipsum dolor sit Reprehenderit, quisquam.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur elit. Reprehenderit, quisquam.</p> 
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, quisquam.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit, quisquam.</p>
-    <p>Lorem ipsum dolor sit Reprehenderit, quisquam.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur elit. Reprehenderit, quisquam.</p>
+    <div id="wrapper">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, quisquam.</p>
+        <p class="font">Lorem ipsum dolor sit, amet consectetur adipisicing elit, quisquam.</p>
+        <p>Lorem ipsum dolor sit Reprehenderit, quisquam.</p>
+        <ul>
+            <li class="font">Jika</li>
+            <li>Pika</li>
+            <li>94</li>
+        </ul>
+        <p>Lorem ipsum dolor sit, amet consectetur elit. Reprehenderit, quisquam.</p> 
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, quisquam.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit, quisquam.</p>
+        <p>Lorem ipsum dolor sit Reprehenderit, quisquam.</p>
+        <h3 class="font">Some heading</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur elit. Reprehenderit, quisquam.</p> 
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, quisquam.</p>
+        <p>Lorem ipsum dolor sit Reprehenderit, quisquam.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, quisquam.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit, quisquam.</p>
+        <p>Lorem ipsum dolor sit Reprehenderit, quisquam.</p>
+        <span class="font">Span Text</span>
+        <p>Lorem ipsum dolor sit, amet consectetur elit. Reprehenderit, quisquam.</p> 
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, quisquam.</p>
+        <p>Lorem ipsum dolor sit Reprehenderit, quisquam.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur elit. Reprehenderit, quisquam.</p> 
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, quisquam.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit, quisquam.</p>
+        <p>Lorem ipsum dolor sit Reprehenderit, quisquam.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur elit. Reprehenderit, quisquam.</p>
+    </div>
 </body>
 </html>
 
 <script>
-    // Bad option. If we have 10k p's page might start to freeze  
-    var paragraphs = document.querySelectorAll('p');
-    for (var i = 0; i < paragraphs.length; i++) {
-        paragraphs[i].addEventListener('click', function(event) {
+    // Bad way: If we have 10k p's page might start to freeze  
+    // var paragraphs = document.querySelectorAll('p');
+    // for (var i = 0; i < paragraphs.length; i++) {
+    //     paragraphs[i].addEventListener('click', function(event) {
+    //         event.target.style.backgroundColor = 'red';
+    //         event.target.style.color = 'white';
+    //     })
+    // }
+
+    document.getElementById('wrapper').addEventListener('click', function(event) {
+        //console.log(event.target)
+        console.log(event.target.tagName)
+        var tagName = event.target.tagName.toLowerCase();
+        if(tagName === 'p') {
             event.target.style.backgroundColor = 'red';
             event.target.style.color = 'white';
-        })
-    }
+        }
+
+        if(event.target.classList.contains('font')) {
+            event.target.style.fontSize = '24px';
+        }
+    })
 </script>
