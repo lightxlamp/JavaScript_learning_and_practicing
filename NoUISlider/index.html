@@ -6,6 +6,11 @@
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js" integrity="sha512-EnXkkBUGl2gBm/EIZEgwWpQNavsnBbeMtjklwAa7jLj60mJk932aqzXFmdPKCG6ge/i8iOCK0Uwl1Qp+S0zowg==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.css" integrity="sha512-XXtRBFtk/QfR8GEWwQPYjrQBHQwjidXg0wo8HJi9YOaFycWqd2uWkjJoAyx8Mb/+H8uhvmf70EAIxDnQxrwrvw==" crossorigin="anonymous" />
+    <style>
+        #slider {
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
     <div id="slider"></div>
@@ -16,8 +21,8 @@
     var slider = document.getElementById('slider');
     noUiSlider.create(slider, {
         step: 1,
-        margin: 3,
-        start: [18, 99],
+        start: [21, 38],
+        tooltips: [true, true],
         keyboardSupport: false,
         connect: true,
         range: {
