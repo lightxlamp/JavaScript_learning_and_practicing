@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+        "target": "esnext", // ES3, - Select JS a standart to which ts file will be compiled 
+        "watch": true, // Like SASS ;) Watch for changes and generate new file automatically
+        "lib": ["DOM", "ES2017"]
+    }
+}
