@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="confirm">Confirm</button>
+    <button id="prompt">Prompt</button>
+    <script>
+        document.querySelector('#confirm').addEventListener('click', function() {
+            let isYes = confirm('Do you wanna quit?');
+            if(isYes) 
+                alert('Bye!')
+        })      
+        
+        document.querySelector('#prompt').addEventListener('click', function() {
+            let age = prompt('What\'s your age?');
+            if(age >= 18) 
+                alert('Ok, we will sell you vodka!')
+            else
+                alert('Bye! XD')
+        })
+    </script>
+</body>
+</html>
