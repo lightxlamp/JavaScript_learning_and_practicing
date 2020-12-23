@@ -32,7 +32,7 @@ function generateBox() {
     console.log(gameFieldSize);
     box.style.height = box.style.width = boxSide + 'px';
     box.style.position = 'absolute';
-    box.style.backgroundColor = generateColor();
+    box.style.backgroundColor = generateColorCSSTricks();
     box.style.top = getRandom(0, maxXCoordinate) + 'px';
     box.style.left = getRandom(0, maxYCoordinate) + 'px';
     box.style.cursor = 'pointer';
@@ -48,7 +48,14 @@ function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min) + min); 
 }
 
-// my solution :P 
-function generateColor() {
-    return '#' + getRandom(0, 255) + getRandom(0, 255) + getRandom(0, 255);
+// my 20 secs solution :P 
+function myGenerateColor() {
+    return '#' + getRandom(100, 255) + getRandom(100, 255) + getRandom(100, 255);
+}
+
+// https://css-tricks.com/snippets/javascript/random-hex-color/
+
+function generateColorCSSTricks() {
+    return '#' + Math.floor(Math.random()*16777215).toString(16);
+    document.body.style.backgroundColor = "#" + randomColor;
 }
