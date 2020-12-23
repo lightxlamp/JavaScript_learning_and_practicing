@@ -138,3 +138,8 @@ body {
   box-shadow: 0 6px 16px 0 rgba(0,0,0,.2);
   transform: translateY(-1px);
 }
+
+#pause {
+  width: 100px;
+  height: 30px;
+}

@@ -1,18 +1,61 @@
 const $startBtn = document.querySelector('#start'); // $ - style guide. If this variable is a node element
+const $pauseBtn = document.querySelector('#pause'); 
 const $gameField = document.querySelector('#game');
+const $time = document.querySelector('#time');
+const $score = document.querySelector('#result');
+const $timeHeader = document.querySelector('#time-header');
+const $resultHeader = document.querySelector('#result-header');
 
+let isGameRunning = false;
 let score = 0;
+let interval;
 
 $startBtn.addEventListener('click', startGame);
+$pauseBtn.addEventListener('click', pauseGame);
 $gameField.addEventListener('click', handleBoxClick);
 
 function startGame() {
+   score = 0; 
+   setGameTime();
+   $timeHeader.classList.remove('hide');
+   $resultHeader.classList.add('hide');
+   isGameRunning = true;
    $startBtn.classList.add('hide');
    $gameField.classList.add('started');
+   interval = setInterval(function() {
+    let timeLeft = parseFloat($time.textContent);  
+    if(timeLeft <= 0) {
+        clearInterval(interval); // to stop memory usage
+        // The clearInterval() method of the WindowOrWorkerGlobalScope mixin cancels a timed, repeating action 
+        // which was previously established by a call to setInterval().
+        endGame();
+    }
+    else {
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
+        $time.textContent = (timeLeft - 0.1).toFixed(1);
+    }
+   }, 100)
    generateBox();
 }
 
+function pauseGame() {
+    isGameRunning = false; 
+    
+}
+
+function setGameTime() {
+    let time = 3;
+    $time.textContent = time.toFixed(1);
+}
+
+function setScore() {
+    $score.textContent = score.toString();
+}
+
 function handleBoxClick(event) {
+    if(!isGameRunning) {
+        return false
+    }
     console.log(event.target.dataset);
     if(event.target.dataset.iAmBox) {
         // alert('box')
@@ -58,4 +101,14 @@ function myGenerateColor() {
 function generateColorCSSTricks() {
     return '#' + Math.floor(Math.random()*16777215).toString(16);
     document.body.style.backgroundColor = "#" + randomColor;
+}
+
+function endGame() {
+    isGameRunning = false;
+    setScore();
+    $startBtn.classList.remove('hide');
+    $gameField.classList.remove('started');
+    $gameField.innerHTML = '';
+    $timeHeader.classList.add('hide');
+    $resultHeader.classList.remove('hide');
 }
