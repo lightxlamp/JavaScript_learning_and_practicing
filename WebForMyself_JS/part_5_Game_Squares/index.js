@@ -5,14 +5,21 @@ const $time = document.querySelector('#time');
 const $score = document.querySelector('#result');
 const $timeHeader = document.querySelector('#time-header');
 const $resultHeader = document.querySelector('#result-header');
+const $gameTime = document.querySelector('#game-time');
+const $starTheme = document.querySelector('#star-theme');
 
 let isGameRunning = false;
 let score = 0;
 let interval;
+let starThemeApplied = $starTheme.checked;
 
 $startBtn.addEventListener('click', startGame);
 $pauseBtn.addEventListener('click', pauseGame);
 $gameField.addEventListener('click', handleBoxClick);
+$gameTime.addEventListener('input', setGameTime);
+$starTheme.addEventListener('input', () => {
+    starThemeApplied = $starTheme.checked;
+})
 
 function startGame() {
    score = 0; 
@@ -44,8 +51,9 @@ function pauseGame() {
 }
 
 function setGameTime() {
-    let time = 3;
+    let time = +$gameTime.value; // also we could use parseInt here
     $time.textContent = time.toFixed(1);
+
 }
 
 function setScore() {
@@ -75,7 +83,13 @@ function generateBox() {
     console.log(gameFieldSize);
     box.style.height = box.style.width = boxSide + 'px';
     box.style.position = 'absolute';
-    box.style.backgroundColor = generateColorCSSTricks();
+    if(starThemeApplied){
+        box.style.backgroundImage = 'url("./img/star.png")'
+        box.style.backgroundSize = (boxSide * 0.96) + 'px';
+    }
+    else {
+        box.style.backgroundColor = generateColorCSSTricks();
+    }
     box.style.top = getRandom(0, maxXCoordinate) + 'px';
     box.style.left = getRandom(0, maxYCoordinate) + 'px';
     box.style.cursor = 'pointer';
