@@ -8,6 +8,7 @@
 <body>
     <div class="wrapper" style="margin: 0 auto; width: 500px; height: 500px; border: 1px solid black; display: 
                                 flex; align-items: center; justify-content: center; flex-direction: column;">
+        <div id="timeLeft"></div>
         <div id="gameField" style="margin: 0 auto; width: 300px; height: 300px; border: 1px solid black; position: relative;">
 
         </div>
@@ -17,18 +18,37 @@
     <script>
         const $gameField = document.querySelector('#gameField')
         const $btnStart = document.querySelector('#btnStart')
+        const $timeLeft = document.querySelector('#timeLeft')
         console.log($gameField)
 
         let timeToPlay = 5;
+        let clickedBoxes = 0;
+        $timeLeft.innerHTML = timeToPlay + ' seconds';
 
         $btnStart.addEventListener('click', () => {
-   
-        })
+            timeToPlay = 5;
+            clickedBoxes = 0;
+            renderBox();
 
-        renderBox()
+            // https://stackoverflow.com/questions/16599878/can-clearinterval-be-called-inside-setinterval/16599921
+            // Can clearInterval() be called inside setInterval()?
+            let playTimeInterval = setInterval(function() {
+                if(timeToPlay > 0) {
+                    console.log(timeToPlay)
+                    timeToPlay = (timeToPlay - 0.2).toFixed(1);
+                    $timeLeft.innerHTML = timeToPlay + ' seconds';
+                }
+                else {
+                    alert('Your score: ' + clickedBoxes);
+                    $gameField.innerHTML = ''
+                    clearInterval(playTimeInterval);
+                }
+            }, 200)
+        })
 
         $gameField.addEventListener('click', function(event) {
             if(event.target.innerHTML === 'i am box') {
+                clickedBoxes++;
                 gameField.innerHTML = '';   
                 renderBox();
             }
