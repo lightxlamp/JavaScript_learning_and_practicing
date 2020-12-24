@@ -8,10 +8,52 @@
 <body>
     <div class="wrapper" style="margin: 0 auto; width: 500px; height: 500px; border: 1px solid black; display: 
                                 flex; align-items: center; justify-content: center; flex-direction: column;">
-        <div class="gameField" style="margin: 0 auto; width: 300px; height: 300px; border: 1px solid black;">
+        <div id="gameField" style="margin: 0 auto; width: 300px; height: 300px; border: 1px solid black; position: relative;">
 
         </div>
-        <button >Start</button>
+        <button id="btnStart">Start</button>
     </div>
+
+    <script>
+        const $gameField = document.querySelector('#gameField')
+        const $btnStart = document.querySelector('#btnStart')
+        console.log($gameField)
+
+        let timeToPlay = 5;
+
+        $btnStart.addEventListener('click', () => {
+   
+        })
+
+        renderBox()
+
+        $gameField.addEventListener('click', function(event) {
+            if(event.target.innerHTML === 'i am box') {
+                gameField.innerHTML = '';   
+                renderBox();
+            }
+        })
+
+        // https://www.w3schools.com/js/tryit.asp?filename=tryjs_random_function
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        function renderBox() {
+            // https://www.w3schools.com/jsref/met_node_appendchild.asp
+            const box = document.createElement('div')
+            box.innerHTML = 'i am box'
+            const boxSide = getRndInteger(30,100);
+            box.style.width = box.style.height = boxSide + 'px';
+            box.style.backgroundColor = 'black'
+            box.style.cursor = 'pointer';
+            box.style.fontSize = 0 + 'px';
+            box.style.position = 'absolute'
+            box.style.left = getRndInteger(0,300 - boxSide) + 'px';
+            box.style.top = getRndInteger(0,300 - boxSide) + 'px';
+
+            $gameField.appendChild(box)
+        }
+    </script>
 </body>
 </html>
