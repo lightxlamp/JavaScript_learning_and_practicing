@@ -21,13 +21,20 @@ $starTheme.addEventListener('input', () => {
     starThemeApplied = $starTheme.checked;
 })
 
+function show($el) {
+    $el.classList.remove('hide')
+}
+
+function hide($el) {
+    $el.classList.add('hide')
+}
+
 function startGame() {
    score = 0; 
    setGameTime();
-   $timeHeader.classList.remove('hide');
-   $resultHeader.classList.add('hide');
+   $gameTime.setAttribute('disabled', 'true')
    isGameRunning = true;
-   $startBtn.classList.add('hide');
+   hide($startBtn);
    $gameField.classList.add('started');
    interval = setInterval(function() {
     let timeLeft = parseFloat($time.textContent);  
@@ -53,6 +60,8 @@ function pauseGame() {
 function setGameTime() {
     let time = +$gameTime.value; // also we could use parseInt here
     $time.textContent = time.toFixed(1);
+    show($timeHeader);
+    hide($resultHeader);
 
 }
 
@@ -119,10 +128,11 @@ function generateColorCSSTricks() {
 
 function endGame() {
     isGameRunning = false;
+    $gameTime.removeAttribute('disabled')
     setScore();
-    $startBtn.classList.remove('hide');
+    show($startBtn);
     $gameField.classList.remove('started');
     $gameField.innerHTML = '';
-    $timeHeader.classList.add('hide');
-    $resultHeader.classList.remove('hide');
+    hide($timeHeader);
+    show($resultHeader);
 }
