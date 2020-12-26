@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" style="border: 1px solid red; background-color: brown; width: 300px; height: 300px;">
+        <div class="box" style="width: 50%; height: 50%; border: 1px solid black; background-color: darkblue;"></div>
+    </div>
+
+    <script>
+        const $container = document.querySelector('.container');
+        const $box = document.querySelector('.box');
+
+        $container.addEventListener('click', function() {
+            alert('container is clicked');
+        })
+
+        $box.addEventListener('click', function (event) {
+            event.stopPropagation();
+            alert('box is clicked');
+        })
+    </script>
+</body>
+</html>
