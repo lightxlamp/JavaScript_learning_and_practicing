@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let car = {
+            year: 2006,
+            model: 'Toyota Prius',
+            owner: {
+
+            } 
+        }
+
+        // Когда создаем Car наследуемся от Object.prototype 
+        // car => Object.prototype 
+        console.log( car.__proto__ === Object.prototype); // true
+        console.log( car.__proto__ === Object.__proto__); // false
+        // Почему разные пока не понятно
+        // [] => Array => Object
+
+    </script>
+    <script src="index.js"></script>
+</body>
+</html>
