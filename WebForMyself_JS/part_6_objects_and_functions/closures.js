@@ -29,3 +29,17 @@ function showPcInfo() {
 }
 
 showPcInfo()
+
+console.log('-----');
+
+function makeFunc() {
+    var name = "Mozilla";
+    function displayName() {
+      console.log(name);
+    }
+    return displayName;
+  };
+  
+  var name = 'Override Mozilla'
+  let myFunc = makeFunc();
+  myFunc();
