@@ -14,4 +14,18 @@ function init() {
     }
     displayName();
 }
-init();
+
+// myEx :) 
+
+function showPcInfo() {
+    const CPU = 'i7 4790'
+    const GPU = 'MSI 1070'
+
+    function printSpecs() {
+        console.log('CPU: ', CPU);
+        console.log('GPU: ', GPU);
+    }
+    printSpecs()
+}
+
+showPcInfo()
