@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thinking about intervals and ability to add objects dynamicly :) I can create a chrome - dino like game, May be</title>
+    <style>
+        .bush {
+            width: 50px;
+            height: 50px;
+            background-image: url('./src/bush.png');
+            background-size: 50px;
+            position: absolute;
+            bottom: 0;
+        }
+        .hero {
+            width: 76px;
+            height: 130px;
+            background-image: url('./src/hero.png');
+            background-size: 76px 130px;
+            background-repeat: no-repeat;
+            position: absolute;
+            bottom: 0;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" style="width: 500px; height: 500px; background-color: brown; overflow: hidden; position: relative;">
+
+        <div class="scrolling_wrapper" style="position: relative;">
+            <div class="hero"></div>
+            <div class="scrolling" style="background: repeating-linear-gradient(
+                45deg,
+                #606dbc,
+                #606dbc 10px,
+                #465298 10px,
+                #465298 20px
+            ); height: 300px; width: 100000px; margin-top: 100px; position: relative;">
+            </div>
+    
+        </div>
+
+    </div>
+
+    <script>
+        let scrolling = document.querySelector('.scrolling')
+        let mgLeft = 0;
+        let interval = setInterval(() => {
+            scrolling.style.marginLeft = -mgLeft + 'px';
+            mgLeft += 5;
+        }, 100) // Lol my PC temp 83 C after running this. 
+
+        letBushInterval = setInterval(() => {
+            let bush = randomBush();
+            scrolling.appendChild(bush)
+        }, 3000)
+
+        function randomBush() {
+            let bush = document.createElement('div')
+            bush.classList.add('bush')
+            // Comlicated code intentianally :) Do not do this way. Horriable readability 
+            bush.style.marginLeft = mgLeft + parseInt(box.style.width.slice(0, -2), 10) + 'px';
+            return bush
+        }
+    </script>
+</body>
+</html> 
