@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Based on https://www.youtube.com/watch?v=cve1gYV7jWk&ab_channel=codeSTACKr -->
+    <!-- Use classes to add styles, because if you add id and don't use it unnecessary global variable is selected
+    and wasting resources -->
     <title>STOP Declaring IDs!?! JavaScript Global Variables Best Practices</title>
 </head>
 <body>
     <button id="myBtn">Stas test!</button>
 
+    <div id="multi_id"></div>
+    <div id="multi_id"></div>
+    <div id="multi_id"></div>
     <script>
 
         myBtn.addEventListener('click', function() {
             alert('clicked')
         }) 
+
+        console.log(multi_id);
     </script>
 </body>
 </html>
