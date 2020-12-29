@@ -11,9 +11,12 @@
 <body>
     <button id="myBtn">Stas test!</button>
 
-    <div id="multi_id"></div>
-    <div id="multi_id"></div>
-    <div id="multi_id"></div>
+    <div id="myEx">My Div</div>
+
+    <div id="multi_id">1</div>
+    <div id="multi_id">2</div>
+    <div id="multi_id">3</div>
+
     <script>
 
         myBtn.addEventListener('click', function() {
@@ -21,6 +24,8 @@
         }) 
 
         console.log(multi_id); // Chrome Returned 3 elements - FireFox only 1
+
+        console.log(myEx);
     </script>
 </body>
 </html>
