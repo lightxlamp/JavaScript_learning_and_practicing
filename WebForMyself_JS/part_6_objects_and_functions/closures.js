@@ -43,3 +43,5 @@ function makeFunc() {
   var name = 'Override Mozilla'
   let myFunc = makeFunc();
   myFunc();
+
+  
