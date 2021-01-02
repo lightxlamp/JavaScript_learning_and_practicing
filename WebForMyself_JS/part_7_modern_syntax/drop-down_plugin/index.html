@@ -48,6 +48,7 @@
         position: absolute;
         top: 29px;
         padding: 10px 0;
+        margin: 0;
     }
 
     .dropdown__items li {
@@ -62,16 +63,9 @@
 <body>
     
     <div class="app">
-        <div class="dropdown opened">
-            <div class="dropdown__label">
-                Selected
-            </div>
-
-            <div class="dropdown__items">
-                <li>item</li>
-                <li>item</li>
-                <li>item</li>
-            </div>
+        <div class="dropdown">
+            <div class="dropdown__label"></div>
+            <ul class="dropdown__items"></ul>
         </div>
     </div>
 
