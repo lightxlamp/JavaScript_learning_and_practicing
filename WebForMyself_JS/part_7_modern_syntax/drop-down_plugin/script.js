@@ -9,12 +9,12 @@ class Dropdown {
                 this.$dropdown.classList.contains('opened') ? this.close() : this.open();
             }
             else if(event.target.tagName.toLowerCase() === 'li') {
-                console.log(event.target.dataset.id);
+                this.select(event.target.dataset.id);
             }
         })
 
         const itemsHTML = this.items.map(item => {
-            return `<li my-attrubute="${item.id}">${item.label}</li>`
+            return `<li data-id="${item.id}">${item.label}</li>`
         }).join(' ') // Remove ',' from output by converting array to string
         // + https://www.sitepoint.com/how-why-use-html5-custom-data-attributes/ - How You Can Use HTML5 Custom Data Attributes and Why
 
@@ -28,15 +28,23 @@ class Dropdown {
     close() {
         this.$dropdown.classList.remove('opened');
     }
+    
+    select(id) {
+        const item = this.items.find(item => item.id === id)
+        console.log(item);
+        this.$dropdown.querySelector('.dropdown__label').textContent = item.label;
+        this.close();
+    }
 }
-
 
 const dropdown = new Dropdown('.dropdown', {
     items: [
-      {label: 'Grand Theft Auto V', id: 'gta5'},
-      {label: 'Dragon Age Origins', id: 'dragonAgeOrigins'},
-      {label: 'Halo', id: 'halo'},
-      {label: 'Fall Guys', id: 'fallGuys'}
+        {label: 'Dragon Age Origins', id: 'dragonAgeOrigins'},
+        {label: 'Fall Guys', id: 'fallGuys'},
+        {label: 'Grand Theft Auto V', id: 'gta5'},
+        {label: 'Halo Infinite', id: 'haloInfinite'},
+        {label: 'Horizon Zero Dawn', id: 'horizonZeroDawn'},
+        {label: 'Remnant From The Ashes', id: 'remnantFromTheAshes'},
     ]
   })
 
