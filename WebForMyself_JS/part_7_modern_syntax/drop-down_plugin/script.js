@@ -9,13 +9,14 @@ class Dropdown {
                 this.$dropdown.classList.contains('opened') ? this.close() : this.open();
             }
             else if(event.target.tagName.toLowerCase() === 'li') {
-                console.log(event.target);
+                console.log(event.target.dataset.id);
             }
         })
 
         const itemsHTML = this.items.map(item => {
-            return `<li>${item.label}</li>`
+            return `<li my-attrubute="${item.id}">${item.label}</li>`
         }).join(' ') // Remove ',' from output by converting array to string
+        // + https://www.sitepoint.com/how-why-use-html5-custom-data-attributes/ - How You Can Use HTML5 Custom Data Attributes and Why
 
         this.$dropdown.querySelector('ul').insertAdjacentHTML('afterbegin', itemsHTML)
     }
