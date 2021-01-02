@@ -5,9 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Plugin</title>
 </head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .app { 
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        padding-top: 50px;
+        border: 5px solid black;
+    }
+
+    .dropdown {
+        position: relative;
+        width: 400px;
+    }
+
+    /* https://css-tricks.com/multiple-class-id-selectors/ */
+    /* I knew this, but to double check =) Because I was not sure 100% */
+    .dropdown.opened .dropdown__items {
+        display: block;
+    }
+
+    .dropdown__label {
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid black;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .dropdown__items {
+        list-style: none;
+        display: none;
+        border-radius: 5px;
+        border: 1px solid black;
+        width: 100%;
+        position: absolute;
+        top: 29px;
+        padding: 10px 0;
+    }
+
+    .dropdown__items li {
+        padding: 5px 10px;
+    }   
+    
+    .dropdown__items li:hover {
+        background-color: rgba(0,0,0,.25);
+        cursor: pointer;
+    }
+</style>
 <body>
     
-    
+    <div class="app">
+        <div class="dropdown opened">
+            <div class="dropdown__label">
+                Selected
+            </div>
+
+            <div class="dropdown__items">
+                <li>item</li>
+                <li>item</li>
+                <li>item</li>
+            </div>
+        </div>
+    </div>
+
     <script src="./script.js"></script>
 </body>
 </html>
