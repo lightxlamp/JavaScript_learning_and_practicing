@@ -1,11 +1,13 @@
-const Person = function () {
-    let age = 31;
-    let name = 'Stas';
+const Person = {
+    age : 31,
+    name : 'Stas',
 
-    let print_info = function () {
-        console.log(this.age);
-        console.log(this.name);
+    print_info: function () {
+        setTimeout(function () {
+            console.log(this.age);
+            console.log(this.name);
+        }.bind(Person), 2000)
     }
 }
 
-Person.print_info();
+Person.print_info()
