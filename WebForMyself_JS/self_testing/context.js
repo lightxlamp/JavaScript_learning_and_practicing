@@ -1,14 +1,11 @@
 const Person = function () {
-    let age
-    let name
+    let age = 31;
+    let name = 'Stas';
 
-    function print_info() {
+    let print_info = function () {
         console.log(this.age);
         console.log(this.name);
     }
 }
 
-let me = new Person();
-me.age = 31;
-me.name = 'Stas';
-me.print_info();
+Person.print_info();
