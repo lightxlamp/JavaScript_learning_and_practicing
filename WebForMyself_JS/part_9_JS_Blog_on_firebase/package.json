@@ -1,0 +1,17 @@
+{
+  "name": "vanilla-js-blog",
+  "version": "1.0.0",
+  "description": "JS Native Blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blog",
+    "vanilla",
+    "js",
+    "firebase"
+  ],
+  "author": "lightxlamp",
+  "license": "ISC"
+}
