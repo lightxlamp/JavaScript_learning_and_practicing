@@ -10,15 +10,17 @@ module.exports = {
         filename: 'bundle.js' // scripts + modules... Good practice to call it bundle
     },
     devServer: {
-        contentBase: __dirname + '/dist' //path to folder where we need to run our dev server
+        contentBase: __dirname + '/dist', //path to folder where we need to run our dev server
+        port: 4321
     },
     // to manipulate HTML (index.html), and add our bundle to it we need HtmlWebpackPlugin
     // plugins: [new HtmlWebpackPlugin()] // generates a new index.html. Like a did with documentation
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: '.src/index.html'
-    })],
+            template: './src/index.html'
+        })
+    ],
     resolve: {
         extensions: ['.js']
     }

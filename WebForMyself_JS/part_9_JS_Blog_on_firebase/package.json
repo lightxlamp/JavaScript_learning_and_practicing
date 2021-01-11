@@ -3,9 +3,21 @@
   "version": "1.0.0",
   "description": "JS Native Blog",
   "main": "index.js",
+
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --mode development --open. From a lesson does not work so was replaced by serve",
+    "startFixWith": "https://github.com/webpack/webpack-dev-server/issues/2759",
+    "portAdded": "port changed for webpack, because phpMyAdmin needs it",
+    "Commenting": " :P You can always abuse the fact that duplicated keys are overwritten"
   },
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development",
+    "start": "webpack serve"
+  },
+
   "keywords": [
     "blog",
     "vanilla",
