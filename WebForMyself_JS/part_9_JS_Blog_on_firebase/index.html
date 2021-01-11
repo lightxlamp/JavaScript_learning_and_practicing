@@ -14,16 +14,16 @@
 </head>
 <body>
 <header id="header">
-  <h1 class="title">БЛОГ 001001</h1>
-  <h2 class="subtitle">Создавайте статьи и добавляйте их в избранное</h2>
-  <button class="get-started button button-primary button-large">Приступить</button>
+  <h1 class="title">Blog 001001</h1>
+  <h2 class="subtitle">Create articles and add them to Favorites</h2>
+  <button class="get-started button button-primary button-large">Start</button>
 </header>
 
 <section class="container w-container">
   <ul class="tabs" id="navigation">
-    <li><a class="tab " href="#" data-name="posts">Посты</a></li>
-    <li><a class="tab active" href="#" data-name="create">Создать</a></li>
-    <li><a class="tab" href="#" data-name="favorite">Избранное</a></li>
+    <li><a class="tab " href="#" data-name="posts">Posts</a></li>
+    <li><a class="tab active" href="#" data-name="create">Create</a></li>
+    <li><a class="tab" href="#" data-name="favorite">Favorites</a></li>
   </ul>
 
   <div class="loader-wrap hide" id="loader">
@@ -31,37 +31,37 @@
   </div>
 
   <form id="create">
-    <h1 class="h4">Создать новый пост</h1>
+    <h1 class="h4">Create a new post</h1>
 
     <div class="form-control">
-      <label>Название</label>
-      <input type="text" name="title" placeholder="Введите название">
+      <label>Title</label>
+      <input type="text" name="title" placeholder="Enter a title">
     </div>
 
     <div class="form-control">
       <label>Текст</label>
-      <textarea name="fulltext" placeholder="Введите текст поста"></textarea>
+      <textarea name="fulltext" placeholder="Type text of a post"></textarea>
     </div>
 
     <div class="form-control">
       <label>Тип</label>
       <select name="type">
-        <option value="note" selected>Заметка</option>
-        <option value="news">Новость</option>
+        <option value="note" selected>Note</option>
+        <option value="news">News</option>
       </select>
     </div>
 
     <button
       class="button-primary button-round button-shadow"
       type="submit"
-    >Создать</button>
+    >Create</button>
   </form>
   <div id="posts">
     <div class="panel">
       <div class="panel-head">
-        <p class="panel-title">Название поста</p>
+        <p class="panel-title">Title of a post</p>
         <ul class="tags">
-          <li class="tag tag-blue tag-rounded">Новость</li>
+          <li class="tag tag-blue tag-rounded">News</li>
         </ul>
       </div>
       <div class="panel-body">
