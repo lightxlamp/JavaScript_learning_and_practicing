@@ -4,7 +4,7 @@
   "description": "JS Native Blog",
   "main": "index.js",
 
-  "scripts": {
+  "//scripts": {
     "start": "webpack-dev-server --mode development --open. From a lesson does not work so was replaced by serve",
     "startFixWith": "https://github.com/webpack/webpack-dev-server/issues/2759",
     "portAdded": "port changed for webpack, because phpMyAdmin needs it",
