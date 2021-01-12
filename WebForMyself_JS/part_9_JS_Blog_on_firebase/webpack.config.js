@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); // require from node m
 
 module.exports = {
     // entry point of our app
-    entry: ['./src/index.js'],
+    entry: ['@babel/polyfill', './src/index.js'],
     // webpack output - result of webpack's work
     output: {
         path: __dirname + '/dist', // __dirname current folder's path
@@ -23,5 +23,19 @@ module.exports = {
     ],
     resolve: {
         extensions: ['.js']
+    }, 
+    module: {
+        rules: [// All files with JS extension, except files in node_modules, should be processed with babel-loader
+            { // https://github.com/babel/babel-loader
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            }
+        ]
     }
 }

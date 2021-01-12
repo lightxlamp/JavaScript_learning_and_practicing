@@ -3,21 +3,18 @@
   "version": "1.0.0",
   "description": "JS Native Blog",
   "main": "index.js",
-
   "//scripts": {
     "start": "webpack-dev-server --mode development --open. From a lesson does not work so was replaced by serve",
     "startFixWith": "https://github.com/webpack/webpack-dev-server/issues/2759",
     "portAdded": "port changed for webpack, because phpMyAdmin needs it",
     "Commenting": " :P You can always abuse the fact that duplicated keys are overwritten"
   },
-
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
     "dev": "webpack --mode development",
     "start": "webpack serve"
   },
-
   "keywords": [
     "blog",
     "vanilla",
@@ -27,9 +24,16 @@
   "author": "lightxlamp",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-loader": "^8.2.2",
     "html-webpack-plugin": "^4.5.1",
-    "webpack": "^5.12.3",
+    "webpack": "^5.13.0",
     "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1"
   }
 }
