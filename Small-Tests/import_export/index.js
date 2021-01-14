@@ -1,9 +1,11 @@
 import { sayHi } from './func.js'
 // import color from './default.js'
 import color from './default.js'
+import {printLamarRoastsFranklinFullWording as printMeme} from './func.js'
 
 sayHi() 
 console.log(color);
+printMeme();
 // color();
 
 // https://www.youtube.com/watch?v=s9kNndJLOjg checking what's wrong..
