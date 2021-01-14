@@ -1,6 +1,10 @@
 import { sayHi } from './func.js'
+// import color from './default.js'
+import color from './default.js'
 
 sayHi() 
+console.log(color);
+// color();
 
 // https://www.youtube.com/watch?v=s9kNndJLOjg checking what's wrong..
 
@@ -14,3 +18,6 @@ sayHi()
 // Had an error #2.
 // If using - import { sayHi } from './func'. SayHi is highlighted, but leads to error. without .js
 // GET http://127.0.0.1:5500/Small-Tests/import_export/func net::ERR_ABORTED 404 (Not Found)
+
+
+// But I still wanna know how to launch 'node index.js'. Is it possible in some way.
