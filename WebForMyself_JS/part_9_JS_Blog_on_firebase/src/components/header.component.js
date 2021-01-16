@@ -6,14 +6,18 @@ export class HeaderComponent extends Component {
     }
 
     init() {
-        console.log(this.$el);
+        if(localStorage.getItem('started')){
+            this.hide();
+        }
+        // console.log(this.$el);
         const startBtn = this.$el.querySelector('.js-header-start');
         startBtn.addEventListener('click', startButtonHandler.bind(this));
     }
 }
 
 function startButtonHandler() {
-    console.log('this', this.$el);
+    // console.log('this', this.$el);
     // this.$el.classList.add('hide')
+    localStorage.setItem('started', JSON.stringify(true))
     this.hide();
 }
