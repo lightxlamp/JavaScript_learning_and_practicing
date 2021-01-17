@@ -26,6 +26,9 @@ function submitHandler(event) {
             type: this.$el.type.value,
             ...this.form.value()
         }
+
+        this.form.clear();
+
         // console.log(formData, this.form.value());
         console.log('Submit', formData)
     }
