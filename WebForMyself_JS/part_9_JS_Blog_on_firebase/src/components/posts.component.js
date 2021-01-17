@@ -3,11 +3,13 @@ import { apiService } from '../services/api.service'
 import { TransformService } from '../services/transform.service'
 
 export class PostsComponent extends Component {
-    constructor(id) {
+    constructor(id, {loader}) {
         super(id)
+        this.loader = loader
     }
 
     async onShow() {
+        this.loader.show()
         const fireBasePosts = await apiService.getPosts()
         console.log(fireBasePosts);
         const arrayOfPosts = TransformService.fireBaseObjectToArray(fireBasePosts)
@@ -22,6 +24,7 @@ export class PostsComponent extends Component {
 
         // lesson code a little bit clearer 
         const html = arrayOfPosts.map(post => renderPost(post))
+        this.loader.hide()
         this.$el.insertAdjacentHTML('afterbegin', html.join(' '));
     }
 
