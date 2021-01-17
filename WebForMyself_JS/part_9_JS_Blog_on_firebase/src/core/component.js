@@ -6,11 +6,21 @@ export class Component {
 
     init() {}
 
+    onShow() {
+        // logic realized in child class 
+    }
+
+    onHide() {
+
+    }
+
     hide() {
         this.$el.classList.add('hide')
+        this.onHide()
     }
 
     show() {
         this.$el.classList.remove('hide')
+        this.onShow()
     }
 }
