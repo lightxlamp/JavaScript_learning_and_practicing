@@ -8,6 +8,10 @@ export class PostsComponent extends Component {
         this.loader = loader
     }
 
+    init() {
+        this.$el.addEventListener('click', buttonHandler.bind(this))
+    }
+
     async onShow() {
         this.loader.show()
         const fireBasePosts = await apiService.getPosts()
@@ -38,7 +42,10 @@ function renderPost(post) {
         ? '<li class="tag tag-blue tag-rounded">News</li>'
         : '<li class="tag tag-rounded">Note</li>'
 
-    const button = '<button class="button-primary button-small button-round">Save</button>'; // https://kylelogue.github.io/mustard-ui/index.html
+    const isAlreadyAddedToFavs = JSON.parse(localStorage.getItem('favs') || []).includes(post.id)
+    const button = isAlreadyAddedToFavs 
+        ? `<button data-id="${post.id}" class="button-danger button-small button-round">Remove from favorites</button>` // https://kylelogue.github.io/mustard-ui/index.html
+        : `<button data-id="${post.id}" class="button-primary button-small button-round">Add to favorites</button>`
         
     return `    
     <div class="panel">
@@ -56,4 +63,34 @@ function renderPost(post) {
             ${button}
         </div>
   </div>`
+}
+
+function buttonHandler(e) {
+    // https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
+    const id = e.target.dataset.id;
+    const button = e.target;
+    // id helps us to determine that button was clicked, not a post (may be it is not a good approach)
+    if(id) {
+        let favs = JSON.parse(localStorage.getItem('favs')) || []
+
+        if(favs.includes(id)) {
+            // remove fav
+            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+            favs = favs.filter(fId => fId !== id)
+            button.textContent = 'Add to favorites'
+            button.classList.add('button-primary')
+            button.classList.remove('button-danger')
+        }
+        else {
+            // add fav
+            favs.push(id)
+            button.textContent = 'Remove from favorites'
+            button.classList.remove('button-primary')
+            button.classList.add('button-danger')
+        }
+
+        localStorage.setItem('favs', JSON.stringify(favs))
+    }
+
+    // Notes: Seems like user favs list should be stored (or be duplicated) in FireBase as well
 }
