@@ -38,7 +38,7 @@ async function linkClickHandler(e) {
 } 
 
 function renderFavs(favs = []) {
-    if(favs.length) {
+    if(favs && favs.length) {
         return `
             <ul>
                 ${favs.map(item => `<li><a href="" class="fav-link">${item}</a></li>`).join(' ')}

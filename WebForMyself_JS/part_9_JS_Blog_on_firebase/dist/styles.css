@@ -59,3 +59,17 @@ textarea {
 .multi-line {
   white-space: pre-line;
 }
+
+/* Mustard bug fix */
+input {
+  appearance: none;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: inherit;
+  background: #fff;
+  border-radius: 5px;
+  border: 1px solid #bdbdbd;
+}
