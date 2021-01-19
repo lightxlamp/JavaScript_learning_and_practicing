@@ -16,21 +16,25 @@ export class PostsComponent extends Component {
     async onShow() {
         this.loader.show()
         const fireBasePosts = await apiService.getPosts()
-        console.log(fireBasePosts);
+        console.log('fireBasePosts', fireBasePosts);
         const arrayOfPosts = TransformService.fireBaseObjectToArray(fireBasePosts)
-        console.log(arrayOfPosts);
+        console.log('arrayOfPosts', arrayOfPosts);
 
         console.log('this', this);
 
         // my code without watching lesson
         // arrayOfPosts.forEach(post => {
-        //     this.$el.insertAdjacentHTML('afterbegin', renderPost(post));
+        //     this.$el.insertAdjacentHTML('afterbegin', renderPost(post, true));
         // })
 
-        // lesson code a little bit clearer 
-        const html = arrayOfPosts.map(post => renderPost(post, true))
+        // lesson code a little bit more clear 
+        const renderedPosts = arrayOfPosts.map(post => renderPost(post, true))
+        console.log('renderedPosts', renderedPosts);
+        const html = renderedPosts.join(' ') // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
+        console.log('html', html);
         this.loader.hide()
-        this.$el.insertAdjacentHTML('afterbegin', html.join(' '));
+        this.$el.insertAdjacentHTML('afterbegin', html);
+        console.log('onShowCompleted');
     }
 
     onHide() {

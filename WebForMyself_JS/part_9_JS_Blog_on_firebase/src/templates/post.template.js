@@ -3,7 +3,7 @@ export function renderPost(post, renderButton) {
         ? '<li class="tag tag-blue tag-rounded">News</li>'
         : '<li class="tag tag-rounded">Note</li>'
 
-    const isAlreadyAddedToFavs = JSON.parse(localStorage.getItem('favs') || []).includes(post.id)
+    const isAlreadyAddedToFavs = (JSON.parse(localStorage.getItem('favs')) || []).includes(post.id)
     const button = isAlreadyAddedToFavs 
         ? `<button data-id="${post.id}" class="button-danger button-small button-round">Remove from favorites</button>` // https://kylelogue.github.io/mustard-ui/index.html
         : `<button data-id="${post.id}" class="button-primary button-small button-round">Add to favorites</button>`
