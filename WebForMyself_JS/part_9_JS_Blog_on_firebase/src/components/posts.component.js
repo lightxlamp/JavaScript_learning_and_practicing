@@ -44,23 +44,25 @@ export class PostsComponent extends Component {
 
 function buttonHandler(e) {
     // https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
-    const id = e.target.dataset.id;
     const button = e.target;
+    const id = button.dataset.id;
+    const title = button.dataset.title;
     // id helps us to determine that button was clicked, not a post (may be it is not a good approach)
     if(id) {
         let favs = JSON.parse(localStorage.getItem('favs')) || []
+        let candidate = favs.find(favPost => favPost.id === id )
 
-        if(favs.includes(id)) {
+        if(candidate) {
             // remove fav
             // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
-            favs = favs.filter(fId => fId !== id)
+            favs = favs.filter(favPost => favPost.id !== id)
             button.textContent = 'Add to favorites'
             button.classList.add('button-primary')
             button.classList.remove('button-danger')
         }
         else {
             // add fav
-            favs.push(id)
+            favs.push({id, title})
             button.textContent = 'Remove from favorites'
             button.classList.remove('button-primary')
             button.classList.add('button-danger')

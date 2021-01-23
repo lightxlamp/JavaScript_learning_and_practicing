@@ -28,7 +28,7 @@ async function linkClickHandler(e) {
     e.preventDefault()
 
     if(e.target.classList.contains('fav-link')) {
-        const postId = e.target.textContent
+        const postId = e.target.dataset.id
         this.$el.innerHTML = ''
         this.loader.show()
         const post = await apiService.getPostById(postId);
@@ -41,7 +41,7 @@ function renderFavs(favs = []) {
     if(favs && favs.length) {
         return `
             <ul>
-                ${favs.map(item => `<li><a href="" class="fav-link">${item}</a></li>`).join(' ')}
+                ${favs.map(item => `<li><a href="#" class="fav-link" data-id="${item.id}">${item.title}</a></li>`).join(' ')}
             </ul>
         `
     }
