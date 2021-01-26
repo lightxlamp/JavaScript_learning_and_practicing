@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+    <!-- Can be used on NodeJS, because does not require DOM -->
+    <script>
+        console.log(_);
+        console.log(_.VERSION);
+        let a = [1, 2, 3, 4, 5];
+        let b = [...a];
+        console.log(_.fill(a, '9'));
+        console.log(_.fill(b, '9', 2, 4));
+        console.log(_.chunk(b, 2));
+
+        // _.filter
+        // Why do we need to use _.filter when we already have [].filter()
+        // _ add cross browser compatibility support without code interpretation 
+
+        // similar library https://ramdajs.com/
+    </script>
+</body>
+</html>
