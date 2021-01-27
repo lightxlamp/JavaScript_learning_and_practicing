@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+</head>
+<body>
+    
+    <script>
+        console.log(moment);
+
+        const bd = moment();
+        bd.set({
+            day: 16, // will be converted to 17
+            month: 8, // will become 9
+            year: 1989
+        })
+
+        console.log(bd.format('DD MMMM YYYY'));
+        // lol, I received index.html:21 10 October 1988...  Hmm..
+        // https://momentjs.com/docs/
+        // reading docs
+        // let's try wrap props
+
+        const bd2 = moment();
+        bd2.set({
+            'day': 16, // will be converted to 17
+            'month': 8, // will become 9
+            'year': 1989
+        })
+        console.log(bd2.format('DD MMMM YYYY'));
+        console.log(bd2.toString());
+        // index.html:32 10 October 1989
+        // Hmmm :) Useful and helpful library :) 
+
+        // watching separate video :) 
+        // https://www.youtube.com/watch?v=nmAHDEO9RW8&ab_channel=dcode
+
+        const m1 = moment();
+        const m2 = moment("1989-09-17")
+
+        console.log('I was born:', m2.fromNow()); // 
+
+    </script>
+</body>
+</html>
