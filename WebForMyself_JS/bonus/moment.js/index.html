@@ -42,7 +42,32 @@
         const m2 = moment("1989-09-17")
 
         console.log('I was born:', m2.fromNow()); // 
+        console.log(m2.format('DD MMMM YYYY'));
+        console.log(m2.add(2, 'day').format('DD MMMM YYYY'));
+        console.log(m2.month());
+        console.log(m2.day());
+        console.log(m2.year());
 
+        // Seems like I got it, experimentally :) 
+        // m2.day output '2' instead of 17. Probably it shows the day of a week. 
+        // Let's try to pass not 'day' to set() {}
+
+        const bd3 = moment();
+        bd3.set({
+            date: 17, 
+            month: 8, // will become 9
+            year: 1989
+        })
+
+        console.log(bd3.format('DD MMMM YYYY'));
+        console.log('And... it worked <3');
+
+        if(!moment('1989-09-17').isAfter('1989-09-17')) {
+            console.log('I am older than Viktor');
+        }
+        else {
+            console.log('I am younger than Viktor');
+        }
     </script>
 </body>
 </html>
