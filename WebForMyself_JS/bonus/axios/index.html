@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        google: fetch vs axios
+        Axios request is ok when status is 200 and statusText is 'OK'. 
+        Fetch request is ok when response object contains the ok property. 
+        Axios performs automatic transforms of JSON data. 
+        Fetch is a two-step process when handling JSON data- first, 
+        to make the actual request; second, to call the .json() method on the response.
+    -->
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        axios.get('https://jsonplaceholder.typicode.com/todos/')
+        .then(function (response) {
+            // handle success
+            console.log(response.data);
+            response.data.forEach(toDO => {
+                console.log(toDO.title);
+            });
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .then(function () {
+            // always executed
+        });
+    </script>
+</body>
+</html>
