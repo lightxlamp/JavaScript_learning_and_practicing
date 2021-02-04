@@ -5,24 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body style="width: 500px;">
+<body>
     <div id="image-slider" class="splide">
         <div class="splide__track">
             <div class="splide__list">
                 <div class="splide__slide card">
-                    <img src="https://i.pinimg.com/originals/5b/ec/47/5bec474d275dbdf8fdb071f30fc978f4.png">
+                    <img src="./card-main.png" class="card_image">
+                </div>           <div class="splide__slide card">
+                    <img src="./card-main.png" class="card_image">
                 </div>
-                <div class="splide__slide card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZPgpb9P7fMsR9oxCI-7f_XEvU7e7oZ5SNbA&usqp=CAU">
-                </div>
-                <div class="splide__slide card">
-                    <img src="https://ih1.redbubble.net/image.393347458.1344/flat,750x,075,f-pad,750x1000,f8f8f8.jpg">
-                </div>
+
             </div>
         </div>
     </div>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
     <style>
+        #image-slider {
+            width: 500px;
+            margin: 0 auto;
+        }
         .splide__slide img {
             width: 100%;
             height: 100%;
@@ -35,14 +36,24 @@
 
         numberOfCards = parseInt(document.querySelectorAll('.splide__list > .splide__slide').length);
         paddingRight = numberOfCards > 1 ? '250px' : '0';
-
+        
         document.addEventListener( 'DOMContentLoaded', function () {
-	        new Splide( '#image-slider', {
-                type   : 'loop',
+            new Splide( '#image-slider', {
                 padding: {
                     right: paddingRight,
+                    arrows: false
                 },} ).mount();
+
+            if(numberOfCards === 1) {
+                document.querySelector('#image-slider').style.width = '250px';
+                document.querySelectorAll('.splide__arrow').forEach(arrow => {
+                    arrow.style.display = 'none';
+                    console.log(arrow);
+                })
+                document.querySelector('.splide__pagination__page').style.visibility = 'hidden';
+            }
         } );
+        
     </script>
 </body>
 </html>
