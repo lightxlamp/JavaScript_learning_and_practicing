@@ -8,17 +8,17 @@
 <body style="width: 500px;">
     <div id="image-slider" class="splide">
         <div class="splide__track">
-            <ul class="splide__list">
-                <li class="splide__slide">
+            <div class="splide__list">
+                <div class="splide__slide card">
                     <img src="https://i.pinimg.com/originals/5b/ec/47/5bec474d275dbdf8fdb071f30fc978f4.png">
-                </li>
-                <li class="splide__slide">
+                </div>
+                <div class="splide__slide card">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZPgpb9P7fMsR9oxCI-7f_XEvU7e7oZ5SNbA&usqp=CAU">
-                </li>
-                <li class="splide__slide">
+                </div>
+                <div class="splide__slide card">
                     <img src="https://ih1.redbubble.net/image.393347458.1344/flat,750x,075,f-pad,750x1000,f8f8f8.jpg">
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
     </div>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
@@ -30,11 +30,17 @@
     </style>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <script>
+        let paddingRight;
+        let numberOfCards;
+
+        numberOfCards = parseInt(document.querySelectorAll('.splide__list > .splide__slide').length);
+        paddingRight = numberOfCards > 1 ? '250px' : '0';
+
         document.addEventListener( 'DOMContentLoaded', function () {
 	        new Splide( '#image-slider', {
                 type   : 'loop',
                 padding: {
-                    right: '250px',
+                    right: paddingRight,
                 },} ).mount();
         } );
     </script>
