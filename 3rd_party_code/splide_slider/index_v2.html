@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="image-slider" class="splide">
+        <div class="splide__track">
+            <div class="splide__list">
+                <div class="splide__slide">
+                    <div class="card"></div>
+                </div>           
+                <div class="splide__slide">
+                    <div class="card"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+    <style>
+        #image-slider {
+            width: 500px;
+            margin: 0 auto;
+        }
+        .card {
+            height: 150px;
+            width: 200px;
+            background-color: blue;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <script>
+        let paddingRight;
+        let numberOfCards;
+
+        numberOfCards = parseInt(document.querySelectorAll('.splide__list > .splide__slide').length);
+        paddingRight = numberOfCards > 1 ? '250px' : '0';
+        
+        document.addEventListener( 'DOMContentLoaded', function () {
+            new Splide( '#image-slider', {
+                padding: {
+                    right: '250px',
+                    arrows: false // did not work
+                },} ).mount();
+
+            if(numberOfCards === 1) {
+                document.querySelector('#image-slider').style.width = '250px';
+                document.querySelectorAll('.splide__arrow').forEach(arrow => {
+                    arrow.style.display = 'none';
+                    console.log(arrow);
+                })
+                document.querySelector('.splide__pagination__page').style.visibility = 'hidden';
+            }
+        } );
+        
+    </script>
+</body>
+</html>
