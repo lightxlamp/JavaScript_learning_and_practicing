@@ -1,6 +1,3 @@
-//import {test} from './src/core/component'
-import {key} from './1.js'
+import component from './src/core/component.js'
 
-console.log(key);
-
-// test();
+component()
