@@ -9,7 +9,6 @@ new HeaderComponent('header')
 
 const loader = new Loader('loader');
 const navigation = new NavigationComponent('navigation')
-console.log('navigation', navigation);
 const posts = new PostsComponent('posts', {loader})
 const create = new CreateComponent('create')
 const favs = new FavsComponent('favorite', {loader})
