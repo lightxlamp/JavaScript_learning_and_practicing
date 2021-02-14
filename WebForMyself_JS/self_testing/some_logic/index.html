@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/solid.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/fontawesome.css">
+    <link rel="stylesheet" href="https://unpkg.com/mustard-ui@latest/dist/css/mustard-ui.min.css">
+    <link rel="stylesheet" href="./dist/style.css">
     <title>Playground</title>
-
-    <style>
-        #tabs {
-            width: 100px;
-            height: 100px;
-            background-color: red;
-        }
-    </style>
 </head>
+
 <body>
     <div id="tabs">
-
+        <ul class="tabs" id="navigation">
+            <li><a class="tab " href="#" data-name="posts">Posts</a></li>
+            <li><a class="tab " href="#" data-name="create">Create</a></li>
+            <li><a class="tab active" href="#" data-name="favorite">Favorites</a></li>
+          </ul>    
     </div>
     
     <script type="module" src="index.js"></script>
