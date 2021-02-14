@@ -18,10 +18,7 @@ export default class Tab extends Component {
     }
 
     hideAllTabsContentExceptOne() {
-        document.querySelectorAll('.tabs .tab').forEach(tab => {
-            tab.classList.remove('active')
-        });
-        document.querySelectorAll('.tabs .tab')[this.activeTabNo].classList.add('active')
+        setActiveTab(document.querySelectorAll('.tabs .tab')[this.activeTabNo]);
 
         let activeTab = document.querySelectorAll('.tabs .tab')[this.activeTabNo];
         this.tabs.forEach(t => t.component.hide())
@@ -37,13 +34,17 @@ function tabClickHandler(e) {
     console.log('e.target.dataset.name', e.target.dataset.name);
 
     if(e.target.classList.contains('tab')) { // we need this 'if'. Without it user can click outside of tabs and remove active tab completely 
-        document.querySelectorAll('.tabs .tab').forEach(tab => {
-            tab.classList.remove('active')
-        });
-        e.target.classList.add('active')
+        setActiveTab(e.target);
 
         this.tabs.forEach(t => t.component.hide())
         const activeTab = this.tabs.find(t => t.component.$el.id === e.target.dataset.name)
         activeTab.component.show();
     }
+}
+
+function setActiveTab(tab) {
+    document.querySelectorAll('.tabs .tab').forEach(tab => {
+        tab.classList.remove('active')
+    });
+    tab.classList.add('active')
 }
