@@ -15,9 +15,10 @@ export default class Tab extends Component {
 function tabClickHandler(e) { 
     // console.log(e.target);
     // console.log('this', this.querySelectorAll('.tabs'));
-    this.querySelectorAll('.tabs .tab').forEach(tab => {
-        console.log('tab', tab);
-        tab.classList.remove('active')
-    });
-    e.target.classList.add('active')
+    if(e.target.classList.contains('tab')) { // we need this 'if'. Without it user can click outside of tabs and remove active tab completely 
+        this.querySelectorAll('.tabs .tab').forEach(tab => {
+            tab.classList.remove('active')
+        });
+        e.target.classList.add('active')
+    }
 }
