@@ -1,10 +1,15 @@
 import Tabs from './src/components/tabs.component.js'
+import CreateComponent from './src/components/create.component.js'
+import PostsComponent from './src/components/posts.component.js'
+import FavoritesComponent from './src/components/favorites.component.js'
+
+const createTab = new CreateComponent('create')
 
 const tabs = new Tabs('tabs')
 tabs.registerTabs([
-    {name: 'create', component: create},
+    {name: 'create', component: createTab},
     {name: 'posts', component: posts},
-    {name: 'favorite', component: favorites}
+    {name: 'favorites', component: favorites}
 ]);
 
 console.log(Tabs);
