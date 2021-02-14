@@ -3,12 +3,17 @@ import Component from '../core/component.js';
 export default class Tab extends Component {
     constructor(id) {
         super(id)
+        this.tabs = [];
     }
     
     init() {
         this.$el.addEventListener('click', tabClickHandler)
         // this.$el.addEventListener('click', tabClickHandler.bind(this))
         // this.$el.addEventListener('click', alert('Init called'))
+    }
+
+    registerTabs(tabs) {
+        this.tabs = tabs;
     }
 }
 
