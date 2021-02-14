@@ -28,10 +28,10 @@ export default class Tab extends Component {
 }
 
 function tabClickHandler(e) { 
-    console.log('this', this);
-    console.log('console.log', e.target);
-    console.log('e.target.dataset', e.target.dataset);
-    console.log('e.target.dataset.name', e.target.dataset.name);
+    // console.log('this', this);
+    // console.log('console.log', e.target);
+    // console.log('e.target.dataset', e.target.dataset);
+    // console.log('e.target.dataset.name', e.target.dataset.name);
 
     if(e.target.classList.contains('tab')) { // we need this 'if'. Without it user can click outside of tabs and remove active tab completely 
         setActiveTab(e.target);
