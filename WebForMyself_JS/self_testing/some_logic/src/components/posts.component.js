@@ -1,8 +1,10 @@
 import Component from '../core/component.js';
 
 export default class Posts extends Component {
-    constructor(id) {
+    constructor(id, loader) {
         super(id)
+        this.loader = loader
+        console.log('loader', loader);
     }
     
     init() {
