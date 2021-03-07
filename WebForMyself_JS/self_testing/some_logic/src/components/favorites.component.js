@@ -1,6 +1,6 @@
 import Component from '../core/component.js';
 
-export default class Posts extends Component {
+export default class Favorites extends Component {
     constructor(id) {
         super(id)
     }
