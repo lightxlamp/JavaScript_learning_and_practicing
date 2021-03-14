@@ -6,7 +6,7 @@ form.addEventListener('submit', event => {
     const text = form.text.value
     const desc = form.desc.value
 
-    saveForm(title, text, desc) // pasing 3 params instead of obj! Pay attention
+    saveForm(title, text, desc) // passing 3 params instead of obj! Pay attention
 })
 
 // Rest 
