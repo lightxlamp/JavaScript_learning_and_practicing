@@ -1,62 +1,82 @@
 /* .my-modal{} */
 
 .my-modal.open .my-modal-overlay,
-.my-modal.open .modal-window{
-    opacity: 1;
-    z-index: 1000;
+.my-modal.open .modal-window {
+  opacity: 1;
+  z-index: 1000;
 }
 
-.my-modal.open .modal-window{
-    transform: translateY(100px);
+.my-modal.hiding .my-modal-overlay,
+.my-modal.hiding .modal-window {
+  opacity: 1;
+  z-index: 1000;
 }
 
-.my-modal-overlay{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, .5);
+.my-modal.open .modal-window {
+  transform: translateY(100px);
 }
 
-.modal-window{
-    width: 600px;
-    border-radius: 5px;
-    background-color: white;
-    margin: 0 auto;
-    transform: translateY(-200px);
-    transition: transform .2s ease-in;
+.my-modal.open .my-modal-overlay {
+  background: rgba(0, 0, 0, 0.5);
 }
 
-.modal-window, .my-modal-overlay{
-    opacity: 0;
-    z-index: -1;
+.my-modal.hiding .modal-window {
+  transform: translateY(-200px);
 }
 
-.modal-header{
-    padding: 5px 10px;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid skyblue;
+.my-modal.hiding .my-modal-overlay {
+  background: rgba(0, 0, 0, 0);
 }
 
-.modal-title{
-    font-size: 1.2rem;
+.my-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.4s ease-in;
 }
 
-.modal-close{
-    cursor: pointer;
+.modal-window {
+  width: 600px;
+  border-radius: 5px;
+  background-color: white;
+  margin: 0 auto;
+  transform: translateY(-200px);
+  transition: transform 0.4s ease-in;
 }
 
-.modal-footer{
-    padding: 5px 10px;
-    border-top: 1px solid skyblue;
+.modal-window,
+.my-modal-overlay {
+  opacity: 0;
+  z-index: -1;
 }
 
-.modal-body{
-    padding: 10px;
+.modal-header {
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid skyblue;
+}
+
+.modal-title {
+  font-size: 1.2rem;
+}
+
+.modal-close {
+  cursor: pointer;
+}
+
+.modal-footer {
+  padding: 5px 10px;
+  border-top: 1px solid skyblue;
+}
+
+.modal-body {
+  padding: 10px;
 }
 
 .modal-body p {
-    margin: 0 0 5px;
+  margin: 0 0 5px;
 }
