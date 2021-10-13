@@ -29,16 +29,20 @@ function _createModal(options) {
 $.modal = function(options) {
   const $modal = _createModal(options);
   const ANIMATION_SPEED = 400;
+  let closing = false;
 
   return {
     open() {
-        $modal.classList.add('open');
+        /* if window is not closing, we can add "open" class */
+        !closing && $modal.classList.add('open');
     },
     close() {
+        closing = true;
         $modal.classList.remove('open');
         $modal.classList.add('hiding');
         setTimeout(() => {
           $modal.classList.remove('hiding');
+          closing = false;
         }, ANIMATION_SPEED)
     },
     destroy() {}
