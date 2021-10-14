@@ -3,8 +3,9 @@ function _createModal(options) {
   const modal = document.createElement("div");
   const title = options.title != null ? options.title : 'Modal Title';
   const closable = options.closable != null ? options.closable : true;
+  const content = options.content != null ? options.content : '<p><b>Please pass some content here</b></p>';
   modal.classList.add("my-modal"); // <!-- Bootstrap has modal class, so "modal" class is already reserved-->
-  let closeIconHtml = closable === false ? '' : '<span class="modal-close">&times;</span>';
+  const closeIconHtml = closable === false ? '' : '<span class="modal-close">&times;</span>';
 
   let htmlToRender = `
   <div class="my-modal-overlay">
@@ -14,8 +15,7 @@ function _createModal(options) {
               ${closeIconHtml}
           </div>
           <div class="modal-body">
-              <p>Lorem ipsum dolor sit.</p>
-              <p>Lorem ipsum dolor sit.</p>
+            ${content}
           </div>
           <div class="modal-footer">
               <button>OK</button>
