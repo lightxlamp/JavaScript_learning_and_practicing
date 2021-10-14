@@ -1,6 +1,7 @@
 function _createModal(options) {
   // _ it is like a "system" function. Not supposed to be called separately
   const modal = document.createElement("div");
+  let title = options.title != null ? options.title : 'Modal Title';
   modal.classList.add("my-modal"); // <!-- Bootstrap has modal class, so "modal" class is already reserved-->
   modal.insertAdjacentHTML(
     "afterbegin",
@@ -8,7 +9,7 @@ function _createModal(options) {
     <div class="my-modal-overlay">
         <div class="modal-window">
             <div class="modal-header">
-                <span class="modal-title">Modal Title</span>
+                <span class="modal-title">${title}</span>
                 <span class="modal-close">&times;</span>
             </div>
             <div class="modal-body">
