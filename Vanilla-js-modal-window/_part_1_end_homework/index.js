@@ -1,6 +1,7 @@
 const options = {
     title : "My custom title",
     closable: false,
+    width: '400px',
     content: `<p>Hey, here is my custom content! Yeeey <3</p>
               <br/>
               <b>Please subscribe :)</b>
