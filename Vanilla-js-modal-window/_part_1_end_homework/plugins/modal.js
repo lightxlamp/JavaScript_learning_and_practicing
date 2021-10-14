@@ -5,7 +5,7 @@ function _createModal(options) {
   const closable = options.closable != null ? options.closable : true;
   const width = options.width != null ? options.width : '600px';
   const content = options.content != null ? options.content : '<p><b>Please pass some content here</b></p>';
-  const closeIconHtml = closable === false ? '' : '<span class="modal-close">&times;</span>';
+  const closeIconHtml = closable === false ? '' : `<span class="modal-close" onclick="${close()}">&times;</span>`;
 
   modal.classList.add("my-modal"); // <!-- Bootstrap has modal class, so "modal" class is already reserved-->
   modal.setAttribute('id','my-modal');
@@ -54,7 +54,7 @@ $.modal = function(options) {
     },
     destroy() {
       let el = document.getElementById('my-modal');
-      el.remove();
+      return el.remove();
     }
   };
 };
