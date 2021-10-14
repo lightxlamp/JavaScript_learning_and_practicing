@@ -1,28 +1,31 @@
 function _createModal(options) {
   // _ it is like a "system" function. Not supposed to be called separately
   const modal = document.createElement("div");
-  let title = options.title != null ? options.title : 'Modal Title';
+  const title = options.title != null ? options.title : 'Modal Title';
+  const closable = options.closable != null ? options.closable : true;
   modal.classList.add("my-modal"); // <!-- Bootstrap has modal class, so "modal" class is already reserved-->
-  modal.insertAdjacentHTML(
-    "afterbegin",
-    `
-    <div class="my-modal-overlay">
-        <div class="modal-window">
-            <div class="modal-header">
-                <span class="modal-title">${title}</span>
-                <span class="modal-close">&times;</span>
-            </div>
-            <div class="modal-body">
-                <p>Lorem ipsum dolor sit.</p>
-                <p>Lorem ipsum dolor sit.</p>
-            </div>
-            <div class="modal-footer">
-                <button>OK</button>
-                <button>Cancel</button>
-            </div>
-        </div>
-    </div>`
-  );
+  let closeIconHtml = closable === false ? '' : '<span class="modal-close">&times;</span>';
+
+  let htmlToRender = `
+  <div class="my-modal-overlay">
+      <div class="modal-window">
+          <div class="modal-header">
+              <span class="modal-title">${title}</span>
+              ${closeIconHtml}
+          </div>
+          <div class="modal-body">
+              <p>Lorem ipsum dolor sit.</p>
+              <p>Lorem ipsum dolor sit.</p>
+          </div>
+          <div class="modal-footer">
+              <button>OK</button>
+              <button>Cancel</button>
+          </div>
+      </div>
+  </div>`;
+
+  modal.insertAdjacentHTML("afterbegin",htmlToRender);
+
   document.body.appendChild(modal);
   return modal;
 }
