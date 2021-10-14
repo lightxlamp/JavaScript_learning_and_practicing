@@ -8,6 +8,7 @@ function _createModal(options) {
   const closeIconHtml = closable === false ? '' : '<span class="modal-close">&times;</span>';
 
   modal.classList.add("my-modal"); // <!-- Bootstrap has modal class, so "modal" class is already reserved-->
+  modal.setAttribute('id','my-modal');
 
   let htmlToRender = `
   <div class="my-modal-overlay">
@@ -51,6 +52,9 @@ $.modal = function(options) {
           closing = false;
         }, ANIMATION_SPEED)
     },
-    destroy() {}
+    destroy() {
+      let el = document.getElementById('my-modal');
+      el.remove();
+    }
   };
 };
