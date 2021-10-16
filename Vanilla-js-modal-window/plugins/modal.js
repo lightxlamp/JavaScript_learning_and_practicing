@@ -6,11 +6,11 @@ function _createModal(options) {
   modal.insertAdjacentHTML(
     "afterbegin",
     `
-    <div class="my-modal-overlay" data-close>
+    <div class="my-modal-overlay" data-close="true">
         <div class="modal-window" style="width: ${options.width || DEFAULT_WIDTH}">
             <div class="modal-header">
                 <span class="modal-title">${options.title || 'Default Title'}</span>
-                ${options.closable == true ? `<span class="modal-close" data-close>&times;</span>` : ''}
+                ${options.closable == true ? `<span class="modal-close" data-close="true">&times;</span>` : ''}
             </div>
             <div class="modal-body">
               ${options.content || ''}
@@ -50,7 +50,8 @@ $.modal = function(options) {
   $modal.addEventListener('click', event => {
     console.log(event.target);
     console.log(event.target.getAttribute("data-close"));
-    if(event.target.getAttribute("data-close") !== null) {
+    // if(event.target.getAttribute("data-close")) {
+    if(event.target.dataset.close) {
       modal.close();
     }
   })
