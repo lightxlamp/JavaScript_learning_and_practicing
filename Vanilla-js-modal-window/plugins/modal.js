@@ -1,19 +1,19 @@
 function _createModal(options) {
   // _ it is like a "system" function. Not supposed to be called separately
+  const DEFAULT_WIDTH = '600px';
   const modal = document.createElement("div");
   modal.classList.add("my-modal"); // <!-- Bootstrap has modal class, so "modal" class is already reserved-->
   modal.insertAdjacentHTML(
     "afterbegin",
     `
     <div class="my-modal-overlay">
-        <div class="modal-window">
+        <div class="modal-window" style="width: ${options.width || DEFAULT_WIDTH}">
             <div class="modal-header">
-                <span class="modal-title">Modal Title</span>
-                <span class="modal-close">&times;</span>
+                <span class="modal-title">${options.title || 'Default Title'}</span>
+                ${options.closable == true ? `<span class="modal-close">&times;</span>` : ''}
             </div>
             <div class="modal-body">
-                <p>Lorem ipsum dolor sit.</p>
-                <p>Lorem ipsum dolor sit.</p>
+              ${options.content || ''}
             </div>
             <div class="modal-footer">
                 <button>OK</button>
