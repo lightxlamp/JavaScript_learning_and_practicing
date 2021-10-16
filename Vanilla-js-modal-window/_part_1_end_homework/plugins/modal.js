@@ -27,12 +27,16 @@ function _createModal(options) {
 
   modal.insertAdjacentHTML("afterbegin",htmlToRender);
 
+  function displayMessage() {
+    alert("Hi!");
+  }
+
   if(closable) {
     var closeIcon = document.createElement('span');
     closeIcon.classList.add('modal-close');
     //btn.setAttribute("id", "btn1"); 
     closeIcon.innerHTML = '&times;';
-    closeIcon.onclick = alert('Hey');
+    closeIcon.onclick = displayMessage;
   }
 
   document.body.appendChild(modal);
