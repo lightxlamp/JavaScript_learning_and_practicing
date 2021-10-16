@@ -5,7 +5,6 @@ function _createModal(options) {
   const closable = options.closable != null ? options.closable : true;
   const width = options.width != null ? options.width : '600px';
   const content = options.content != null ? options.content : '<p><b>Please pass some content here</b></p>';
-  const closeIconHtml = closable === false ? '' : `<span class="modal-close" onclick="${close()}">&times;</span>`;
 
   modal.classList.add("my-modal"); // <!-- Bootstrap has modal class, so "modal" class is already reserved-->
   modal.setAttribute('id','my-modal');
@@ -15,7 +14,6 @@ function _createModal(options) {
       <div class="modal-window" style="width:${width}">
           <div class="modal-header">
               <span class="modal-title">${title}</span>
-              ${closeIconHtml}
           </div>
           <div class="modal-body">
             ${content}
@@ -28,6 +26,14 @@ function _createModal(options) {
   </div>`;
 
   modal.insertAdjacentHTML("afterbegin",htmlToRender);
+
+  if(closable) {
+    var closeIcon = document.createElement('span');
+    closeIcon.classList.add('modal-close');
+    //btn.setAttribute("id", "btn1"); 
+    closeIcon.innerHTML = '&times;';
+    closeIcon.onclick = alert('Hey');
+  }
 
   document.body.appendChild(modal);
   return modal;
