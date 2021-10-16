@@ -30,9 +30,13 @@ $.modal = function(options) {
   const $modal = _createModal(options);
   const ANIMATION_SPEED = 400;
   let closing = false;
+  let isDestroyed = false;
 
   const modal = {
     open() {
+      if(isDestroyed) {
+        console.log('Modal is destroyed');
+      }
       /* if window is not closing, we can add "open" class */
       !closing && $modal.classList.add('open');
     },
@@ -56,5 +60,16 @@ $.modal = function(options) {
     }
   })
 
-  return modal
+  return Object.assign(modal, {
+    destroy() {
+      if($modal.parentNode) {
+        console.log($modal);
+        $modal.parentNode.removeChild($modal);
+        isDestroyed = true;
+      }
+      else {
+        console.log('Already destroyed');
+      }
+    }
+  });
 };
