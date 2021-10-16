@@ -6,11 +6,11 @@ function _createModal(options) {
   modal.insertAdjacentHTML(
     "afterbegin",
     `
-    <div class="my-modal-overlay">
+    <div class="my-modal-overlay" data-close>
         <div class="modal-window" style="width: ${options.width || DEFAULT_WIDTH}">
             <div class="modal-header">
                 <span class="modal-title">${options.title || 'Default Title'}</span>
-                ${options.closable == true ? `<span class="modal-close">&times;</span>` : ''}
+                ${options.closable == true ? `<span class="modal-close" data-close>&times;</span>` : ''}
             </div>
             <div class="modal-body">
               ${options.content || ''}
