@@ -1,3 +1,3 @@
 const plugin = {}
 
-window.modal_plugin = plugin // can be omitted
+window.plugin = plugin // can be omitted
