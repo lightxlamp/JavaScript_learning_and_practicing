@@ -1,3 +1,3 @@
-const $ = {}
+const plugin = {}
 
-window.$ = $ // can be omitted
+window.modal_plugin = plugin // can be omitted

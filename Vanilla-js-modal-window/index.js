@@ -1,4 +1,4 @@
-const myModal = $.modal(
+const modalWindow = plugin.modal(
     {
         title: 'Title from options',
         closable: true,
