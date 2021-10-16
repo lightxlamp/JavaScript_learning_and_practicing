@@ -2,7 +2,6 @@ function _createModal(options) {
   // _ it is like a "system" function. Not supposed to be called separately
   const modal = document.createElement("div");
   const title = options.title != null ? options.title : 'Modal Title';
-  const closable = options.closable != null ? options.closable : true;
   const width = options.width != null ? options.width : '600px';
   const content = options.content != null ? options.content : '<p><b>Please pass some content here</b></p>';
 
@@ -32,10 +31,6 @@ function _createModal(options) {
   return modal;
 }
 
-function displayMessage() {
-  alert("Hi!");
-}
-
 $.modal = function(options) {
   const $modal = _createModal(options);
   const ANIMATION_SPEED = 400;
@@ -45,7 +40,7 @@ $.modal = function(options) {
   if(closable) {
     let crossIcon = $modal.querySelector('.modal-close');
     crossIcon.addEventListener('click', () => {
-      alert('1');
+      $modal.close();
     });
   }
 
