@@ -31,10 +31,10 @@ $.modal = function(options) {
   const ANIMATION_SPEED = 400;
   let closing = false;
 
-  return {
+  const modal = {
     open() {
-        /* if window is not closing, we can add "open" class */
-        !closing && $modal.classList.add('open');
+      /* if window is not closing, we can add "open" class */
+      !closing && $modal.classList.add('open');
     },
     close() {
         closing = true;
@@ -45,6 +45,15 @@ $.modal = function(options) {
           closing = false;
         }, ANIMATION_SPEED)
     },
-    destroy() {}
-  };
+  }
+
+  $modal.addEventListener('click', event => {
+    console.log(event.target);
+    console.log(event.target.getAttribute("data-close"));
+    if(event.target.getAttribute("data-close") !== null) {
+      modal.close();
+    }
+  })
+
+  return modal
 };
