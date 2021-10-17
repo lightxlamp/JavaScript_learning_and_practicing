@@ -23,20 +23,32 @@ plugins.modal_window = function(options) {
     },
   }
 
-  $modal.addEventListener('click', event => {
+  const listener = event => {
     console.log(event.target);
     console.log(event.target.getAttribute("data-close"));
-    // if(event.target.getAttribute("data-close")) {
+    // if(event.target.getAttribute("data-close")) { // can be used as well
     if(event.target.dataset.close) {
       modal.close();
     }
-  })
+  }
+
+  $modal.addEventListener('click', listener);
+
+  // $modal.addEventListener('click', event => {
+  //   console.log(event.target);
+  //   console.log(event.target.getAttribute("data-close"));
+  //   // if(event.target.getAttribute("data-close")) { // can be used as well
+  //   if(event.target.dataset.close) {
+  //     modal.close();
+  //   }
+  // })
 
   return Object.assign(modal, {
     destroy() {
       if($modal.parentNode) {
         console.log($modal);
         $modal.parentNode.removeChild($modal);
+        $modal.removeEventListener('click', listener);
         isDestroyed = true;
       }
       else {
