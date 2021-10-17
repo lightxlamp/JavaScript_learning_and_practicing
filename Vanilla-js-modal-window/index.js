@@ -1,4 +1,4 @@
-const modalWindow = plugin.modal(
+const modalWindow = plugins.modal_window(
     {
         title: 'Title from options',
         closable: true,

@@ -1,3 +1,3 @@
-const plugin = {}
+const plugins = {}
 
-window.plugin = plugin // can be omitted
+window.plugins = plugins // can be omitted

@@ -1,4 +1,4 @@
-plugin.modal = function(options) {
+plugins.modal_window = function(options) {
   const $modal = _createModal(options);
   const ANIMATION_SPEED = 400;
   let closing = false;
