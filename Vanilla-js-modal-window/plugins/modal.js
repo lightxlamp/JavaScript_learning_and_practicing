@@ -54,6 +54,9 @@ plugins.modal_window = function(options) {
       else {
         console.log('Already destroyed');
       }
+    },
+    setContent(html){
+      $modal.querySelector('[data-content]').innerHTML = html;
     }
   });
 };
@@ -72,7 +75,7 @@ function _createModal(options) {
                 <span class="modal-title">${options.title || 'Default Title'}</span>
                 ${options.closable == true ? `<span class="modal-close" data-close="true">&times;</span>` : ''}
             </div>
-            <div class="modal-body">
+            <div class="modal-body" data-content>
               ${options.content || ''}
             </div>
             <div class="modal-footer">
