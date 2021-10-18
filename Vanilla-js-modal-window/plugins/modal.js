@@ -78,13 +78,26 @@ function _createModal(options) {
             <div class="modal-body" data-content>
               ${options.content || ''}
             </div>
-            <div class="modal-footer">
-                <button>OK</button>
-                <button>Cancel</button>
-            </div>
         </div>
     </div>`
   );
+  const footer = _createModalFooter(options.footerButtons); // is it error??? _createModalFooter
+  footer.appendAfter(modal.querySelector('modal-bdoy'));
   document.body.appendChild(modal);
   return modal;
+}
+
+function _createModalFooter(buttons = []) {
+  if(buttons.length === 0) {
+    return document.createElement('span');
+  }
+  const footer = document.createElement('div');
+  footer.classList.add('modal-footer');
+
+  return footer;
+}
+
+// creating method for all nodes
+Element.prototype.appendAfter = function(element) {
+
 }
