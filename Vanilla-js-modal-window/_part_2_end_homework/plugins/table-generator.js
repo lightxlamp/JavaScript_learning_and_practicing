@@ -15,7 +15,7 @@ plugins.table_generator = function(items) {
           <img class="card-img-top" src="${item.img}">
           <div class="card-body">
             <h5 class="card-title">${item.title}</h5>
-            <a href="#" class="btn btn-primary" onclick="showInfo(${item.id})">See details</a>
+            <a href="#" class="btn btn-primary" onclick="showInfoModal(${item.id})">See details</a>
             <a href="#" class="btn btn-danger" onclick="showDeleteModal(${item.id})">Remove</a> 
           </div>
         </div>
