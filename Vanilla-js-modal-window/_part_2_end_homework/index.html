@@ -36,7 +36,24 @@
     $gamesTable.appendChild(document.createElement('tr'))
 
     games.forEach(game => {
+      $td = document.createElement('td');
+      $td.innerHTML = `
+      <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="${game.img}">
+            <div class="card-body">
+              <h5 class="card-title">${game.title}</h5>
+              <a href="#" class="btn btn-primary" onclick="showInfo(${game.id})">See price</a>
+              <a href="#" class="btn btn-danger">Remove</a>
+            </div>
+          </div>
+      `;
+      $gamesTable.querySelector('tr').appendChild($td)
+    });
+    document.querySelector('.container').appendChild($gamesTable);
 
+
+    function showInfo(id) {
+      const game = games.find(x => x.id === id);
       const modalWindow = plugins.modal_window(
         {
           title: game.title,
@@ -66,21 +83,8 @@
           ]
         }
       )
-
-      $td = document.createElement('td');
-      $td.innerHTML = `
-      <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="${game.img}">
-            <div class="card-body">
-              <h5 class="card-title">${game.title}</h5>
-              <a href="#" class="btn btn-primary" onclick="${modalWindow.open()}}">See price</a>
-              <a href="#" class="btn btn-danger">Remove</a>
-            </div>
-          </div>
-      `;
-      $gamesTable.querySelector('tr').appendChild($td)
-    });
-    document.querySelector('.container').appendChild($gamesTable);
+      modalWindow.open();
+    }
   </script>
 </body>
 
