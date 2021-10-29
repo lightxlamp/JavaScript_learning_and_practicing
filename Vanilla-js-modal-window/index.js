@@ -10,7 +10,7 @@ const toHTML = item => `
         <div class="card-body">
             <h5 class="card-title">${item.title}</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">See price</a>
+            <a href="#" class="btn btn-primary" data-btn="good-details">See details</a>
             <a href="#" class="btn btn-danger">Remove</a>
         </div>
     </div>
@@ -19,8 +19,9 @@ const toHTML = item => `
 function render() {
     const html = games.map(toHTML); // Short syntax for: const html = games.map(game => toHTML(game));
     console.log(html); 
+    console.log(html.join('')); 
 
-    document.getElementById('goods').innerHTML = html; // TODO: why assigning array as HTML worked?
+    document.getElementById('goods').innerHTML = html; // TODO: why assigning array as HTML worked? // Update. Seems like .join('') applied automatically
 }
 
 render();
@@ -50,3 +51,14 @@ const modalWindow = plugins.modal_window(
         ]    
     }
 )
+
+document.addEventListener('click', event => {
+    // if(event.target.getAttribute("data-btn") === 'good-details') { // if(event.target.dataset.btn {  // from lesson - better version
+    //     console.log('1');
+    // }
+    event.preventDefault(); // to remove # from url after clicking a link
+    const btnType = event.target.getAttribute("data-btn");
+    if(btnType === 'good-details') {
+        
+    }
+}); // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener - read about 3rd parameter
