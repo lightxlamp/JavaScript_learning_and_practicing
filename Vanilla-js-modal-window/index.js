@@ -1,3 +1,9 @@
+const games = [
+    {id: 1, title: 'Gothic II: Gold Edition', price: 5.99, img: './img/gothic2.jpeg'},
+    {id: 2, title: 'Theft Auto V: Premium Edition', price: 12.57, img: './img/gta5.jpeg'},
+    {id: 3, title: 'Remnant: From the Ashes - Complete Edition', price: 13.11, img: './img/remnant.jpeg'},
+]
+
 const modalWindow = plugins.modal_window(
     {
         title: 'Title from options',
