@@ -12,43 +12,6 @@
 <body>
   <div class="container">
     <h1>Java Script Practice</h1>
-    <!-- <table>
-      <tr>
-        <td>
-          <div class="card">
-            <img class="card-img-top" style="width: 300px;" src="https://cdn-products.eneba.com/resized-products/JZ0re5GG82sKzilGtGWC-0bla0dTEe5doXzhEAoo2QE_350x200_3x-0.jpeg">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">See price</a>
-              <a href="#" class="btn btn-danger">Remove</a>
-            </div>
-          </div>
-        </td>
-        <td>
-          <div class="card">
-            <img class="card-img-top" style="width: 300px;" src="https://cdn-products.eneba.com/resized-products/JZ0re5GG82sKzilGtGWC-0bla0dTEe5doXzhEAoo2QE_350x200_3x-0.jpeg">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">See price</a>
-              <a href="#" class="btn btn-danger">Remove</a>
-            </div>
-          </div>
-        </td>
-        <td>
-          <div class="card">
-            <img class="card-img-top" style="width: 300px;" src="https://cdn-products.eneba.com/resized-products/JZ0re5GG82sKzilGtGWC-0bla0dTEe5doXzhEAoo2QE_350x200_3x-0.jpeg">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">See price</a>
-              <a href="#" class="btn btn-danger">Remove</a>
-            </div>
-          </div>
-        </td>
-      </tr>
-    </table> -->
   </div>
 
   <script src="base.js"></script>
@@ -56,12 +19,34 @@
   <script src="plugins/table-generator.js"></script>
   <script src="index.js"></script>
 
+  <style>
+    .games td {
+      vertical-align: top;
+    }
+
+    td {
+      border: 1px solid rgba(0, 0, 0, .4);
+      padding: 50px;
+    }
+  </style>
+
   <script>
     $gamesTable = document.createElement('table');
+    $gamesTable.classList.add('games');
     $gamesTable.appendChild(document.createElement('tr'))
     games.forEach(game => {
       $td = document.createElement('td');
-      $td.innerHTML = '111'
+      $td.innerHTML = `
+      <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="${game.img}">
+            <div class="card-body">
+              <h5 class="card-title">${game.title}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">See price</a>
+              <a href="#" class="btn btn-danger">Remove</a>
+            </div>
+          </div>
+      `;
       $gamesTable.querySelector('tr').appendChild($td)
       console.log('Game', game.title);
     });
