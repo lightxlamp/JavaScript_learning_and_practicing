@@ -68,7 +68,7 @@
           footerButtons: [
             {
               text: 'O.K.', type: 'primary', handler() {
-                var $gameCard = document.querySelector(`[data-game-id="${game.id}"]`);
+                var $gameCard = document.querySelector(`[data-item-id="${game.id}"]`);
                 $gameCard.remove();
                 modalWindow.close();
               }
