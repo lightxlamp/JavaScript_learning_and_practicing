@@ -14,9 +14,11 @@ const modalWindow = plugins.modal_window(
         footerButtons: [
             {text: 'O.K.', type: 'primary', handler() {
                 console.log('OK clicked');
+                modalWindow.close();
             }},
             {text: 'C.a.n.c.e.l', type: 'danger', handler() {
                 console.log('Cancel clicked');
+                modalWindow.close();
             }}
         ]    
     }

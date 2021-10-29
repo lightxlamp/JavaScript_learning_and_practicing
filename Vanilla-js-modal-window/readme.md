@@ -4,3 +4,5 @@ Based on lesson: https://www.youtube.com/watch?v=FX2fiUvrYP4&t=412s
   The Object.assign() method copies all enumerable own properties from one or more source objects to a target object. It returns the modified target object.
 
 - https://www.robinwieruch.de/javascript-naming-conventions
+
+- https://www.javascripttutorial.net/javascript-dom/javascript-insertafter/

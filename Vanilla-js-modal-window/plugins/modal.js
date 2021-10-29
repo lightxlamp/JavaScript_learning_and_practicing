@@ -82,9 +82,13 @@ function _createModal(options) {
     </div>`
   );
   const footer = _createModalFooter(options.footerButtons); // is it error??? _createModalFooter
-  footer.appendAfter(modal.querySelector('modal-bdoy'));
+  footer.appendAfter(modal.querySelector('.modal-body'));
   document.body.appendChild(modal);
   return modal;
+}
+
+function _emptyFunction() {
+
 }
 
 function _createModalFooter(buttons = []) {
@@ -94,10 +98,20 @@ function _createModalFooter(buttons = []) {
   const footer = document.createElement('div');
   footer.classList.add('modal-footer');
 
+  buttons.forEach(btn => {
+    const $btn = document.createElement('button');
+    $btn.textContent = btn.text;
+    $btn.classList.add('btn');
+    $btn.classList.add(`btn-${btn.type || 'secondary' }`);
+    $btn.onclick = btn.handler || _emptyFunction;
+
+    footer.appendChild($btn);
+  })
+
   return footer;
 }
 
 // creating method for all nodes
 Element.prototype.appendAfter = function(element) {
-
+  element.parentNode.insertBefore(this, element.nextSibling);
 }
