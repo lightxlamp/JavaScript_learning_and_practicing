@@ -1,0 +1,7 @@
+#goods {
+  display: flex;
+}
+
+.card {
+  max-width: 300px;
+}
