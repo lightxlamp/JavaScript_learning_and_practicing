@@ -37,13 +37,14 @@
 
     games.forEach(game => {
       $td = document.createElement('td');
+      $td.setAttribute('data-game-id', game.id);
       $td.innerHTML = `
       <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="${game.img}">
             <div class="card-body">
               <h5 class="card-title">${game.title}</h5>
-              <a href="#" class="btn btn-primary" onclick="showInfo(${game.id})">See price</a>
-              <a href="#" class="btn btn-danger">Remove</a>
+              <a href="#" class="btn btn-primary" onclick="showInfo(${game.id})">See details</a>
+              <a href="#" class="btn btn-danger" onclick="showDeleteModal(${game.id})">Remove</a> 
             </div>
           </div>
       `;
@@ -70,13 +71,43 @@
           footerButtons: [
             {
               text: 'O.K.', type: 'primary', handler() {
-                console.log('OK clicked');
                 modalWindow.close();
               }
             },
             {
               text: 'C.a.n.c.e.l', type: 'danger', handler() {
-                console.log('Cancel clicked');
+                modalWindow.close();
+              }
+            }
+          ]
+        }
+      )
+      modalWindow.open();
+    }
+
+    function showDeleteModal(id) {
+      const game = games.find(x => x.id === id);
+      const modalWindow = plugins.modal_window(
+        {
+          title: `Remove item`,
+          closable: true,
+          content: `
+            <p>
+              Remove - ${game.title} from your cart?
+            </p>  
+        `,
+          width: 'fit-content',
+          footerButtons: [
+            {
+              text: 'O.K.', type: 'primary', handler() {
+                var $gameCard = document.querySelector(`[data-game-id="${game.id}"]`);
+                $gameCard.remove();
+                modalWindow.close();
+              }
+            },
+            {
+              text: 'C.a.n.c.e.l', type: 'danger', handler() {
+
                 modalWindow.close();
               }
             }
