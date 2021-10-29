@@ -1,3 +1,4 @@
+
 const games = [
     {id: 1, title: 'Gothic II: Gold Edition', price: 5.99, img: './img/gothic2.jpeg'},
     {id: 2, title: 'Theft Auto V: Premium Edition', price: 12.57, img: './img/gta5.jpeg'},
