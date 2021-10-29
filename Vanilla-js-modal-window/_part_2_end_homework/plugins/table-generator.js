@@ -1,26 +1,26 @@
-plugins.table_generator = function(options) {
-    const $table = _generateTable(options);
-  
-    const listener = event => {
-      console.log(event.target);s
-    }
-  
-    $table.addEventListener('click', listener);
-  
-    return Object.assign(modal, {
-      destroy() {
-        if($modal.parentNode) {
-          console.log($modal);
-          $modal.parentNode.removeChild($modal);
-          $modal.removeEventListener('click', listener);
-          isDestroyed = true;
-        }
-        else {
-          console.log('Already destroyed');
-        }
-      },
-      setContent(html){
-        $modal.querySelector('[data-content]').innerHTML = html;
-      }
-    });
+plugins.table_generator = function(items) {
+    const $table = _generateTable(items);
+    return $table;
   };
+
+  function _generateTable(items) {
+    const $table = document.createElement('table');
+    $table.appendChild(document.createElement('tr'))
+
+    items.forEach(item => {
+      $td = document.createElement('td');
+      $td.setAttribute('data-item-id', item.id);
+      $td.innerHTML = `
+      <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="${item.img}">
+          <div class="card-body">
+            <h5 class="card-title">${item.title}</h5>
+            <a href="#" class="btn btn-primary" onclick="showInfo(${item.id})">See details</a>
+            <a href="#" class="btn btn-danger" onclick="showDeleteModal(${item.id})">Remove</a> 
+          </div>
+        </div>
+      `;
+      $table.querySelector('tr').appendChild($td)
+    });
+    return $table;
+  }

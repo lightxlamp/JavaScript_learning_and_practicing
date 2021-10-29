@@ -5,6 +5,9 @@ const games = [
     {id: 3, title: 'Remnant: From the Ashes - Complete Edition', price: 13.11, img: './img/remnant.jpeg', desc: 'Remnant: From the Ashes is a third-person survival action shooter set in a post-apocalyptic world overrun by monstrous creatures. As one of the last remnants of humanity, you’ll set out alone or alongside up to two other players to face down hordes of deadly enemies and epic bosses, and try to carve a foothold, rebuild, and then retake what was lost.'}
 ]
 
+const $gt = plugins.table_generator(games);
+document.querySelector('.container').appendChild($gt);
+
 const modalWindow = plugins.modal_window(
     {
         title: 'Title from options',
