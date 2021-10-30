@@ -5,7 +5,7 @@ const games = [
 ]
 
 const toHTML = item => `
-    <div class="card">
+    <div class="card" data-good-id="${item.id}">
         <img class="card-img-top" src="${item.img}" />
         <div class="card-body">
             <h5 class="card-title">${item.title}</h5>
@@ -36,22 +36,6 @@ const itemInfoModal = plugins.modal_window(
     }
 )
 
-const deleteModal = plugins.modal_window(
-    {              
-        title: 'Are you sure?',
-        closable: true,
-        width: '400px', 
-        footerButtons: [
-            {text: 'Cancel', type: 'secondary', handler() {
-                deleteModal.close();
-            }},     
-            {text: 'Delete', type: 'danger', handler() {
-                deleteModal .close();
-            }},
-        ]    
-    }
-)
-
 document.addEventListener('click', event => {
     // if(event.target.getAttribute("data-btn") === 'good-details') { // if(event.target.dataset.btn {  // from lesson - better version
     //     console.log('1');
@@ -74,10 +58,28 @@ document.addEventListener('click', event => {
             itemInfoModal.open();
         }
         else if(btnType === 'remove-good') { 
-            deleteModal.setContent(
-                `<p>Remove - <b>${game.title}</b> from your cart?</p><br/>`
-            );
-            deleteModal.open();
+            const removePromise = plugins.confirm_window(
+                {              
+                    title: `Remove - ${game.title}?`,
+                    closable: true,
+                    content: `
+                        <p>
+                            Do you want to delete - <b>${game.title}</b> from your cart? 
+                        </p>
+                    `,
+                    width: '400px',
+                    footerButtons: [
+                        {text: 'Close', type: 'primary', handler() {
+                            itemInfoModal.close();
+                        }},
+                    ]    
+                }
+            )
+            removePromise.then(() => {
+                    console.log('Resolve');
+                    document.querySelector(`.card[data-good-id="${goodId}"]`).remove();
+                }, 
+                () => {console.log('Reject');});
         }
     }
 }); // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener - read about 3rd parameter
