@@ -61,25 +61,18 @@ document.addEventListener('click', event => {
             const removePromise = plugins.confirm_window(
                 {              
                     title: `Remove - ${game.title}?`,
-                    closable: true,
-                    content: `
-                        <p>
-                            Do you want to delete - <b>${game.title}</b> from your cart? 
-                        </p>
-                    `,
-                    width: '400px',
-                    footerButtons: [
-                        {text: 'Close', type: 'primary', handler() {
-                            itemInfoModal.close();
-                        }},
-                    ]    
+                    content: `<p>Do you want to delete - <b>${game.title}</b> from your cart?</p>`    
                 }
             )
-            removePromise.then(() => {
+            removePromise.then(
+                () => {
                     console.log('Resolve');
                     document.querySelector(`.card[data-good-id="${goodId}"]`).remove();
-                }, 
-                () => {console.log('Reject');});
+                }).catch(
+                    () => {
+                        console.log('Reject');
+                    }
+                ) 
         }
     }
 }); // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener - read about 3rd parameter
