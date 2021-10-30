@@ -70,6 +70,8 @@ document.addEventListener('click', event => {
                     // document.querySelector(`.card[data-good-id="${goodId}"]`).remove();
                     games = games.filter(game => game.id !== goodId)
                     render(); // I like my solution more (2 rows above). It is in 1 line. And seems like more efficient
+                    // Update after 20 minutes :) May be author's approach is more framework-like. Based on data and ...
+                    // But may be mine approach can be added to his somehow and optimize it =) ...
                 }).catch(
                     () => {
                         console.log('Reject');
