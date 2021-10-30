@@ -11,7 +11,7 @@ const toHTML = item => `
             <h5 class="card-title">${item.title}</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <a href="#" class="btn btn-primary" data-btn="good-details" data-good-id="${item.id}">See details</a>
-            <a href="#" class="btn btn-danger">Remove</a>
+            <a href="#" class="btn btn-danger" data-btn="remove-good" data-good-id="${item.id}">Remove</a>
         </div>
     </div>
 `
@@ -36,25 +36,48 @@ const itemInfoModal = plugins.modal_window(
     }
 )
 
+const confirmModal = plugins.modal_window(
+    {              
+        title: 'Are you sure?',
+        closable: true,
+        width: '400px', 
+        footerButtons: [
+            {text: 'Cancel', type: 'secondary', handler() {
+                confirmModal.close();
+            }},     
+            {text: 'Delete', type: 'danger', handler() {
+                confirmModal.close();
+            }},
+        ]    
+    }
+)
+
 document.addEventListener('click', event => {
     // if(event.target.getAttribute("data-btn") === 'good-details') { // if(event.target.dataset.btn {  // from lesson - better version
     //     console.log('1');
     // }
     event.preventDefault(); // to remove # from url after clicking a link
     const btnType = event.target.getAttribute("data-btn");
-
-    if(btnType === 'good-details') {
+    if(btnType === 'good-details' || btnType === 'remove-good') {
         const goodId = +event.target.dataset.goodId; // casting to Number. ( found this bug before lecturer :)  
         const game = games.find(f => f.id === goodId);
 
-        itemInfoModal.setContent(
-            `
-            <p><b>Title: </b>${game.title}</p><br/>
-            <p><b>About: </b>${game.desc}</p><br/>
-            <p><b>Price: </b>$${game.price}</p>
-            `
-        );
-
-        itemInfoModal.open();
+        if(btnType === 'good-details') {    
+            itemInfoModal.setContent(
+                `
+                <p><strong>Title: </strong>${game.title}</p><br/>
+                <p><strong>About: </strong>${game.desc}</p><br/>
+                <p><strong>Price: </strong>$${game.price}</p>
+                `
+            ); // https://www.geeksforgeeks.org/difference-between-strong-and-bold-tag-in-html/ <b> replaced with <strong> :)
+    
+            itemInfoModal.open();
+        }
+        else if(btnType === 'remove-good') { 
+            confirmModal.setContent(
+                `<p>Remove - <b>${game.title}</b> from your cart?</p><br/>`
+            );
+            confirmModal.open();
+        }
     }
 }); // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener - read about 3rd parameter
