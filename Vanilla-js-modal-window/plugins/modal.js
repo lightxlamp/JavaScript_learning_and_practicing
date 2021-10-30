@@ -11,6 +11,9 @@ plugins.modal_window = function(options) {
       }
       /* if window is not closing, we can add "open" class */
       !closing && $modal.classList.add('open');
+      if(typeof options.onOpen === 'function'){
+        options.onOpen();
+      }
     },
     close() {
         closing = true;

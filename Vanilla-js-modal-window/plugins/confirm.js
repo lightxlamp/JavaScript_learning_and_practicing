@@ -17,6 +17,11 @@ plugins.confirm_window = function(options) {
              ],
              onClose: function(){
                 modal.destroy();
+             },
+             onOpen() { 
+                console.log('Confirm window opened');
+                // TODO why we can add key this way? I've added onClose // Update: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects did not help. 
+                // TODO https://stackoverflow.com/questions/15220292/is-it-completely-valid-to-have-a-javascript-function-as-key-in-an-object
              }  
         })
         setTimeout(() => {
