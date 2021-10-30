@@ -16,6 +16,8 @@ plugins.confirm_window = function(options) {
                  }}, 
              ]  
         })
-        modal.open();
+        setTimeout(() => {
+            modal.open(); // Fixes animation. Guessed be myself :) 24:55. 3rd video 
+        }, 0)
     }))
 }
