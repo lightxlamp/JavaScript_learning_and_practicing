@@ -14,7 +14,10 @@ plugins.confirm_window = function(options) {
                     modal.close();
                     reject();
                  }}, 
-             ]  
+             ],
+             onClose: function(){
+                modal.destroy();
+             }  
         })
         setTimeout(() => {
             modal.open(); // Fixes animation. Guessed be myself :) 24:55. 3rd video 

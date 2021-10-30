@@ -17,6 +17,9 @@ plugins.modal_window = function(options) {
         $modal.classList.remove('open');
         $modal.classList.add('hiding');
         setTimeout(() => {
+          if(typeof options.onClose === 'function'){
+            options.onClose();
+          }
           $modal.classList.remove('hiding');
           closing = false;
         }, ANIMATION_SPEED)
