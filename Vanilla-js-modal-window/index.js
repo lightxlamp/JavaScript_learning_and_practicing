@@ -10,7 +10,7 @@ const toHTML = item => `
         <div class="card-body">
             <h5 class="card-title">${item.title}</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary" data-btn="good-details">See details</a>
+            <a href="#" class="btn btn-primary" data-btn="good-details" data-good-id="${item.id}">See details</a>
             <a href="#" class="btn btn-danger">Remove</a>
         </div>
     </div>
@@ -18,36 +18,20 @@ const toHTML = item => `
 
 function render() {
     const html = games.map(toHTML); // Short syntax for: const html = games.map(game => toHTML(game));
-    console.log(html); 
-    console.log(html.join('')); 
-
-    document.getElementById('goods').innerHTML = html; // TODO: why assigning array as HTML worked? // Update. Seems like .join('') applied automatically
+    document.getElementById('goods').innerHTML = html.join(' '); // TODO: why assigning array as HTML worked? // Update. Seems like .join('') applied automatically // Update #2. It shows html but with ',' between array items
 }
 
 render();
 
-const modalWindow = plugins.modal_window(
-    {
-        title: 'Title from options',
+const itemInfoModal = plugins.modal_window(
+    {              
+        title: 'Information about game',
         closable: true,
-        content: `
-            <h4>
-                Modal is working
-            </h4>
-            <p>
-                Some text goes here
-            </p>
-        `,
         width: '400px',
         footerButtons: [
-            {text: 'O.K.', type: 'primary', handler() {
-                console.log('OK clicked');
-                modalWindow.close();
+            {text: 'Close', type: 'primary', handler() {
+                itemInfoModal.close();
             }},
-            {text: 'C.a.n.c.e.l', type: 'danger', handler() {
-                console.log('Cancel clicked');
-                modalWindow.close();
-            }}
         ]    
     }
 )
@@ -58,7 +42,19 @@ document.addEventListener('click', event => {
     // }
     event.preventDefault(); // to remove # from url after clicking a link
     const btnType = event.target.getAttribute("data-btn");
+
     if(btnType === 'good-details') {
-        
+        const goodId = +event.target.dataset.goodId; // casting to Number. ( found this bug before lecturer :)  
+        const game = games.find(f => f.id === goodId);
+
+        itemInfoModal.setContent(
+            `
+            <p><b>Title: </b>${game.title}</p><br/>
+            <p><b>About: </b>${game.desc}</p><br/>
+            <p><b>Price: </b>$${game.price}</p>
+            `
+        );
+
+        itemInfoModal.open();
     }
 }); // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener - read about 3rd parameter
