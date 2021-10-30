@@ -36,17 +36,17 @@ const itemInfoModal = plugins.modal_window(
     }
 )
 
-const confirmModal = plugins.modal_window(
+const deleteModal = plugins.modal_window(
     {              
         title: 'Are you sure?',
         closable: true,
         width: '400px', 
         footerButtons: [
             {text: 'Cancel', type: 'secondary', handler() {
-                confirmModal.close();
+                deleteModal.close();
             }},     
             {text: 'Delete', type: 'danger', handler() {
-                confirmModal.close();
+                deleteModal .close();
             }},
         ]    
     }
@@ -74,10 +74,10 @@ document.addEventListener('click', event => {
             itemInfoModal.open();
         }
         else if(btnType === 'remove-good') { 
-            confirmModal.setContent(
+            deleteModal.setContent(
                 `<p>Remove - <b>${game.title}</b> from your cart?</p><br/>`
             );
-            confirmModal.open();
+            deleteModal.open();
         }
     }
 }); // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener - read about 3rd parameter
