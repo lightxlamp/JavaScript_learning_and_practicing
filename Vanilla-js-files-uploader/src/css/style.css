@@ -17,3 +17,30 @@ body {
   padding: 1rem;
   box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
 }
+
+.btn {
+  color: #42b983;
+  background: #fff;
+  border: 1px solid #42b983;
+  text-transform: uppercase;
+  padding: 0.5rem 1.5rem;
+  font-weight: 700;
+  transition: all 0.22s;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  border-radius: 20px;
+}
+
+.btn.primary {
+  background: #42b983;
+  color: #fff;
+}
+
+.btn:active {
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
