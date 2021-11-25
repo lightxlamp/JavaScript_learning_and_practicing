@@ -5,3 +5,9 @@
 Nov 25 2021
 
 - https://stackoverflow.com/questions/268490/jquery-document-createelement-equivalent - Benchmark - Wow! =) =0
+
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file - CHecking author =)
+  multiple
+  When the multiple Boolean attribute is specified, the file input allows the user to select more than one file.
+
+-
