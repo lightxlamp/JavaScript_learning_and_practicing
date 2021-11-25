@@ -1,3 +1,6 @@
 import {upload} from './upload.js'
 
-upload();
+upload('#file-input', {
+    isMultiSelectAllowed: true,
+    acceptedType: ['.jpg', '.jpeg', '.png', '.gif']
+});
