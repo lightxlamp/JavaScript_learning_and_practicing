@@ -1,9 +1,12 @@
 export function upload(elSelector) {
 
-    var $inputField = $('#file-input');
+    var $inputField = document.getElementById('file-input');
     var $openBtn = document.createElement('button');
-    console.log($openBtn);
     $openBtn.classList.add('btn');
-    $openBtn.innerText = 'Open';
-    $inputField.insertAfter($openBtn)
+    $openBtn.textContent = 'Open';
+    $openBtn.addEventListener('click', function() {
+       $inputField.click();
+    })
+
+    $inputField.insertAdjacentElement('afterend', $openBtn)
 }

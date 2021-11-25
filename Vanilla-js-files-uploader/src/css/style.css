@@ -44,3 +44,7 @@ body {
   cursor: pointer;
   opacity: 0.8;
 }
+
+input[type="file"] {
+  display: none;
+}
