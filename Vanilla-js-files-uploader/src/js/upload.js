@@ -1,37 +1,46 @@
 export function upload(elSelector, pluginOptions = {}) {
-
+    
     const $inputField = document.querySelector(elSelector);
+    __applyConfigs($inputField, pluginOptions);
+    const $openBtn = __createOpenBtn($inputField);
+    $inputField.insertAdjacentElement('afterend', $openBtn);
+
+    $inputField.addEventListener('change', __changeHandler)
+}
+
+function __createOpenBtn($input) {
+    const $btn = document.createElement('button');
+    $btn.classList.add('btn');
+    $btn.textContent = 'Open';
+    $btn.addEventListener('click', function() {
+        $input.click(); 
+     })
+    return $btn;
+}
+
+function __applyConfigs($input, pluginOptions) {
     if(pluginOptions.isMultiSelectAllowed) {
-        $inputField.setAttribute('multiple', true)
+        $input.setAttribute('multiple', true)
     }
     if(pluginOptions.acceptedTypes && Array.isArray(pluginOptions.acceptedTypes)) { 
-        $inputField.setAttribute('accept', pluginOptions.acceptedTypes.join(','))
+        $input.setAttribute('accept', pluginOptions.acceptedTypes.join(','))
     }
+}
 
-    const $openBtn = document.createElement('button');
-    $openBtn.classList.add('btn');
-    $openBtn.textContent = 'Open';
-    $openBtn.addEventListener('click', function() {
-       $inputField.click(); 
-    })
-
-    $inputField.insertAdjacentElement('afterend', $openBtn);
-    $inputField.addEventListener('change', function(event){
-        if(event.target.files === 0) {
+function __changeHandler(event) {
+    if(event.target.files === 0) {
+        return;
+    }
+    let {files} = event.target;
+    console.log(files);
+    console.log(Array.isArray(files));
+    files = Array.from(files);
+    console.log(files);
+    console.log(Array.isArray(files));
+    files.forEach(file => {
+        console.log(file.type);
+        if(!file.type.match('image')) {
             return;
         }
-        let {files} = event.target;
-        console.log(files);
-        console.log(Array.isArray(files));
-        files = Array.from(files);
-        console.log(files);
-        console.log(Array.isArray(files));
-        files.forEach(file => {
-            console.log(file.type);
-            if(!file.type.match('image')) {
-                return;
-            }
-            
-        });
     });
 }
