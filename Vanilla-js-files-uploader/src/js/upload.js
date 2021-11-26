@@ -1,6 +1,6 @@
 export function upload(elSelector, pluginOptions = {}) {
 
-    var $inputField = document.querySelector(elSelector);
+    const $inputField = document.querySelector(elSelector);
     if(pluginOptions.isMultiSelectAllowed) {
         $inputField.setAttribute('multiple', true)
     }
@@ -8,7 +8,7 @@ export function upload(elSelector, pluginOptions = {}) {
         $inputField.setAttribute('accept', pluginOptions.acceptedTypes.join(','))
     }
 
-    var $openBtn = document.createElement('button');
+    const $openBtn = document.createElement('button');
     $openBtn.classList.add('btn');
     $openBtn.textContent = 'Open';
     $openBtn.addEventListener('click', function() {
@@ -17,6 +17,21 @@ export function upload(elSelector, pluginOptions = {}) {
 
     $inputField.insertAdjacentElement('afterend', $openBtn);
     $inputField.addEventListener('change', function(event){
-        console.log(event.target.files);
+        if(event.target.files === 0) {
+            return;
+        }
+        let {files} = event.target;
+        console.log(files);
+        console.log(Array.isArray(files));
+        files = Array.from(files);
+        console.log(files);
+        console.log(Array.isArray(files));
+        files.forEach(file => {
+            console.log(file.type);
+            if(!file.type.match('image')) {
+                return;
+            }
+            
+        });
     });
 }
