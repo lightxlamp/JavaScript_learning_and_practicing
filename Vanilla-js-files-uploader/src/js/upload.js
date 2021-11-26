@@ -4,8 +4,8 @@ export function upload(elSelector, pluginOptions = {}) {
     if(pluginOptions.isMultiSelectAllowed) {
         $inputField.setAttribute('multiple', true)
     }
-    if(pluginOptions.acceptedType && Array.isArray(pluginOptions.acceptedType)) { 
-        $inputField.setAttribute('accept', pluginOptions.acceptedType.join(','))
+    if(pluginOptions.acceptedTypes && Array.isArray(pluginOptions.acceptedTypes)) { 
+        $inputField.setAttribute('accept', pluginOptions.acceptedTypes.join(','))
     }
 
     var $openBtn = document.createElement('button');
