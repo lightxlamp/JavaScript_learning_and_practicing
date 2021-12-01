@@ -27,20 +27,36 @@ function __applyConfigs($input, pluginOptions) {
     }
 }
 
+var __openFile = function(file) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var dataURL = reader.result;
+      var output = document.getElementById('output');
+      output.src = dataURL;
+    };
+    reader.readAsDataURL(file);
+  };
+
 function __changeHandler(event) {
-    if(event.target.files === 0) {
+    if(!event.target.files) {
         return;
     }
     let {files} = event.target;
+
     console.log(files);
     console.log(Array.isArray(files));
+
     files = Array.from(files);
+
     console.log(files);
     console.log(Array.isArray(files));
+
     files.forEach(file => {
         console.log(file.type);
         if(!file.type.match('image')) {
             return;
         }
+        __openFile(file);
     });
 }
+

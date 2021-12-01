@@ -10,4 +10,4 @@ Nov 25 2021
   multiple
   When the multiple Boolean attribute is specified, the file input allows the user to select more than one file.
 
--
+- https://stackoverflow.com/questions/42498717/how-to-read-image-file-using-plain-javascript
