@@ -2,7 +2,10 @@ export function upload(elSelector, pluginOptions = {}) {
     
     const $inputField = document.querySelector(elSelector);
     __applyConfigs($inputField, pluginOptions);
+    const $previewBlock = document.createElement('div');
+    $previewBlock.classList.add('preview');
     const $openBtn = __createOpenBtn($inputField);
+    $inputField.insertAdjacentElement('afterend', $previewBlock);
     $inputField.insertAdjacentElement('afterend', $openBtn);
 
     $inputField.addEventListener('change', __changeHandler)
@@ -28,11 +31,16 @@ function __applyConfigs($input, pluginOptions) {
 }
 
 var __openFile = function(file) {
-    var reader = new FileReader();
-    reader.onload = function(){
-      var dataURL = reader.result;
-      var output = document.getElementById('output');
-      output.src = dataURL;
+    const reader = new FileReader();
+    reader.onload = function(event){
+        var dataURL = reader.result;
+        //   var output = document.getElementById('output');
+        //   output.src = dataURL;
+            $previewBlock.insertAdjacentElement(`
+                <div class="preview-image">
+                    <img src="${dataURL}">
+                </div>
+            `);
     };
     reader.readAsDataURL(file);
   };
