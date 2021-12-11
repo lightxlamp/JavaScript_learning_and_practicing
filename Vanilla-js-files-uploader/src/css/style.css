@@ -52,7 +52,7 @@ input[type="file"] {
 .preview {
   display: flex;
   flex-wrap: wrap;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .preview-image {
@@ -61,5 +61,6 @@ input[type="file"] {
 }
 
 .preview-image img {
-  width: 180px; 
+  width: 180px;
+  height: auto;
 }

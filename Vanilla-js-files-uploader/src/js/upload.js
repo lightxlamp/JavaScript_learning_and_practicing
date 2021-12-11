@@ -4,6 +4,7 @@ export function upload(elSelector, pluginOptions = {}) {
     __applyConfigs($inputField, pluginOptions);
     const $previewBlock = document.createElement('div');
     $previewBlock.classList.add('preview');
+    $previewBlock.setAttribute('id', 'preview');
     const $openBtn = __createOpenBtn($inputField);
     $inputField.insertAdjacentElement('afterend', $previewBlock);
     $inputField.insertAdjacentElement('afterend', $openBtn);
@@ -31,14 +32,16 @@ function __applyConfigs($input, pluginOptions) {
 }
 
 var __openFile = function(file) {
+    console.log('opening');
     const reader = new FileReader();
     reader.onload = function(event){
-        var dataURL = reader.result;
-        //   var output = document.getElementById('output');
-        //   output.src = dataURL;
-            $previewBlock.insertAdjacentElement(`
+        console.log('e', event);
+        // var dataURL = reader.result;
+        const src = event.target.result;
+        console.log('src', src);
+            document.getElementById('preview').insertAdjacentHTML('afterbegin', `
                 <div class="preview-image">
-                    <img src="${dataURL}">
+                    <img src="${src}" alt="${file.name}" />
                 </div>
             `);
     };
