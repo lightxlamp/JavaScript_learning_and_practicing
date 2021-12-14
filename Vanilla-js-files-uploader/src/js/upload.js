@@ -12,6 +12,13 @@ export function upload(elSelector, pluginOptions = {}) {
     $inputField.addEventListener('change', __changeHandler)
 }
 
+function __bytesToSize(bytes) {
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    if (bytes == 0) return '0 Byte';
+    const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+    return Math.round(bytes / Math.pow(1024, i)) + ' ' + sizes[i];
+ }
+
 function __createOpenBtn($input) {
     const $btn = document.createElement('button');
     $btn.classList.add('btn');
@@ -41,11 +48,11 @@ var __openFile = function(file) {
         console.log('src', src);
             document.getElementById('preview').insertAdjacentHTML('afterbegin', `
                 <div class="preview-image">
-                    <div class="preview-remove">&times</div>
+                    <div class="preview-remove" data-name="${file.name}">&times</div>
                     <img src="${src}" alt="${file.name}" />
                     <div class="preview-info">
-                        <span>${file.name}</span>
-                        <span>${file.size}</span>
+                        <span>${file.name}</span> - 
+                        <span>${__bytesToSize(file.size)}</span>
                     </div>
                 </div>
             `);
