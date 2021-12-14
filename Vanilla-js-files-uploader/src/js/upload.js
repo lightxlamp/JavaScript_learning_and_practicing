@@ -32,7 +32,7 @@ function __applyConfigs($input, pluginOptions) {
 }
 
 var __openFile = function(file) {
-    console.log('opening');
+    document.getElementById('preview').innerHTML = ''; // clean preview if select new file (set of files)
     const reader = new FileReader();
     reader.onload = function(event){
         console.log('e', event);
@@ -41,7 +41,12 @@ var __openFile = function(file) {
         console.log('src', src);
             document.getElementById('preview').insertAdjacentHTML('afterbegin', `
                 <div class="preview-image">
+                    <div class="preview-remove">&times</div>
                     <img src="${src}" alt="${file.name}" />
+                    <div class="preview-info">
+                        <span>${file.name}</span>
+                        <span>${file.size}</span>
+                    </div>
                 </div>
             `);
     };

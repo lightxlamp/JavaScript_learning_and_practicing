@@ -58,9 +58,50 @@ input[type="file"] {
 .preview-image {
   margin-bottom: 0.5rem;
   margin-right: 0.5rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .preview-image img {
   width: 180px;
   height: auto;
+  display: block;
+}
+
+.preview-image:hover .preview-remove {
+  opacity: 1;
+}
+
+.preview-image:hover .preview-info {
+  opacity: 1;
+  bottom: 0;
+}
+
+.preview-remove {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: rgba(255, 255, 255, 0.8);
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.5s;
+  border-radius: 50%;
+  line-height: 20px;
+  color: #000;
+}
+
+.preview-info {
+  position: absolute;
+  bottom: -70px;
+  background: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: all 0.5s;
+  line-height: 20px;
+  color: #000;
 }
