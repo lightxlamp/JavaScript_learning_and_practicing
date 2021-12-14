@@ -1,3 +1,5 @@
+let filez = [];
+
 export function upload(elSelector, pluginOptions = {}) {
     
     const $inputField = document.querySelector(elSelector);
@@ -70,12 +72,12 @@ function __changeHandler(event) {
     console.log(files);
     console.log(Array.isArray(files));
 
-    files = Array.from(files);
+    filez = Array.from(files);
 
-    console.log(files);
-    console.log(Array.isArray(files));
+    console.log(filez);
+    console.log(Array.isArray(filez));
 
-    files.forEach(file => {
+    filez.forEach(file => {
         console.log(file.type);
         if(!file.type.match('image')) {
             return;
@@ -91,5 +93,18 @@ function __removeHandler(event) {
 
     const {name} = event.target.dataset; 
     console.log('name:', name);
+    console.log('filez', filez);
+
+    // const index = filez.indexOf(name);
+    // if (index > -1) {
+    //     filez.splice(index, 1);
+    // }
+
+    filez = filez.filter(file => file.name !== name);
+    
+    let blockToDelete = $(`.preview-remove[data-name="${name}"]`).closest('.preview-image');
+    console.log('blockToDelete', blockToDelete);
+    blockToDelete.addClass('removing');
+    setTimeout(() => blockToDelete.remove(), 300);
 }
 
