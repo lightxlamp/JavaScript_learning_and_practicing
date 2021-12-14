@@ -10,6 +10,7 @@ export function upload(elSelector, pluginOptions = {}) {
     $inputField.insertAdjacentElement('afterend', $openBtn);
 
     $inputField.addEventListener('change', __changeHandler)
+    $previewBlock.addEventListener('click', __removeHandler)
 }
 
 function __bytesToSize(bytes) {
@@ -81,5 +82,14 @@ function __changeHandler(event) {
         }
         __openFile(file);
     });
+}
+
+function __removeHandler(event) {
+    console.log('event.target.dataset', event.target.dataset);
+    console.log('event.target.dataset.name', event.target.dataset.name);
+    if(! event.target.dataset.name) return;
+
+    const {name} = event.target.dataset; 
+    console.log('name:', name);
 }
 
