@@ -9,13 +9,16 @@ export function upload(elSelector, pluginOptions = {}) {
 
     const $openBtn = __createOpenBtn($inputField);
     const $uploadBtn = __createElement('button', ['btn', 'primary'], 'upload');
+    $uploadBtn.setAttribute('id', 'uploadBtn');
+    $uploadBtn.style.display = 'none';
 
     $inputField.insertAdjacentElement('afterend', $previewBlock);
     $inputField.insertAdjacentElement('afterend', $uploadBtn);
     $inputField.insertAdjacentElement('afterend', $openBtn);
 
-    $inputField.addEventListener('change', __changeHandler)
-    $previewBlock.addEventListener('click', __removeHandler)
+    $inputField.addEventListener('change', __changeHandler);
+    $previewBlock.addEventListener('click', __removeHandler);
+    $uploadBtn.addEventListener('click', __uploadHandler);
 }
 
 function __bytesToSize(bytes) {
@@ -93,6 +96,9 @@ function __changeHandler(event) {
     console.log(filez);
     console.log(Array.isArray(filez));
 
+    // small logic mistake. For in checking, I know // TODO
+    $('#uploadBtn').css('display', 'inline-block');
+
     filez.forEach(file => {
         console.log(file.type);
         if(!file.type.match('image')) {
@@ -103,20 +109,19 @@ function __changeHandler(event) {
 }
 
 function __removeHandler(event) {
-    console.log('event.target.dataset', event.target.dataset);
-    console.log('event.target.dataset.name', event.target.dataset.name);
+    // console.log('event.target.dataset', event.target.dataset);
+    // console.log('event.target.dataset.name', event.target.dataset.name);
     if(! event.target.dataset.name) return;
 
     const {name} = event.target.dataset; 
     console.log('name:', name);
     console.log('filez', filez);
 
-    // const index = filez.indexOf(name);
-    // if (index > -1) {
-    //     filez.splice(index, 1);
-    // }
-
     filez = filez.filter(file => file.name !== name);
+
+    if(!filez.length) {
+        $('#uploadBtn').css('display', 'none');
+    }
     
     let blockToDelete = $(`.preview-remove[data-name="${name}"]`).closest('.preview-image');
     console.log('blockToDelete', blockToDelete);
@@ -124,3 +129,6 @@ function __removeHandler(event) {
     setTimeout(() => blockToDelete.remove(), 300);
 }
 
+function __uploadHandler(event) {
+
+}
