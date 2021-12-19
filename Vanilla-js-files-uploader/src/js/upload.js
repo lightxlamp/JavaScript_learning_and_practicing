@@ -4,11 +4,14 @@ export function upload(elSelector, pluginOptions = {}) {
     
     const $inputField = document.querySelector(elSelector);
     __applyConfigs($inputField, pluginOptions);
-    const $previewBlock = document.createElement('div');
-    $previewBlock.classList.add('preview');
+    const $previewBlock = __createElement('div', ['preview']);
     $previewBlock.setAttribute('id', 'preview');
+
     const $openBtn = __createOpenBtn($inputField);
+    const $uploadBtn = __createElement('button', ['btn', 'primary'], 'upload');
+
     $inputField.insertAdjacentElement('afterend', $previewBlock);
+    $inputField.insertAdjacentElement('afterend', $uploadBtn);
     $inputField.insertAdjacentElement('afterend', $openBtn);
 
     $inputField.addEventListener('change', __changeHandler)
@@ -22,10 +25,23 @@ function __bytesToSize(bytes) {
     return Math.round(bytes / Math.pow(1024, i)) + ' ' + sizes[i];
  }
 
+ const __createElement = (tag, classes = [], content) => {
+    const node = document.createElement(tag);
+
+    if(classes) {
+        node.classList.add(...classes)
+    }
+
+    if(content) {
+        node.textContent = content;
+    }
+
+    return node;
+ }
+
 function __createOpenBtn($input) {
-    const $btn = document.createElement('button');
-    $btn.classList.add('btn');
-    $btn.textContent = 'Open';
+    const $btn = __createElement('button', ['btn'], 'open');
+
     $btn.addEventListener('click', function() {
         $input.click(); 
      })
