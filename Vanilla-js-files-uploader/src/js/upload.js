@@ -1,7 +1,10 @@
 let filez = [];
 
+function noop () {}; 
+
 export function upload(elSelector, pluginOptions = {}) {
     
+    const onUpload = pluginOptions.onUpload ?? noop;
     const $inputField = document.querySelector(elSelector);
     __applyConfigs($inputField, pluginOptions);
     const $previewBlock = __createElement('div', ['preview']);
@@ -109,8 +112,8 @@ function __changeHandler(event) {
 }
 
 function __removeHandler(event) {
-    // console.log('event.target.dataset', event.target.dataset);
-    // console.log('event.target.dataset.name', event.target.dataset.name);
+    console.log('event.target.dataset', event.target.dataset);
+    console.log('event.target.dataset.name', event.target.dataset.name);
     if(! event.target.dataset.name) return;
 
     const {name} = event.target.dataset; 
@@ -130,5 +133,7 @@ function __removeHandler(event) {
 }
 
 function __uploadHandler(event) {
-
+    
+    $('.preview .preview-remove').remove(); // disable deleting file after upload started
+    onUpload(filez)
 }
