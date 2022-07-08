@@ -1,15 +1,12 @@
 <template>
-  <div class="app_wrapper">
-    <h1>Go to bad, Stas :)</h1>
-    <div>
-      Likes count: <strong>{{ this.likes }}</strong> Dislikes count:
-      <strong>{{ this.dislikes }}</strong>
+  <div>
+    <!-- https://learnvue.co/tutorials/vue-for-loop-tips -->
+    <div class="post" v-for="post in posts" :key="post.id">
+      <div>
+        <strong>Title:</strong> {{ post.title }} <br />
+        <strong>Body:</strong> {{ post.body }}
+      </div>
     </div>
-    <br />
-    <button @click="like()">Like</button>
-    <br />
-    <br />
-    <button @click="dislike()">Dislike</button>
   </div>
 </template>
 
@@ -17,20 +14,26 @@
 export default {
   data() {
     return {
-      likes: 0,
-      dislikes: 0,
+      posts: [
+        { id: 1, title: " What is Vue?", body: "Vue 3 is a ...." },
+        { id: 2, title: " What is Vue?", body: "Vue 3 is a ...." },
+        { id: 3, title: " What is Vue?", body: "Vue 3 is a ...." },
+      ],
     };
   },
-  methods: {
-    like() {
-      this.likes++;
-    },
-    dislike() {
-      this.dislikes++;
-    },
-  },
+  methods: {},
 };
 </script>
 
-<style scoped>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.post {
+  padding: 15px;
+  border: 2px solid teal;
+  margin-top: 15px;
+}
 </style>
