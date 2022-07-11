@@ -1,15 +1,20 @@
 <template>
   <div class="app">
     <h2>Add post</h2>
-    <form>
+    <form @submit.prevent>
       <input
         type="text"
         placeholder="Title"
         v-bind:value="title"
-        @input="inputTitle"
+        @input="title = $event.target.value"
       />
       <br />
-      <input type="text" placeholder="Body" v-bind:value="body" />
+      <input
+        type="text"
+        placeholder="Body"
+        v-bind:value="body"
+        @input="body = $event.target.value"
+      />
       <br />
       <button @click="createPost">Create post</button>
     </form>
@@ -40,16 +45,15 @@ export default {
   },
   methods: {
     createPost() {
-      this.posts.push({
-        id: this.posts.length + 1,
+      const newPost = {
+        id: Date.now(),
         title: this.title,
         body: this.body,
-      });
+      };
+      this.posts.push(newPost);
+      this.title = "";
+      this.body = "";
       console.log(this.posts);
-    },
-    inputTitle(event) {
-      console.log(event);
-      this.title = event.target.value;
     },
   },
 };
@@ -79,5 +83,6 @@ button {
   background: transparent;
   border: 1px solid teal;
   color: teal;
+  cursor: pointer;
 }
 </style>
