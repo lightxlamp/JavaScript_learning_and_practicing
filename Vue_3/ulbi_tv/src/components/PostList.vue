@@ -3,8 +3,8 @@
     <!-- https://learnvue.co/tutorials/vue-for-loop-tips -->
     <div class="post" v-for="post in posts" :key="post.id">
       <div>
-        <strong>Title:</strong> {{ post.title }} <strong>Body:</strong>
-        {{ post.body }}
+        <p><strong>Title:</strong> {{ post.title }}</p>
+        <p><strong>Body:</strong> {{ post.body }}</p>
       </div>
     </div>
   </div>
