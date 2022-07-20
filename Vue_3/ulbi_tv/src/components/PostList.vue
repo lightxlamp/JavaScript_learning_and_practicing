@@ -1,17 +1,17 @@
 <template>
   <div>
     <!-- https://learnvue.co/tutorials/vue-for-loop-tips -->
-    <div class="post" v-for="post in posts" :key="post.id">
-      <div>
-        <p><strong>Title:</strong> {{ post.title }}</p>
-        <p><strong>Body:</strong> {{ post.body }}</p>
-      </div>
+    <div v-for="post in posts" :key="post.id">
+      <PostItem :post="post"></PostItem>
     </div>
   </div>
 </template>
 
 <script>
+import PostItem from "./PostItem.vue";
+
 export default {
+  components: { PostItem },
   props: {
     posts: {
       type: Array,
@@ -23,9 +23,5 @@ export default {
 
 
 <style scoped>
-.post {
-  padding: 15px;
-  border: 2px solid teal;
-  margin-top: 15px;
-}
 </style>
+

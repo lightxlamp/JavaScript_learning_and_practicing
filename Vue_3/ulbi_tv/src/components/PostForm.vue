@@ -43,16 +43,17 @@ export default {
 
 <style scoped>
 form {
-  max-width: 500px;
+  max-width: 50rem;
   margin: 0 auto;
-  padding: 20px;
+  padding: 2rem;
   border: 2px solid black;
-  border-radius: 10px;
+  border-radius: 1rem;
 }
 input {
-  margin: 10px 0;
+  margin: 1rem 0;
   width: 100%;
   padding: 5px;
+  font-family: monospace;
 }
 button {
   padding: 10px;
@@ -68,6 +69,6 @@ h2 {
 }
 textarea {
   margin-bottom: 1rem;
-  padding: 5px;
+  padding: 0.5rem;
 }
 </style>
