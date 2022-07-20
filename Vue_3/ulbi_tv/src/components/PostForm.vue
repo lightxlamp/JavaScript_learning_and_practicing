@@ -11,12 +11,13 @@
         placeholder="Body of a post"
       ></textarea>
       <br />
-      <button @click="createPost">Create post</button>
+      <VueButton>Create post</VueButton>
     </form>
   </div>
 </template>
 
 <script>
+import VueButton from "@/components/UI/VueButton.vue";
 export default {
   data() {
     return {
@@ -26,6 +27,9 @@ export default {
         body: "",
       },
     };
+  },
+  components: {
+    VueButton,
   },
   methods: {
     createPost() {
@@ -54,13 +58,6 @@ input {
   width: 100%;
   padding: 5px;
   font-family: monospace;
-}
-button {
-  padding: 10px;
-  background: transparent;
-  border: 1px solid teal;
-  color: teal;
-  cursor: pointer;
 }
 h2 {
   text-align: center;
