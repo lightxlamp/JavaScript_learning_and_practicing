@@ -1,11 +1,19 @@
 <template>
-  <form @submit.prevent>
-    <input type="text" placeholder="Title" v-model="post.title" />
-    <br />
-    <input type="text" placeholder="Body" v-model="post.body" />
-    <br />
-    <button @click="createPost">Create post</button>
-  </form>
+  <div>
+    <h2>Add post</h2>
+    <form @submit.prevent>
+      <input type="text" placeholder="Title of a post" v-model="post.title" />
+      <br />
+      <textarea
+        rows="4"
+        cols="54"
+        v-model="post.body"
+        placeholder="Body of a post"
+      ></textarea>
+      <br />
+      <button @click="createPost">Create post</button>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -41,7 +49,6 @@ form {
   border: 2px solid black;
   border-radius: 10px;
 }
-
 input {
   margin: 10px 0;
   width: 100%;
@@ -53,5 +60,14 @@ button {
   border: 1px solid teal;
   color: teal;
   cursor: pointer;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+textarea {
+  margin-bottom: 1rem;
+  padding: 5px;
 }
 </style>

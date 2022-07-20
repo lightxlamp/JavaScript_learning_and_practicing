@@ -1,10 +1,7 @@
 <template>
   <div class="app">
-    <h2>Add post</h2>
     <PostForm @createPost="createPost"></PostForm>
     <PostList :posts="posts"></PostList>
-    <br />
-    <hr />
   </div>
 </template>
 
@@ -44,6 +41,9 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
 }
 .app {
   padding: 20px;
