@@ -5,20 +5,24 @@
         <p><strong>Title:</strong> {{ post.title }}</p>
         <p><strong>Body:</strong> {{ post.body }}</p>
       </div>
-      <div class="post-btns">
-        <button>Delete</button>
+      <div class="post-buttons">
+        <VueButton>Delete</VueButton>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import VueButton from "@/components/UI/VueButton.vue";
 export default {
   props: {
     post: {
       type: Object,
       required: true,
     },
+  },
+  components: {
+    VueButton,
   },
 };
 </script>

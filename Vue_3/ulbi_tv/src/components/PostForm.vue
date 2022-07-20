@@ -11,7 +11,7 @@
         placeholder="Body of a post"
       ></textarea>
       <br />
-      <VueButton>Create post</VueButton>
+      <VueButton @click="createPost">Create post</VueButton>
     </form>
   </div>
 </template>
