@@ -10,6 +10,8 @@
         v-model="post.body"
         placeholder="Body of a post"
       ></textarea>
+      <input type="text" placeholder="Tags" v-model="post.tags" />
+      <br />
       <br />
       <VueButton @click="createPost">Create post</VueButton>
     </form>
@@ -24,6 +26,7 @@ export default {
         id: "",
         title: "",
         body: "",
+        tags: "",
       },
     };
   },
@@ -35,6 +38,7 @@ export default {
         id: "",
         title: "",
         body: "",
+        tags: "",
       };
     },
   },
@@ -61,7 +65,7 @@ h2 {
   text-transform: uppercase;
 }
 textarea {
-  margin-bottom: 1rem;
   padding: 0.5rem;
+  width: 45.6rem;
 }
 </style>

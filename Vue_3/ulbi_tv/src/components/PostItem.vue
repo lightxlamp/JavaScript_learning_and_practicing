@@ -4,6 +4,7 @@
       <div class="post-content">
         <p><strong>Title:</strong> {{ post.title }}</p>
         <p><strong>Body:</strong> {{ post.body }}</p>
+        <p><strong>Tags:</strong> {{ post.tags }}</p>
       </div>
       <div class="post-buttons">
         <VueButton>Delete</VueButton>
