@@ -13,16 +13,12 @@
 </template>
 
 <script>
-import VueButton from "@/components/UI/VueButton.vue";
 export default {
   props: {
     post: {
       type: Object,
       required: true,
     },
-  },
-  components: {
-    VueButton,
   },
 };
 </script>

@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import VueButton from "@/components/UI/VueButton.vue";
 export default {
   data() {
     return {
@@ -27,9 +26,6 @@ export default {
         body: "",
       },
     };
-  },
-  components: {
-    VueButton,
   },
   methods: {
     createPost() {
