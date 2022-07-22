@@ -2,7 +2,7 @@
   <div>
     <h2>Add post</h2>
     <form @submit.prevent>
-      <input type="text" placeholder="Title of a post" v-model="post.title" />
+      <VueInput v-model="post.title" placeholder="Title of a post" />
       <br />
       <textarea
         rows="4"
@@ -10,7 +10,7 @@
         v-model="post.body"
         placeholder="Body of a post"
       ></textarea>
-      <input type="text" placeholder="Tags" v-model="post.tags" />
+      <VueInput v-model="post.tags" placeholder="Tags for a post" />
       <br />
       <br />
       <VueButton @click="createPost">Create post</VueButton>
@@ -53,12 +53,7 @@ form {
   border: 2px solid black;
   border-radius: 1rem;
 }
-input {
-  margin: 1rem 0;
-  width: 100%;
-  padding: 5px;
-  font-family: monospace;
-}
+
 h2 {
   text-align: center;
   margin-bottom: 1rem;
