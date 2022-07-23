@@ -1,13 +1,18 @@
 <template>
   <div class="app">
-    <PostForm @createPost="createPost"></PostForm>
     <PostList :posts="posts" @deletePost="deletePost"></PostList>
+    <VueButton @click="showDialog">Create Post</VueButton>
+    <VueDialog v-model:isVisible="isDialogVisible"
+      ><PostForm @createPost="createPost"></PostForm
+    ></VueDialog>
   </div>
 </template>
 
 <script>
 import PostForm from "@/components/PostForm.vue";
 import PostList from "@/components/PostList.vue";
+import VueDialog from "@/components/UI/VueDialog.vue";
+import VueButton from "@/components/UI/VueButton.vue";
 
 export default {
   data() {
@@ -21,15 +26,21 @@ export default {
           body: "Ipsum, ipsum ipsum.",
         },
       ],
+      isDialogVisible: false,
     };
   },
   components: {
     PostForm,
     PostList,
+    VueDialog,
+    VueButton,
   },
   methods: {
     createPost(post) {
       this.posts.push(post);
+    },
+    showDialog() {
+      this.isDialogVisible = true;
     },
     deletePost(postToDelete) {
       this.posts = this.posts.filter((post) => {

@@ -33,7 +33,7 @@ export default {
 .post {
   padding: 1.5rem;
   border: 2px solid teal;
-  margin-top: 1.5rem;
+  margin: 0.8rem 0;
   font-size: 1.6rem;
   display: flex;
   justify-content: space-between;

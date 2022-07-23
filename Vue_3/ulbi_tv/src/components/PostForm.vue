@@ -46,14 +46,6 @@ export default {
 </script>
 
 <style scoped>
-form {
-  max-width: 50rem;
-  margin: 0 auto;
-  padding: 2rem;
-  border: 2px solid black;
-  border-radius: 1rem;
-}
-
 h2 {
   text-align: center;
   margin-bottom: 1rem;
