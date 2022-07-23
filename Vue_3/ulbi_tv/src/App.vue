@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <PostForm @createPost="createPost"></PostForm>
-    <PostList :posts="posts"></PostList>
+    <PostList :posts="posts" @deletePost="deletePostById"></PostList>
   </div>
 </template>
 
@@ -23,7 +23,6 @@ export default {
       ],
     };
   },
-
   components: {
     PostForm,
     PostList,
@@ -31,6 +30,12 @@ export default {
   methods: {
     createPost(post) {
       this.posts.push(post);
+    },
+    deletePostById(id) {
+      alert("We are here");
+      this.posts = posts.filter((object) => {
+        return object.id !== id;
+      });
     },
   },
 };
@@ -46,6 +51,6 @@ html {
   font-size: 62.5%;
 }
 .app {
-  padding: 20px;
+  padding: 2rem;
 }
 </style>

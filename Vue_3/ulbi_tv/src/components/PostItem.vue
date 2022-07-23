@@ -7,7 +7,7 @@
         <p><strong>Tags:</strong> {{ post.tags }}</p>
       </div>
       <div class="post-buttons">
-        <VueButton>Delete</VueButton>
+        <VueButton @click="deletePost">Delete</VueButton>
       </div>
     </div>
   </div>
@@ -21,9 +21,13 @@ export default {
       required: true,
     },
   },
+  methods: {
+    deletePost() {
+      this.$emit("deletePost", this.post.id);
+    },
+  },
 };
 </script>
-
 
 <style scoped>
 .post {
