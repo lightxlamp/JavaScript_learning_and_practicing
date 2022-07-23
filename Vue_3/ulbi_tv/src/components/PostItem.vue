@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     deletePost() {
-      this.$emit("deletePost", this.post.id);
+      this.$emit("deletePost", this.post);
     },
   },
 };

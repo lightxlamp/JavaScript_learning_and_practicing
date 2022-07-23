@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <PostForm @createPost="createPost"></PostForm>
-    <PostList :posts="posts" @deletePost="deletePostById"></PostList>
+    <PostList :posts="posts" @deletePost="deletePost"></PostList>
   </div>
 </template>
 
@@ -31,10 +31,9 @@ export default {
     createPost(post) {
       this.posts.push(post);
     },
-    deletePostById(id) {
-      alert("We are here");
-      this.posts = posts.filter((object) => {
-        return object.id !== id;
+    deletePost(postToDelete) {
+      this.posts = this.posts.filter((post) => {
+        return post.id !== postToDelete.id;
       });
     },
   },

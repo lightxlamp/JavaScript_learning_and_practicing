@@ -1,9 +1,12 @@
 <template>
   <div>
     <!-- https://learnvue.co/tutorials/vue-for-loop-tips -->
-    <div v-for="post in posts" :key="post.id">
-      <PostItem :post="post" @deletePost="deletePostById"></PostItem>
-    </div>
+    <PostItem
+      v-for="post in posts"
+      :post="post"
+      :key="post.id"
+      @deletePost="$emit('deletePost', post)"
+    ></PostItem>
   </div>
 </template>
 
@@ -18,8 +21,9 @@ export default {
       required: true,
     },
   },
-  deletePostById() {
-    alert("11");
+  deletePost(post) {
+    alert("post", post);
+    this.$emit("deletePost", post);
   },
 };
 </script>
