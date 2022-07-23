@@ -5,7 +5,7 @@
       v-for="post in posts"
       :post="post"
       :key="post.id"
-      @deletePost="$emit('deletePost', post)"
+      @deletePost="deletePost(post)"
     ></PostItem>
   </div>
 </template>
@@ -21,9 +21,10 @@ export default {
       required: true,
     },
   },
-  deletePost(post) {
-    alert("post", post);
-    this.$emit("deletePost", post);
+  methods: {
+    deletePost(post) {
+      this.$emit("deletePost", post);
+    },
   },
 };
 </script>
