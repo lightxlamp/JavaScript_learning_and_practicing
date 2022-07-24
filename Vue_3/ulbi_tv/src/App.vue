@@ -38,6 +38,7 @@ export default {
   methods: {
     createPost(post) {
       this.posts.push(post);
+      this.isDialogVisible = false;
     },
     showDialog() {
       this.isDialogVisible = true;
