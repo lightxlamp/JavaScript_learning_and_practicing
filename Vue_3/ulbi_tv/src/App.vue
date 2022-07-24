@@ -1,7 +1,12 @@
 <template>
   <div class="app">
     <VueButton @click="showDialog">Create Post</VueButton>
-    <PostList :posts="posts" @deletePost="deletePost"></PostList>
+    <PostList
+      :posts="posts"
+      @deletePost="deletePost"
+      v-if="!isPostsLoading"
+    ></PostList>
+    <h1 class="tac ttu" v-else>Posts loading...</h1>
     <VueDialog v-model:isVisible="isDialogVisible"
       ><PostForm @createPost="createPost"></PostForm
     ></VueDialog>
@@ -20,6 +25,7 @@ export default {
     return {
       posts: [],
       isDialogVisible: false,
+      isPostsLoading: false,
     };
   },
   components: {
@@ -46,12 +52,15 @@ export default {
     },
     async fetchPosts() {
       try {
+        this.isPostsLoading = true;
         const response = await axios.get(
           "https://jsonplaceholder.typicode.com/posts?_limit=8"
         );
         this.posts = response.data;
       } catch (e) {
         alert("Error while getting list of posts");
+      } finally {
+        this.isPostsLoading = false;
       }
     },
   },
@@ -69,5 +78,11 @@ html {
 }
 .app {
   padding: 2rem;
+}
+.tac {
+  text-align: center;
+}
+.ttu {
+  text-transform: uppercase;
 }
 </style>
