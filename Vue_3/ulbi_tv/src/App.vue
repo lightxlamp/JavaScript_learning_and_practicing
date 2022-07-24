@@ -1,7 +1,7 @@
 <template>
   <div class="app">
-    <PostList :posts="posts" @deletePost="deletePost"></PostList>
     <VueButton @click="showDialog">Create Post</VueButton>
+    <PostList :posts="posts" @deletePost="deletePost"></PostList>
     <VueDialog v-model:isVisible="isDialogVisible"
       ><PostForm @createPost="createPost"></PostForm
     ></VueDialog>
@@ -13,19 +13,12 @@ import PostForm from "@/components/PostForm.vue";
 import PostList from "@/components/PostList.vue";
 import VueDialog from "@/components/UI/VueDialog.vue";
 import VueButton from "@/components/UI/VueButton.vue";
+import axios from "axios";
 
 export default {
   data() {
     return {
-      posts: [
-        { id: 1, title: " What is Vue?", body: "Lorem, lorem lorem" },
-        { id: 2, title: " How to use VUEX?", body: "Vue 3 is a ...." },
-        {
-          id: 3,
-          title: " A few words about SLOTS",
-          body: "Ipsum, ipsum ipsum.",
-        },
-      ],
+      posts: [],
       isDialogVisible: false,
     };
   },
@@ -34,6 +27,9 @@ export default {
     PostList,
     VueDialog,
     VueButton,
+  },
+  mounted() {
+    this.fetchPosts();
   },
   methods: {
     createPost(post) {
@@ -47,6 +43,16 @@ export default {
       this.posts = this.posts.filter((post) => {
         return post.id !== postToDelete.id;
       });
+    },
+    async fetchPosts() {
+      try {
+        const response = await axios.get(
+          "https://jsonplaceholder.typicode.com/posts?_limit=8"
+        );
+        this.posts = response.data;
+      } catch (e) {
+        alert("Error while getting list of posts");
+      }
     },
   },
 };
