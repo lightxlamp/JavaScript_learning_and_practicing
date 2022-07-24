@@ -1,6 +1,12 @@
 <template>
   <div class="app">
-    <VueButton @click="showDialog">Create Post</VueButton>
+    <div class="btns">
+      <VueButton @click="showDialog">Create Post</VueButton>
+      <VueSelect
+        v-model="selectedSortingOption"
+        :options="sortingOptions"
+      ></VueSelect>
+    </div>
     <PostList
       :posts="posts"
       @deletePost="deletePost"
@@ -18,6 +24,7 @@ import PostForm from "@/components/PostForm.vue";
 import PostList from "@/components/PostList.vue";
 import VueDialog from "@/components/UI/VueDialog.vue";
 import VueButton from "@/components/UI/VueButton.vue";
+import VueSelect from "@/components/UI/VueSelect.vue";
 import axios from "axios";
 
 export default {
@@ -26,6 +33,11 @@ export default {
       posts: [],
       isDialogVisible: false,
       isPostsLoading: false,
+      selectedSortingOption: "",
+      sortingOptions: [
+        { value: "title", name: "By title" },
+        { value: "body", name: "By body" },
+      ],
     };
   },
   components: {
@@ -33,6 +45,7 @@ export default {
     PostList,
     VueDialog,
     VueButton,
+    VueSelect,
   },
   mounted() {
     this.fetchPosts();
@@ -78,6 +91,10 @@ html {
 }
 .app {
   padding: 2rem;
+}
+.btns {
+  display: flex;
+  justify-content: space-between;
 }
 .tac {
   text-align: center;
