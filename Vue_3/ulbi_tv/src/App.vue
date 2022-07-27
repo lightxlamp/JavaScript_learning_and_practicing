@@ -79,10 +79,9 @@ export default {
   },
   watch: {
     selectedSortingOption(newValue) {
-      console.log("newValue", newValue);
-    },
-    isDialogVisible(newValue) {
-      console.log("newValue", newValue);
+      this.posts.sort((post1, post2) => {
+        return post1[newValue]?.localeCompare(post2[newValue]);
+      });
     },
   },
 };
