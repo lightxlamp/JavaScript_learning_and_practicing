@@ -77,6 +77,14 @@ export default {
       }
     },
   },
+  watch: {
+    selectedSortingOption(newValue) {
+      console.log("newValue", newValue);
+    },
+    isDialogVisible(newValue) {
+      console.log("newValue", newValue);
+    },
+  },
 };
 </script>
 
