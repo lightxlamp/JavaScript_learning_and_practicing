@@ -8,7 +8,7 @@
       ></VueSelect>
     </div>
     <PostList
-      :posts="posts"
+      :posts="sortedPosts"
       @deletePost="deletePost"
       v-if="!isPostsLoading"
     ></PostList>
@@ -77,10 +77,21 @@ export default {
       }
     },
   },
-  watch: {
-    selectedSortingOption(newValue) {
-      this.posts.sort((post1, post2) => {
-        return post1[newValue]?.localeCompare(post2[newValue]);
+  // watch: {   // mutates array
+  //   selectedSortingOption(newValue) {
+  //     this.posts.sort((post1, post2) => {
+  //       return post1[newValue]?.localeCompare(post2[newValue]);
+  //     });
+  //   },
+  // },
+
+  computed: {
+    // original posts array stays the same
+    sortedPosts() {
+      return [...this.posts].sort((post1, post2) => {
+        return post1[this.selectedSortingOption]?.localeCompare(
+          post2[this.selectedSortingOption]
+        );
       });
     },
   },
