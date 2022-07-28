@@ -44,14 +44,14 @@ h1 {
 }
 .posts-list-item {
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 1rem;
 }
 .posts-list-enter-active,
 .posts-list-leave-active {
-  transition: all 10s;
+  transition: all 1s;
 }
-.posts-list-enter, .posts-list-leave-to /* .posts-list-leave-active before v2.1.8 */ {
-  opacity: 1;
-  transform: translateY(30px);
+.posts-list-enter-from, .posts-list-leave-to /* .posts-list-leave-active before v2.1.8 */ {
+  opacity: 0;
+  transform: translateY(100%);
 }
 </style>
