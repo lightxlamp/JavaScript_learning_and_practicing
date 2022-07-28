@@ -5,6 +5,7 @@
         <p><strong>Title:</strong> {{ post.title }}</p>
         <p><strong>Body:</strong> {{ post.body }}</p>
         <p><strong>Tags:</strong> {{ post.tags }}</p>
+        <p><strong>ID:</strong> {{ post.id }}</p>
       </div>
       <div class="post-buttons">
         <VueButton @click="deletePost">Delete</VueButton>

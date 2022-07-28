@@ -17,6 +17,17 @@
     <VueDialog v-model:isVisible="isDialogVisible"
       ><PostForm @createPost="createPost"></PostForm
     ></VueDialog>
+    <div class="pages_wrapper">
+      <div
+        v-for="pageNumber in totalPages"
+        class="page"
+        :class="{ 'page--active': pageNumber === this.page }"
+        :key="pageNumber + 'p'"
+        @click="setActivePage(pageNumber)"
+      >
+        {{ pageNumber }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -35,6 +46,7 @@ export default {
       posts: [],
       page: 1,
       postsPerPage: 5,
+      totalPages: 0,
       isDialogVisible: false,
       isPostsLoading: false,
       selectedSortingOption: "",
@@ -64,6 +76,10 @@ export default {
     showDialog() {
       this.isDialogVisible = true;
     },
+    setActivePage(pageNumber) {
+      this.page = pageNumber;
+      this.fetchPosts();
+    },
     deletePost(postToDelete) {
       this.posts = this.posts.filter((post) => {
         return post.id !== postToDelete.id;
@@ -82,6 +98,10 @@ export default {
           }
         );
         this.posts = response.data;
+        // 101 / 10 = 11 pages
+        this.totalPages = Math.ceil(
+          response.headers["x-total-count"] / this.postsPerPage
+        );
       } catch (e) {
         alert("Error while getting list of posts");
       } finally {
@@ -136,5 +156,27 @@ html {
 }
 .ttu {
   text-transform: uppercase;
+}
+.pages_wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.page {
+  border: 1px solid black;
+  padding: 1rem;
+  cursor: pointer;
+  margin-right: 3px;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.page--active {
+  border: 1px solid teal;
+  font-weight: bold;
+  background: teal;
+  color: #fff;
 }
 </style>
