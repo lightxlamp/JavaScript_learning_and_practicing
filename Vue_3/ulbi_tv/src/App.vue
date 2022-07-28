@@ -7,8 +7,9 @@
         :options="sortingOptions"
       ></VueSelect>
     </div>
+    <VueInput v-model="searchQuery" placeholder="Search..."></VueInput>
     <PostList
-      :posts="sortedPosts"
+      :posts="searchResultPosts"
       @deletePost="deletePost"
       v-if="!isPostsLoading"
     ></PostList>
@@ -25,6 +26,7 @@ import PostList from "@/components/PostList.vue";
 import VueDialog from "@/components/UI/VueDialog.vue";
 import VueButton from "@/components/UI/VueButton.vue";
 import VueSelect from "@/components/UI/VueSelect.vue";
+import VueInput from "@/components/UI/VueInput.vue";
 import axios from "axios";
 
 export default {
@@ -34,6 +36,7 @@ export default {
       isDialogVisible: false,
       isPostsLoading: false,
       selectedSortingOption: "",
+      searchQuery: "",
       sortingOptions: [
         { value: "title", name: "By title" },
         { value: "body", name: "By body" },
@@ -46,6 +49,7 @@ export default {
     VueDialog,
     VueButton,
     VueSelect,
+    VueInput,
   },
   mounted() {
     this.fetchPosts();
@@ -93,6 +97,11 @@ export default {
           post2[this.selectedSortingOption]
         );
       });
+    },
+    searchResultPosts() {
+      return this.sortedPosts.filter((post) =>
+        post.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
     },
   },
 };
