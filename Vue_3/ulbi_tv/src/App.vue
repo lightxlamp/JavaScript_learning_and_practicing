@@ -78,7 +78,6 @@ export default {
     },
     setActivePage(pageNumber) {
       this.page = pageNumber;
-      this.fetchPosts();
     },
     deletePost(postToDelete) {
       this.posts = this.posts.filter((post) => {
@@ -109,13 +108,17 @@ export default {
       }
     },
   },
-  // watch: {   // mutates array
-  //   selectedSortingOption(newValue) {
-  //     this.posts.sort((post1, post2) => {
-  //       return post1[newValue]?.localeCompare(post2[newValue]);
-  //     });
-  //   },
-  // },
+  watch: {
+    page() {
+      this.fetchPosts();
+    },
+    // mutates array
+    //   selectedSortingOption(newValue) {
+    //     this.posts.sort((post1, post2) => {
+    //       return post1[newValue]?.localeCompare(post2[newValue]);
+    //     });
+    //   },
+  },
 
   computed: {
     // original posts array stays the same
