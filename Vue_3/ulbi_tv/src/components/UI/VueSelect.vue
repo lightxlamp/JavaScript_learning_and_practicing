@@ -30,5 +30,6 @@ export default {
 <style scoped>
 select {
   padding: 0 10px;
+  border-radius: 0.6rem;
 }
 </style>

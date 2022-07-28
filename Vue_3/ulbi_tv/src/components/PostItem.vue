@@ -38,5 +38,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: lightyellow;
+  border-radius: 0.6rem;
 }
 </style>

@@ -16,5 +16,7 @@ button {
   border: 1px solid teal;
   color: teal;
   cursor: pointer;
+  background: #fff;
+  border-radius: 0.6rem;
 }
 </style>

@@ -52,6 +52,9 @@ h1 {
 }
 .posts-list-enter-from, .posts-list-leave-to /* .posts-list-leave-active before v2.1.8 */ {
   opacity: 0;
-  transform: translateY(100%);
+  transform: translateX(70%);
+}
+.posts-list-move {
+  transition: transform 0.8s ease;
 }
 </style>
