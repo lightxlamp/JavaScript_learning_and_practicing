@@ -33,6 +33,8 @@ export default {
   data() {
     return {
       posts: [],
+      page: 1,
+      postsPerPage: 5,
       isDialogVisible: false,
       isPostsLoading: false,
       selectedSortingOption: "",
@@ -71,7 +73,7 @@ export default {
       try {
         this.isPostsLoading = true;
         const response = await axios.get(
-          "https://jsonplaceholder.typicode.com/posts?_limit=8"
+          `https://jsonplaceholder.typicode.com/posts?_limit=${this.postsPerPage}&_page=${this.page}`
         );
         this.posts = response.data;
       } catch (e) {
