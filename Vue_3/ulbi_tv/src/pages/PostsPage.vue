@@ -1,7 +1,6 @@
 
 <template>
   <div>
-    <NavBar></NavBar>
     <div class="btns">
       <VueButton @click="showDialog">Create Post</VueButton>
       <VueSelect
@@ -36,7 +35,6 @@
 
 <script>
 import axios from "axios";
-import NavBar from "@/components/NavBar.vue";
 import PostForm from "@/components/PostForm.vue";
 import PostList from "@/components/PostList.vue";
 import VueButton from "@/components/UI/VueButton.vue";
@@ -62,7 +60,6 @@ export default {
     };
   },
   components: {
-    NavBar,
     PostForm,
     PostList,
     VueButton,
