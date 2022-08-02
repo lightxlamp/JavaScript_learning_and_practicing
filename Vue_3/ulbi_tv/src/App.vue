@@ -67,7 +67,7 @@ export default {
     VueInput,
   },
   mounted() {
-    // this.fetchPosts();
+    this.fetchPosts();
 
     let options = {
       rootMargin: "0px",
@@ -75,9 +75,7 @@ export default {
     };
 
     const callback = (entries, observer) => {
-      if (entries[0].isIntersecting) {
-        console.log("CB", entries);
-        console.log("this", this);
+      if (entries[0].isIntersecting && this.page < this.totalPages) {
         this.loadMorePosts();
       }
     };
@@ -126,6 +124,7 @@ export default {
     },
     async loadMorePosts() {
       try {
+        this.page += 1;
         const response = await axios.get(
           `https://jsonplaceholder.typicode.com/posts`,
           {
@@ -136,7 +135,7 @@ export default {
           }
         );
         this.posts = [...this.posts, ...response.data];
-        this.page += 1;
+
         // 101 / 10 = 11 pages
         this.totalPages = Math.ceil(
           response.headers["x-total-count"] / this.postsPerPage
@@ -147,9 +146,9 @@ export default {
     },
   },
   watch: {
-    page() {
-      this.fetchPosts();
-    },
+    // page() {
+    //   this.fetchPosts();
+    // },
     // mutates array
     //   selectedSortingOption(newValue) {
     //     this.posts.sort((post1, post2) => {
@@ -223,6 +222,6 @@ html {
 
 .observer {
   height: 3rem;
-  background: green;
+  background: transparent;
 }
 </style>
