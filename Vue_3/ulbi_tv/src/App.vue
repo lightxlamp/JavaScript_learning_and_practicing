@@ -14,6 +14,7 @@
       v-if="!isPostsLoading"
     ></PostList>
     <h1 class="tac ttu" v-else>Posts loading...</h1>
+    <div ref="observer" class="observer"></div>
     <VueDialog v-model:isVisible="isDialogVisible"
       ><PostForm @createPost="createPost"></PostForm
     ></VueDialog>
@@ -67,6 +68,16 @@ export default {
   },
   mounted() {
     this.fetchPosts();
+
+    console.log("this.$refs.observer", this.$refs.observer);
+    console.log("dc", document.getElementsByClassName("observer")[0]);
+
+    let options = {
+      rootMargin: "0px",
+      threshold: 1.0,
+    };
+
+    //let observer = new IntersectionObserver(callback, options);
   },
   methods: {
     createPost(post) {
@@ -97,6 +108,29 @@ export default {
           }
         );
         this.posts = response.data;
+        // 101 / 10 = 11 pages
+        this.totalPages = Math.ceil(
+          response.headers["x-total-count"] / this.postsPerPage
+        );
+      } catch (e) {
+        alert("Error while getting list of posts");
+      } finally {
+        this.isPostsLoading = false;
+      }
+    },
+    async loadMorePosts() {
+      try {
+        this.isPostsLoading = true;
+        const response = await axios.get(
+          `https://jsonplaceholder.typicode.com/posts`,
+          {
+            params: {
+              _page: this.page,
+              _limit: this.postsPerPage,
+            },
+          }
+        );
+        this.posts = [...this.posts, ...response.data];
         // 101 / 10 = 11 pages
         this.totalPages = Math.ceil(
           response.headers["x-total-count"] / this.postsPerPage
@@ -181,5 +215,10 @@ html {
   font-weight: bold;
   background: teal;
   color: #fff;
+}
+
+.observer {
+  height: 3rem;
+  background: green;
 }
 </style>
