@@ -18,7 +18,7 @@
     <VueDialog v-model:isVisible="isDialogVisible"
       ><PostForm @createPost="createPost"></PostForm
     ></VueDialog>
-    <div class="pages_wrapper">
+    <!-- <div class="pages_wrapper">
       <div
         v-for="pageNumber in totalPages"
         class="page"
@@ -28,7 +28,7 @@
       >
         {{ pageNumber }}
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -67,17 +67,23 @@ export default {
     VueInput,
   },
   mounted() {
-    this.fetchPosts();
-
-    console.log("this.$refs.observer", this.$refs.observer);
-    console.log("dc", document.getElementsByClassName("observer")[0]);
+    // this.fetchPosts();
 
     let options = {
       rootMargin: "0px",
       threshold: 1.0,
     };
 
-    //let observer = new IntersectionObserver(callback, options);
+    const callback = (entries, observer) => {
+      if (entries[0].isIntersecting) {
+        console.log("CB", entries);
+        console.log("this", this);
+        this.loadMorePosts();
+      }
+    };
+
+    let observer = new IntersectionObserver(callback, options);
+    observer.observe(this.$refs.observer);
   },
   methods: {
     createPost(post) {
@@ -120,7 +126,6 @@ export default {
     },
     async loadMorePosts() {
       try {
-        this.isPostsLoading = true;
         const response = await axios.get(
           `https://jsonplaceholder.typicode.com/posts`,
           {
@@ -131,14 +136,13 @@ export default {
           }
         );
         this.posts = [...this.posts, ...response.data];
+        this.page += 1;
         // 101 / 10 = 11 pages
         this.totalPages = Math.ceil(
           response.headers["x-total-count"] / this.postsPerPage
         );
       } catch (e) {
         alert("Error while getting list of posts");
-      } finally {
-        this.isPostsLoading = false;
       }
     },
   },
