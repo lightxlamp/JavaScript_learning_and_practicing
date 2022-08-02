@@ -1,27 +1,20 @@
 <template>
-  <ul>
-    <li><router-link class="link" :to="'/'">Home</router-link></li>
-    <li><router-link class="link" :to="'/posts'">See posts</router-link></li>
-  </ul>
+  <div class="navbar">
+    <VueButton>Main</VueButton>
+    <VueButton>Posts</VueButton>
+    <router-link class="link" :to="'/'">Home</router-link>
+    <router-link class="link" :to="'/posts'">See posts</router-link>
+  </div>
 </template>
 
 <script>
-export default {};
+import VueButton from "@/components/UI/VueButton.vue";
+export default {
+  components: {
+    VueButton,
+  },
+};
 </script>
 
 <style scoped>
-.link {
-  font-size: 1.6rem;
-}
-ul {
-  display: flex;
-  list-style: none;
-}
-li {
-  margin-left: 1rem;
-  color: teal;
-}
-li:first-child {
-  margin-left: 0;
-}
 </style>
