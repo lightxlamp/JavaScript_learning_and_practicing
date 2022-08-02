@@ -1,6 +1,7 @@
 
 <template>
   <div>
+    <NavBar></NavBar>
     <div class="btns">
       <VueButton @click="showDialog">Create Post</VueButton>
       <VueSelect
@@ -34,13 +35,14 @@
 </template>
 
 <script>
+import axios from "axios";
+import NavBar from "@/components/NavBar.vue";
 import PostForm from "@/components/PostForm.vue";
 import PostList from "@/components/PostList.vue";
-import VueDialog from "@/components/UI/VueDialog.vue";
 import VueButton from "@/components/UI/VueButton.vue";
-import VueSelect from "@/components/UI/VueSelect.vue";
+import VueDialog from "@/components/UI/VueDialog.vue";
 import VueInput from "@/components/UI/VueInput.vue";
-import axios from "axios";
+import VueSelect from "@/components/UI/VueSelect.vue";
 
 export default {
   data() {
@@ -60,12 +62,13 @@ export default {
     };
   },
   components: {
+    NavBar,
     PostForm,
     PostList,
-    VueDialog,
     VueButton,
-    VueSelect,
+    VueDialog,
     VueInput,
+    VueSelect,
   },
   mounted() {
     this.fetchPosts();
