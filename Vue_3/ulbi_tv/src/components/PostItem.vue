@@ -8,6 +8,7 @@
         <p><strong>ID:</strong> {{ post.id }}</p>
       </div>
       <div class="post-buttons">
+        <VueButton @click="viewPost">View</VueButton>
         <VueButton @click="deletePost">Delete</VueButton>
       </div>
     </div>
@@ -26,6 +27,9 @@ export default {
     deletePost() {
       this.$emit("deletePost", this.post);
     },
+    viewPost() {
+      this.$router.push(`/posts/${this.post.id}`);
+    },
   },
 };
 </script>
@@ -41,5 +45,8 @@ export default {
   align-items: center;
   background: lightyellow;
   border-radius: 0.6rem;
+}
+.post-buttons {
+  display: flex;
 }
 </style>

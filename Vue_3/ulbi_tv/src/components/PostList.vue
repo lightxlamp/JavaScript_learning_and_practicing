@@ -8,6 +8,7 @@
         :post="post"
         :key="post.id"
         @deletePost="deletePost(post)"
+        @viewPost="viewPost(post)"
       ></PostItem>
     </TransitionGroup>
   </div>
@@ -30,6 +31,10 @@ export default {
   methods: {
     deletePost(post) {
       this.$emit("deletePost", post);
+    },
+    viewPost(post) {
+      alert(1);
+      //this.$emit("deletePost", post);
     },
   },
 };
