@@ -4,6 +4,7 @@
     <div class="buttons">
       <VueButton @click="$router.push('/')">Home page</VueButton>
       <VueButton @click="$router.push('/posts')">List of posts</VueButton>
+      <VueButton @click="$router.push('/posts_v2')">List of posts using store</VueButton>
     </div>
   </div>
 </template>
