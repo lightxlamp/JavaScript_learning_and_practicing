@@ -1,6 +1,16 @@
 
 <template>
   <div>
+    <h1>{{$store.state.isAuth ? 'Authorized' : 'Please authorize to use a service'}}</h1>
+    <h1>Likes: {{$store.state.likes}}</h1>
+    <h1>Double likes: {{$store.getters.doubleLikes}}</h1>
+    <br/>
+    <VueButton @click="$store.commit('incrementLikes')">Like</VueButton>
+    &nbsp;
+    <VueButton @click="$store.commit('decrementLikes')">Decrement</VueButton>
+    <br/>
+    <br/>
+    
     <div class="btns">
       <VueButton @click="showDialog">Create Post</VueButton>
       <VueSelect
