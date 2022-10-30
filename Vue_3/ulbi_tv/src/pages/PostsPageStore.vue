@@ -1,16 +1,19 @@
-
 <template>
   <div>
-    <h1>{{$store.state.isAuth ? 'Authorized' : 'Please authorize to use a service'}}</h1>
-    <h1>Likes: {{$store.state.likes}}</h1>
-    <h1>Double likes: {{$store.getters.doubleLikes}}</h1>
-    <br/>
+    <h1>
+      {{
+        $store.state.isAuth ? "Authorized" : "Please authorize to use a service"
+      }}
+    </h1>
+    <h1>Likes: {{ $store.state.likes }}</h1>
+    <h1>Double likes: {{ $store.getters.doubleLikes }}</h1>
+    <br />
     <VueButton @click="$store.commit('incrementLikes')">Like</VueButton>
     &nbsp;
     <VueButton @click="$store.commit('decrementLikes')">Decrement</VueButton>
-    <br/>
-    <br/>
-    
+    <br />
+    <br />
+
     <div class="btns">
       <VueButton @click="showDialog">Create Post</VueButton>
       <VueSelect
@@ -55,18 +58,7 @@ import VueSelect from "@/components/UI/VueSelect.vue";
 export default {
   data() {
     return {
-      posts: [],
-      page: 1,
-      postsPerPage: 5,
-      totalPages: 0,
       isDialogVisible: false,
-      isPostsLoading: false,
-      selectedSortingOption: "",
-      searchQuery: "",
-      sortingOptions: [
-        { value: "title", name: "By title" },
-        { value: "body", name: "By body" },
-      ],
     };
   },
   components: {
@@ -110,51 +102,6 @@ export default {
         return post.id !== postToDelete.id;
       });
     },
-    async fetchPosts() {
-      try {
-        this.isPostsLoading = true;
-        const response = await axios.get(
-          `https://jsonplaceholder.typicode.com/posts`,
-          {
-            params: {
-              _page: this.page,
-              _limit: this.postsPerPage,
-            },
-          }
-        );
-        this.posts = response.data;
-        // 101 / 10 = 11 pages
-        this.totalPages = Math.ceil(
-          response.headers["x-total-count"] / this.postsPerPage
-        );
-      } catch (e) {
-        alert("Error while getting list of posts");
-      } finally {
-        this.isPostsLoading = false;
-      }
-    },
-    async loadMorePosts() {
-      try {
-        this.page += 1;
-        const response = await axios.get(
-          `https://jsonplaceholder.typicode.com/posts`,
-          {
-            params: {
-              _page: this.page,
-              _limit: this.postsPerPage,
-            },
-          }
-        );
-        this.posts = [...this.posts, ...response.data];
-
-        // 101 / 10 = 11 pages
-        this.totalPages = Math.ceil(
-          response.headers["x-total-count"] / this.postsPerPage
-        );
-      } catch (e) {
-        alert("Error while getting list of posts");
-      }
-    },
   },
   watch: {
     // page() {
@@ -168,21 +115,7 @@ export default {
     //   },
   },
 
-  computed: {
-    // original posts array stays the same
-    sortedPosts() {
-      return [...this.posts].sort((post1, post2) => {
-        return post1[this.selectedSortingOption]?.localeCompare(
-          post2[this.selectedSortingOption]
-        );
-      });
-    },
-    searchResultPosts() {
-      return this.sortedPosts.filter((post) =>
-        post.title.toLowerCase().includes(this.searchQuery.toLowerCase())
-      );
-    },
-  },
+  computed: {},
 };
 </script>
 
