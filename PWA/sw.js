@@ -1,4 +1,4 @@
-const staticCacheName = "s-app-v1"
+const staticCacheName = "s-app-v3"
 
 const assetURLs = [
     'index.html',
@@ -21,8 +21,16 @@ self.addEventListener('install', async event => {
     cache.addAll(assetURLs)
 })
 
-self.addEventListener('activate', event => {
+// Cleaning previous cache versions
+self.addEventListener('activate', async event => {
     console.log('SW activate');
+    const cacheNames = await caches.keys();
+    console.log('cacheNames', cacheNames);
+    await Promise.all(
+        cacheNames
+            .filter(name => name !== staticCacheName)
+            .map(name => caches.delete(name))
+    )
 })
 
 // Invokes when app make any call for some file (styles.css, app.js) etc
