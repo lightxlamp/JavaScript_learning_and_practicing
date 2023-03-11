@@ -1,9 +1,11 @@
 const staticCacheName = "s-app-v3"
+const dynamicCacheName = "d-app-v1"
 
 const assetURLs = [
     'index.html',
     'js/app.js',
-    'css/styles.css'
+    'css/styles.css',
+    'offline.html',
 ]
 
 // self.addEventListener('install', event => {
@@ -29,18 +31,43 @@ self.addEventListener('activate', async event => {
     await Promise.all(
         cacheNames
             .filter(name => name !== staticCacheName)
+            .filter(name => name !== dynamicCacheName)
             .map(name => caches.delete(name))
     )
 })
 
 // Invokes when app make any call for some file (styles.css, app.js) etc
 self.addEventListener('fetch', event => {
-    console.log('= Fetch:', event.request.url);
+    const { request } = event
+    console.log('= Fetch:', request.url);
+    const url = new URL(request.url)
 
-    event.respondWith(cacheFirst(event.request))
+    // Trying to get data from server where the app is located
+    if (url.origin === location.origin) {
+        event.respondWith(cacheFirst(request))
+    }
+    else {
+        event.respondWith(networkFirst(request))
+    }
+
+
 })
 
 async function cacheFirst(request) {
     const cached = await caches.match(request) // Checks if cache has data that we've just required 
     return cached ?? await fetch(request) // Return cached files. Or if they are missing. Perform a request.
+}
+
+async function networkFirst(request) {
+    const cache = await caches.open(dynamicCacheName)
+    try {
+        const response = await fetch(request);
+        await cache.put(request, response.clone()); // Put to cache with "key" - "request". some response data
+        return response
+    } catch (error) {
+        // If we are disconnected and can't fetch data from server
+        // console.error(error);
+        const cachedResponse = await cache.match(request)
+        return cachedResponse ?? await cache.match('/offline.html')
+    }
 }
