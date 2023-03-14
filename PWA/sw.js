@@ -1,3 +1,7 @@
+// Push notifications
+importScripts("https://lightxlamp.pushengage.com/service-worker.js?ver=2.3.0");
+
+// Main Part
 const staticCacheName = "s-app-v3"
 const dynamicCacheName = "d-app-v1"
 
