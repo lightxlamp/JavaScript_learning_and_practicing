@@ -4,22 +4,25 @@ window.addEventListener('load', async () => {
       console.log("'serviceWorker' in navigator)", 'serviceWorker' in navigator);
       const reg = await navigator.serviceWorker.register('./sw.js')
       console.log('Service worker register success', reg)
-
-      navigator.serviceWorker.getRegistration().then(regx => {
-        console.log('~~~~ Regx', regx);
-        regx.pushManager.subscribe({
-          userVisibleOnly: true
-        }).then(sub => {
-          // send sun.toJSON() to server
-        })
-      })
     } catch (e) {
       console.log('Service worker register failed')
     }
   }
-
+  console.log('------------- process.env.ENV_VARIABLE', process.env.PUSH_ENGAGE_ID)
   await loadPosts()
+  await addPushScriptToSW();
 })
+
+async function addPushScriptToSW() {
+  navigator.serviceWorker.getRegistration().then(regx => {
+    console.log('~~~~ Regx', regx);
+    regx.pushManager.subscribe({
+      userVisibleOnly: true
+    }).then(sub => {
+      // send sun.toJSON() to server
+    })
+  })
+}
 
 
 async function loadPosts() {
