@@ -8,7 +8,6 @@ window.addEventListener('load', async () => {
       console.log('Service worker register failed')
     }
   }
-  console.log('------------- process.env.ENV_VARIABLE', process.env.PUSH_ENGAGE_ID)
   await loadPosts()
   await addPushScriptToSW();
 })
