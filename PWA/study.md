@@ -49,3 +49,10 @@ Tested 4 times. I was able to receive push apps on mac / Samsung S9 (even using)
 A lot of efforts and account finally removed. I hope they will not charge me after 45 hours :)
 
 Will attach some screens here later. Have a nice day / night :)
+
+...
+
+Mar 18
+Don't want to spend more time researching PushNotifications for now. Created one more account on "PushEngage" with no money.
+Added new API key. Retested. Works as before.And I am no scary that they will charge 97 USD for 12 push notifications
+Want to return here and play with other PWA abilities. Camera for example. Or smth like this. But want to check GitActions first
