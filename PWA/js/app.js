@@ -8,9 +8,20 @@ window.addEventListener('load', async () => {
       console.log('Service worker register failed')
     }
   }
-
   await loadPosts()
+  await addPushScriptToSW();
 })
+
+async function addPushScriptToSW() {
+  navigator.serviceWorker.getRegistration().then(regx => {
+    console.log('~~~~ Regx', regx);
+    regx.pushManager.subscribe({
+      userVisibleOnly: true
+    }).then(sub => {
+      // send sun.toJSON() to server
+    })
+  })
+}
 
 
 async function loadPosts() {
