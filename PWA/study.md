@@ -56,3 +56,6 @@ Mar 18
 Don't want to spend more time researching PushNotifications for now. Created one more account on "PushEngage" with no money.
 Added new API key. Retested. Works as before.And I am no scary that they will charge 97 USD for 12 push notifications
 Want to return here and play with other PWA abilities. Camera for example. Or smth like this. But want to check GitActions first
+
+Why PushEngage is better than Firebase Cloud Messaging
+https://www.pushengage.com/pushengage-vs-firebase-cloud-messaging/
