@@ -1,12 +1,9 @@
-(async () => {
+lessonCode()
+
+async function lessonCode() {
     const apiKey = generateKey()
     const items = await getItemData()
-    console.log('Items', items)
-    console.log('typeof', typeof (items))
-    console.log('isIterable', isIterable(items))
-    if (isIterable(items)) {
-        logItems()
-    }
+    logItems(items)
 
     async function getItemData() {
         const response = await fetch('https://api.boot.dev/v1/courses_rest_api/learn-http/items', {
@@ -42,4 +39,4 @@
             console.log(item.name)
         }
     }
-})()
+}
