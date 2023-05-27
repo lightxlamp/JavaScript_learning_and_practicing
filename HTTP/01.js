@@ -1,15 +1,12 @@
 (async () => {
     const apiKey = generateKey()
-    const items = await getItemData().then(
-        () => {
-            console.log('Hey', items)
-            console.log('typeof', typeof (items))
-            console.log('isIterable', isIterable(items))
-            logItems()
-        }
-    )
-
-
+    const items = await getItemData()
+    console.log('Items', items)
+    console.log('typeof', typeof (items))
+    console.log('isIterable', isIterable(items))
+    if (isIterable(items)) {
+        logItems()
+    }
 
     async function getItemData() {
         const response = await fetch('https://api.boot.dev/v1/courses_rest_api/learn-http/items', {
