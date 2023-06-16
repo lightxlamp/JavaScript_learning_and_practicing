@@ -2,11 +2,12 @@ lessonCode()
 
 async function lessonCode() {
     const apiKey = generateKey()
+    const itemsURL = 'https://api.boot.dev/v1/courses_rest_api/learn-http/items';
     const items = await getItemData()
     logItems(items)
 
     async function getItemData() {
-        const response = await fetch('https://api.boot.dev/v1/courses_rest_api/learn-http/items', {
+        const response = await fetch(itemsURL, {
             method: 'GET',
             mode: 'cors',
             headers: {
