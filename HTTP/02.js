@@ -9,13 +9,15 @@ async function fetchIPAddress(domain) {
     })
 
     // return response.json() // Nice - worked
-    return await response.json().Status;
+    const parsedResponse = await response.json()
+    return parsedResponse.Answer[0].data;
 }
 
 async function runFetching() {
     try {
-        const a = await fetchIPAddress('api.boot.dev');
-        console.log(a);
+        const domain = 'megaline.kg';
+        const ip = await fetchIPAddress(domain);
+        console.log(`IP address of ${domain} is ${ip}`);
     } catch (error) {
         console.error(error);
     }
