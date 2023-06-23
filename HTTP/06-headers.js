@@ -18,7 +18,7 @@ async function run() {
     console.log('---')
 
     const newGeneratedApiKey = generateKey()
-    const newLocation = await getLocationResponse(newGeneratedApiKey, url)
+    const newLocation = await getLocationResponse(generatedApiKey, url)
     console.log('Got new location:')
     console.log(`- name: ${newLocation.name}, recommendedLevel: ${newLocation.recommendedLevel}`)
     console.log('---')
