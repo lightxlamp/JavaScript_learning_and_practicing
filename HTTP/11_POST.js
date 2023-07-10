@@ -1,5 +1,5 @@
 async function createUser(apiKey, url, data) {
-  return await fetch(url, {
+  const resp = await fetch(url, {
     method: "POST",
     mode: "cors",
     headers: {
@@ -8,6 +8,7 @@ async function createUser(apiKey, url, data) {
     },
     body: JSON.stringify(data),
   });
+  return await resp.json()
 }
 
 const userToCreate = {
