@@ -43,3 +43,4 @@ Vanilla-js-files-uploader/node_modules/
 Vanilla-js-files-uploader/dist/
 Vanilla-js-files-uploader/.parcel-cache/
 REST_API.Fullstack_App_on_JS_repeat/node_modules/
+.DS_Store
