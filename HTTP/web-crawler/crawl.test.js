@@ -9,8 +9,22 @@ test('normalizeURL: strip protocol', () => {
     expect(actual).toEqual(expected)
 })
 
+test('normalizeURL: strip protocol HTTP', () => {
+    const input = 'http://blog.boot.dev/path'
+    const actual = normalizeURL(input)
+    const expected = 'blog.boot.dev/path'
+    expect(actual).toEqual(expected)
+})
+
 test('normalizeURL: remove trailing slashes', () => {
     const input = 'https://blog.boot.dev/path/'
+    const actual = normalizeURL(input)
+    const expected = 'blog.boot.dev/path'
+    expect(actual).toEqual(expected)
+})
+
+test('normalizeURL: upper case. Capitals', () => {
+    const input = 'https://BLOG.boot.dev/path/'
     const actual = normalizeURL(input)
     const expected = 'blog.boot.dev/path'
     expect(actual).toEqual(expected)
