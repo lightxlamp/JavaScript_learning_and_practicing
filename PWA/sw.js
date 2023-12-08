@@ -1,6 +1,6 @@
 // Push notifications
-// importScripts("https://lightxlamp.pushengage.com/service-worker.js?ver=2.3.0");
-importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
+importScripts("https://lightxlamp.pushengage.com/service-worker.js?ver=2.3.0");
+// importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
 
 // Main Part
 const staticCacheName = "s-app-v3"
