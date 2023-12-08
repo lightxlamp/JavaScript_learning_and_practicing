@@ -21,8 +21,20 @@
 </div>
 
 <script src="js/app.js"></script>
-<script> window._peq = window._peq || []; window._peq.push(["init"]); </script>
-<script src="https://clientcdn.pushengage.com/core/cf062bb0-3dc9-4005-b2fc-6e1916e55fc5.js" async></script>
+
+<!-- <script> window._peq = window._peq || []; window._peq.push(["init"]); </script>
+<script src="https://clientcdn.pushengage.com/core/cf062bb0-3dc9-4005-b2fc-6e1916e55fc5.js" async></script> -->
+
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(function(OneSignal) {
+    OneSignal.init({
+      appId: "66307487-a9ba-4b30-b236-8773989cc2e2",
+    });
+  });
+</script>
+
 </body>
 </html>
 
