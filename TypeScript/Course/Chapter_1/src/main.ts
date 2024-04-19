@@ -1,2 +1,2 @@
-let username = "Stas  sas 3"
+let username = "Stas"
 console.log(username)
