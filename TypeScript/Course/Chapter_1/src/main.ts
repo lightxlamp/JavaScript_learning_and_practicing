@@ -1,9 +1,9 @@
 let username = "Stas"
 console.log(username)
 
-const a = 2
-const b = '10'
-const c = 5
+const a: number = 2
+const b: number = 10
+const c: number = 5
 
 console.log(a * b)
 console.log(b / c)
