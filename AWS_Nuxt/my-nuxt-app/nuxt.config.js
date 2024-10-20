@@ -20,7 +20,9 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
-    __dangerouslyDisableSanitizers: ["script"],
+    __dangerouslyDisableSanitizersByTagID: {
+      runNR: ["innerHTML"]
+    },
     script: [
       {
         hid: "runNR",
