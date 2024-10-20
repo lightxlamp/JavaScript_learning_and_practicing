@@ -20,6 +20,18 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
+    __dangerouslyDisableSanitizersByTagID: {
+      runNR: ["innerHTML"]
+    },
+    script: [
+      {
+        hid: "runNR",
+        src: "newrelic.js",
+        defer: true,
+        type: "text/javascript",
+        charset: "utf-8",
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -27,7 +39,8 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '~/plugins/newrelic.js', mode: 'client' }],
+  plugins: [
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
