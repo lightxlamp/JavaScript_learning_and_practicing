@@ -1,28 +1,21 @@
-<script>
-import { ref } from 'vue'
+<script setup>
+import { ref } from "vue";
 
-export default {
-  setup() {
-    const name = "Stas";
-    let status = ref('pending');
-    const tasks = ["Task 1", "Task 2", "Task 3", "Task 4"];
-    const link = "https://www.youtube.com/watch?v=VeNfHj6MhgA";
+const name = "Stas";
+let status = ref("pending");
+const tasks = ["Task 1", "Task 2", "Task 3", "Task 4"];
+const link = "https://www.youtube.com/watch?v=VeNfHj6MhgA";
 
-    const changeStatus = () => {
-      if (status.value === "active") {
-        status.value = "pending";
-      } else if (status.value === "pending") {
-        status.value = "inactive";
-      } else {
-        status.value = "active";
-      }
-    }
-
-    return {
-      name, status, tasks, link, changeStatus
-    }
-  },
+const changeStatus = () => {
+  if (status.value === "active") {
+    status.value = "pending";
+  } else if (status.value === "pending") {
+    status.value = "inactive";
+  } else {
+    status.value = "active";
+  }
 };
+
 </script>
 
 <template>
