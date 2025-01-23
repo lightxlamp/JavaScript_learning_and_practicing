@@ -1,40 +1,6 @@
 <script>
 export default {
-  data() {
-    return {
-      name: "Stas",
-      status: "pending",
-      tasks: ["Task 1", "Task 2", "Task 3", "Task 4"],
-      link: "https://www.youtube.com/watch?v=VeNfHj6MhgA",
-    };
-  },
-  methods: {
-    changeStatus_switch() {
-      switch (this.status) {
-        case 'active':
-          this.status = 'pending'
-          break;
-        case 'pending':
-          this.status = 'inactive'
-          break;
-        case 'inactive':
-          this.status = 'active'
-          break;
-        default:
-          console.error('Some wrong status')
-      }
-    },
 
-    changeStatus() {
-      if (this.status === "active") {
-        this.status = "pending";
-      } else if (this.status === "pending") {
-        this.status = "inactive";
-      } else {
-        this.status = "active";
-      }
-    },
-  },
 };
 </script>
 
