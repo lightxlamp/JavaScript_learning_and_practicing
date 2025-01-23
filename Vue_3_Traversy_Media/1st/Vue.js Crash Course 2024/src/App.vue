@@ -1,6 +1,27 @@
 <script>
-export default {
+import { ref } from 'vue'
 
+export default {
+  setup() {
+    const name = "Stas";
+    let status = ref('pending');
+    const tasks = ["Task 1", "Task 2", "Task 3", "Task 4"];
+    const link = "https://www.youtube.com/watch?v=VeNfHj6MhgA";
+
+    const changeStatus = () => {
+      if (status.value === "active") {
+        status.value = "pending";
+      } else if (status.value === "pending") {
+        status.value = "inactive";
+      } else {
+        status.value = "active";
+      }
+    }
+
+    return {
+      name, status, tasks, link, changeStatus
+    }
+  },
 };
 </script>
 
@@ -11,7 +32,7 @@ export default {
   <p v-else-if="status === 'pending'">User is pending</p>
   <p v-else>User is inactive</p>
   <br />
-  <button @click="changeStatus_switch">Change status</button>
+  <button @click="changeStatus">Change status</button>
   <br />
   <br />
 
@@ -29,7 +50,6 @@ export default {
 
   <br />
   <br />
-
 </template>
 
 <style scoped></style>
