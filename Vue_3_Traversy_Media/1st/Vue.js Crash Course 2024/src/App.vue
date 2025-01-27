@@ -1,11 +1,11 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 const name = "Stas";
 let status = ref("pending");
 const tasks = ref(["Task 1", "Task 2", "Task 3", "Task 4"]);
 const link = "https://www.youtube.com/watch?v=VeNfHj6MhgA";
-const task = ref('');
+const task = ref("");
 
 const changeStatus = () => {
   if (status.value === "active") {
@@ -18,18 +18,27 @@ const changeStatus = () => {
 };
 
 const addTask = () => {
-  if(task.value.trim() !== '') {
+  if (task.value.trim() !== "") {
     tasks.value.push(task.value);
-    task.value = '';
+    task.value = "";
   }
-}
+};
 
 const deleteTask = (index) => {
-  if(tasks.value[index]) {
-    tasks.value.splice(index, 1)
+  if (tasks.value[index]) {
+    tasks.value.splice(index, 1);
   }
-}
+};
 
+onMounted(async () => {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=7");
+    const data = await response.json();
+    tasks.value = data.map((task) => task.title);
+  } catch (e) {
+    console.log(e);
+  }
+});
 </script>
 
 <template>
@@ -52,7 +61,7 @@ const deleteTask = (index) => {
 
   <br />
 
-  <form @submit.prevent="addTask" >
+  <form @submit.prevent="addTask">
     <label for="newTask">New Task</label>
     <br />
     <input type="text" id="newTask" name="newTask" v-model="task" />
@@ -73,9 +82,9 @@ const deleteTask = (index) => {
 </template>
 
 <style scoped>
-  li button {
-      background: transparent;
-      border: none;
-      cursor: pointer;
-  }
+li button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
 </style>
