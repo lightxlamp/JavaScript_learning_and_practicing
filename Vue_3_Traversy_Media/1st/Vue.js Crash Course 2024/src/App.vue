@@ -3,8 +3,9 @@ import { ref } from "vue";
 
 const name = "Stas";
 let status = ref("pending");
-const tasks = ["Task 1", "Task 2", "Task 3", "Task 4"];
+const tasks = ref(["Task 1", "Task 2", "Task 3", "Task 4"]);
 const link = "https://www.youtube.com/watch?v=VeNfHj6MhgA";
+const task = ref('');
 
 const changeStatus = () => {
   if (status.value === "active") {
@@ -15,6 +16,19 @@ const changeStatus = () => {
     status.value = "active";
   }
 };
+
+const addTask = () => {
+  if(task.value.trim() !== '') {
+    tasks.value.push(task.value);
+    task.value = '';
+  }
+}
+
+const deleteTask = (index) => {
+  if(tasks.value[index]) {
+    tasks.value.splice(index, 1)
+  }
+}
 
 </script>
 
@@ -30,8 +44,21 @@ const changeStatus = () => {
   <br />
 
   <ul>
-    <li v-for="task in tasks" :key="task">{{ task }}</li>
+    <li v-for="(task, index) in tasks" :key="task">
+      <span>{{ task }}</span>
+      <button @click="deleteTask(index)">❌</button>
+    </li>
   </ul>
+
+  <br />
+
+  <form @submit.prevent="addTask" >
+    <label for="newTask">New Task</label>
+    <br />
+    <input type="text" id="newTask" name="newTask" v-model="task" />
+    <br />
+    <button type="submit">Add task</button>
+  </form>
 
   <br />
 
@@ -45,4 +72,10 @@ const changeStatus = () => {
   <br />
 </template>
 
-<style scoped></style>
+<style scoped>
+  li button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+  }
+</style>
