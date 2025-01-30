@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx,css}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif']
+      }, 
+      gridTemplateColumns: {
+        '70/30': '69% 29%'
+      }
+    },
   },
   plugins: [],
 }
