@@ -1,12 +1,27 @@
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, computed, ref } from "vue";
 
-defineProps({
+const props = defineProps({
   job: {
     type: Object,
     default: {},
   },
 });
+
+let showFullJobText = ref(false);
+
+
+const computedDescription = computed(() => {
+    if(!props.job?.description) return "No description available."
+    if(showFullJobText.value) return props.job.description
+
+    return props.job.description.substring(0, 90) + '...';
+})
+
+const toggleShowFullJobText = () => {
+    showFullJobText.value = !showFullJobText.value;
+}
+
 </script>
 
 <template>
@@ -20,7 +35,12 @@ defineProps({
       </div>
 
       <div class="mb-5">
-        {{ job?.description || "No description available." }}
+        <div>{{ computedDescription }}</div>
+
+        <button class="text-green-500 hover:text-green-600 mb-5" @click="toggleShowFullJobText">
+            {{ showFullJobText ? 'Less' : 'More' }}
+        </button>
+       
       </div>
 
       <h3 class="text-green-500 mb-2">
