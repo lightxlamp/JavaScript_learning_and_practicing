@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps, computed, ref } from "vue";
+import { RouterLink } from "vue-router";
 
 const props = defineProps({
   job: {
@@ -54,13 +55,13 @@ const toggleShowFullJobText = () => {
           <i class="pi pi-map-marker text-orange-700"></i>
           {{ job?.location || "Location not specified" }}
         </div>
-        <a
+        <RouterLink
           v-if="job?.id"
-          :href="'/job/' + job.id"
+          :to="'/job/' + job.id"
           class="h-[36px] bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-center text-sm"
         >
           Read More
-        </a>
+        </RouterLink>
       </div>
     </div>
   </div>
