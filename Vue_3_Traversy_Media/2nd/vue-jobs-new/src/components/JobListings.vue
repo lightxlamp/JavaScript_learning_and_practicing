@@ -14,7 +14,7 @@
             </h2>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <JobListing v-for="job in jobs" :key="job.id" />
+                <JobListing v-for="job in jobs" :key="job.id" :job="job" />
             </div>
         </div>
     </section>
