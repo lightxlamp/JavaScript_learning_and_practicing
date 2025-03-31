@@ -11,17 +11,17 @@ const router = createRouter(
             {
                 path: '/',
                 name: 'home',
-                component: HomeView
+                component: HomeView,
             },             
             {
                 path: '/jobs',
                 name: 'Jobs',
-                component: JobsView
+                component: JobsView,
             }, 
             {
                 path: '/:catchAll(.*)',
                 name: 'not-found',
-                component: Page404View
+                component: Page404View,
             },
         ]
     }
