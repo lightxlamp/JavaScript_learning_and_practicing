@@ -3,6 +3,7 @@ import { defineProps, onMounted, reactive } from "vue";
 import { RouterLink, useRoute } from "vue-router";
 import axios from "axios";
 import PulseLoader from "vue-spinner/src/PulseLoader.vue";
+import BackButton from "../components/BackButton.vue";
 
 const route = useRoute();
 const jobId = route.params.id;
@@ -29,6 +30,7 @@ onMounted(async () => {
     <PulseLoader />
   </div>
   <section v-else class="bg-green-50">
+    <BackButton />π
     <div class="container m-auto py-10 px-6">
       <div class="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
         <main>
