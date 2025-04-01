@@ -15,7 +15,7 @@ const state = reactive({
 
 onMounted(async () => {
   try {
-    const response = await axios.get(`http://localhost:5555/jobs/${jobId}`);
+    const response = await axios.get(`/api/jobs/${jobId}`);
     state.job = response.data;
   } catch (error) {
     console.log("Error fetching job");
