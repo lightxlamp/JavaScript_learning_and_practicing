@@ -1,42 +1,41 @@
 <script setup>
-    import { reactive } from 'vue';
-    import axios from 'axios';
-    import router from '../router';
+import { reactive } from "vue";
+import axios from "axios";
+import router from "../router";
 
-    const form = reactive({
-        type: 'Full-Time',
-        title: '',
-        description: 'sas',
-        salary: '',
-        location: '',
-        company: {
-            name: '',
-            description: '',
-            contactEmail: '',
-            contactPhone: '',
-        },
-    });
+const form = reactive({
+  type: "Full-Time",
+  title: "",
+  description: "sas",
+  salary: "",
+  location: "",
+  company: {
+    name: "",
+    description: "",
+    contactEmail: "",
+    contactPhone: "",
+  },
+});
 
-    const handleSubmit = async () => {
-        const newJob = {...form};
-        
-        try {
-            const response = await axios.post(`/api/jobs/`, newJob);
-            router.push(`/jobs/${response.data.id}`);
-        } catch (error) {
-            console.log("Error fetching job");
-        } 
-        
-        fetch('api/jobs', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(form)
-        })
-        console.log(newJob);
-    };
+const handleSubmit = async () => {
+  const newJob = { ...form };
 
+  try {
+    const response = await axios.post(`/api/jobs/`, newJob);
+    router.push(`/jobs/${response.data.id}`);
+  } catch (error) {
+    console.log("Error fetching job");
+  }
+
+  fetch("api/jobs", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(form),
+  });
+  console.log(newJob);
+};
 </script>
 
 <template>
