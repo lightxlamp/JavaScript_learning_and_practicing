@@ -85,20 +85,6 @@
       }
     },
     {
-      "id": "f97a",
-      "type": "Internship",
-      "title": "Lenore Floyd",
-      "description": "Quia culpa ut ab pla",
-      "salary": "$100K - $125K",
-      "location": "Consequat Quis anim",
-      "company": {
-        "name": "Singleton and Cantrell Associates",
-        "description": "Consequat Est adipi",
-        "contactEmail": "cejuludacy@mailinator.com",
-        "contactPhone": "+1 (749) 127-7053"
-      }
-    },
-    {
       "id": "7bbf",
       "type": "Remote",
       "title": "Simon Pittman",
@@ -124,20 +110,6 @@
         "description": "Quia vitae eaque vel",
         "contactEmail": "tuje@mailinator.com",
         "contactPhone": "+1 (787) 772-4044"
-      }
-    },
-    {
-      "id": "eeab",
-      "type": "Part-Time",
-      "title": "Joshua Levine",
-      "description": "Sint sequi autem co",
-      "salary": "$150K - $175K",
-      "location": "Sint animi odit eu",
-      "company": {
-        "name": "Schneider Bowers Associates",
-        "description": "Vitae eaque magna co",
-        "contactEmail": "rukuhe@mailinator.com",
-        "contactPhone": "+1 (687) 332-2107"
       }
     }
   ]
