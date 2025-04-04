@@ -1,11 +1,14 @@
 <script setup>
 import { defineProps, onMounted, reactive } from "vue";
-import { RouterLink, useRoute } from "vue-router";
+import { RouterLink, useRoute, useRouter } from "vue-router";
 import axios from "axios";
 import PulseLoader from "vue-spinner/src/PulseLoader.vue";
 import BackButton from "../components/BackButton.vue";
+import { useToast } from "vue-toastification";
 
 const route = useRoute();
+const router = useRouter();
+const notifications = useToast();
 const jobId = route.params.id;
 
 const state = reactive({
@@ -23,6 +26,18 @@ onMounted(async () => {
     state.isLoading = false;
   }
 });
+
+const deleteJob = async () => {
+  try {
+    await axios.delete(`/api/jobs/${jobId}`);
+    router.push("/jobs");
+    notifications.success('Job deleted successfully');
+  } catch (error) {
+    console.log("Error deleting job");
+    notifications.error('Job was not deleted');
+  }
+};
+
 </script>
 
 <template>
@@ -30,7 +45,7 @@ onMounted(async () => {
     <PulseLoader />
   </div>
   <section v-else class="bg-green-50">
-    <BackButton />π
+    <BackButton />
     <div class="container m-auto py-10 px-6">
       <div class="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
         <main>
@@ -43,7 +58,7 @@ onMounted(async () => {
               class="text-gray-500 mb-4 flex align-middle justify-center md:justify-start"
             >
               <i
-                class="fa-solid fa-location-dot text-lg text-orange-700 mr-2"
+                class="pi pi-map-marker text-xl text-orange-700 mr-2"
               ></i>
               <p class="text-orange-700">{{ state.job.location }}</p>
             </div>
@@ -98,7 +113,7 @@ onMounted(async () => {
               :to="`/jobs/edit/${state.job.id}`"
               class="bg-green-500 hover:bg-green-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
               >Edit Job</RouterLink>
-            <button
+            <button @click="deleteJob"
               class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
             >
               Delete Job

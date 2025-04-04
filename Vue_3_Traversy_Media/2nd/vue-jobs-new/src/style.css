@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.Vue-Toastification__toast--success {
+    background-color: #295232 !important;
+}

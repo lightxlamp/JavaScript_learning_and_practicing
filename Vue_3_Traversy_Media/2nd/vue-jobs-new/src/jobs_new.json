@@ -85,37 +85,6 @@
       }
     },
     {
-      "id": "9999999"
-    },
-    {
-      "id": "1909",
-      "type": "Internship",
-      "title": "Dara Simmons",
-      "description": "Voluptate sequi eius",
-      "salary": "$60K - $70K",
-      "location": "Et quia ratione duci",
-      "company": {
-        "name": "Franklin Weiss Co",
-        "description": "Sunt magnam eos id ",
-        "contactEmail": "gukolas@mailinator.com",
-        "contactPhone": "+1 (746) 198-5564"
-      }
-    },
-    {
-      "id": "6767",
-      "type": "Full-Time",
-      "title": "Tatyana Palmer",
-      "description": "Qui ipsa modi conse",
-      "salary": "$125K - $150K",
-      "location": "Sit provident quis ",
-      "company": {
-        "name": "Shelton and Mayer Inc",
-        "description": "Adipisci cumque tene",
-        "contactEmail": "dositimece@mailinator.com",
-        "contactPhone": "+1 (676) 576-3789"
-      }
-    },
-    {
       "id": "f97a",
       "type": "Internship",
       "title": "Lenore Floyd",
@@ -127,6 +96,48 @@
         "description": "Consequat Est adipi",
         "contactEmail": "cejuludacy@mailinator.com",
         "contactPhone": "+1 (749) 127-7053"
+      }
+    },
+    {
+      "id": "7bbf",
+      "type": "Remote",
+      "title": "Simon Pittman",
+      "description": "Qui excepteur adipis",
+      "salary": "$150K - $175K",
+      "location": "Assumenda consequatu",
+      "company": {
+        "name": "Mullen Vazquez Trading",
+        "description": "Est consequatur dign",
+        "contactEmail": "bypoziw@mailinator.com",
+        "contactPhone": "+1 (665) 445-2514"
+      }
+    },
+    {
+      "id": "a38f",
+      "type": "Full-Time",
+      "title": "Ryan Jackson",
+      "description": "Tempora sunt volupta",
+      "salary": "$100K - $125K",
+      "location": "Sint assumenda repre",
+      "company": {
+        "name": "Hill Villarreal Plc",
+        "description": "Quia vitae eaque vel",
+        "contactEmail": "tuje@mailinator.com",
+        "contactPhone": "+1 (787) 772-4044"
+      }
+    },
+    {
+      "id": "eeab",
+      "type": "Part-Time",
+      "title": "Joshua Levine",
+      "description": "Sint sequi autem co",
+      "salary": "$150K - $175K",
+      "location": "Sint animi odit eu",
+      "company": {
+        "name": "Schneider Bowers Associates",
+        "description": "Vitae eaque magna co",
+        "contactEmail": "rukuhe@mailinator.com",
+        "contactPhone": "+1 (687) 332-2107"
       }
     }
   ]
