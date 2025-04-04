@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, onMounted, reactive } from "vue";
+import { onMounted, reactive } from "vue";
 import { RouterLink, useRoute, useRouter } from "vue-router";
 import axios from "axios";
 import PulseLoader from "vue-spinner/src/PulseLoader.vue";
