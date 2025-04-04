@@ -6,3 +6,8 @@ Trying different Node versions
 But seems like here is a correct article: 
 https://v3.tailwindcss.com/docs/guides/vite#vue 
 npx tailwindcss init -p - worked now
+
+vue-jobs-new - is a final project 
+To launch: 
+1) npm run dev 
+2) npm run json-server (in the second tab)
