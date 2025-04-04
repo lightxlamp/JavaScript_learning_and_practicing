@@ -4,6 +4,7 @@ import HomeView from '@/views/HomeView.vue'
 import JobsView from '@/views/JobsView.vue'
 import JobView from '@/views/JobView.vue'
 import AddJobView from '@/views/AddJobView.vue'
+import EditJobView from '@/views/EditJobView.vue'
 import Page404View from '@/views/Page404View.vue'
 
 const router = createRouter(
@@ -24,6 +25,11 @@ const router = createRouter(
                 path: '/jobs/:id',
                 name: 'Job',
                 component: JobView,
+            },              
+            {
+                path: '/jobs/edit/:id',
+                name: 'Edit Job',
+                component: EditJobView,
             },            
             {
                 path: '/jobs/add',
