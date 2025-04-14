@@ -7,6 +7,10 @@ const isActiveLink = (routePath) => {
   return route.path === routePath;
 }
 
+const linkHome = '/';
+const linkJobs = '/jobs';
+const linkAddJob = '/jobs/add';
+
 </script>
 
 <template>
@@ -25,20 +29,20 @@ const isActiveLink = (routePath) => {
           <div class="md:ml-auto">
             <div class="flex space-x-2">
               <RouterLink
-                to="/"
-                :class="{ 'bg-green-900 hover:bg-gray-900': isActiveLink('/') }"
+                :to=linkHome
+                :class="{ 'bg-green-900 hover:bg-gray-900': isActiveLink(linkHome) }"
                 class="text-white hover:bg-gray-900 rounded-md px-3 py-2"
                 >Home</RouterLink
               >
               <RouterLink
-                to="/jobs"
-                :class="{ 'bg-green-900 hover:bg-gray-900': isActiveLink('/jobs') }"
+                :to=linkJobs
+                :class="{ 'bg-green-900 hover:bg-gray-900': isActiveLink(linkJobs) }"
                 class="text-white hover:bg-green-900 rounded-md px-3 py-2"
                 >Jobs</RouterLink
               >
               <RouterLink
-                to="/jobs/add"
-                :class="{ 'bg-green-900 hover:bg-gray-900': isActiveLink('/jobs/add') }"
+                :to=linkAddJob
+                :class="{ 'bg-green-900 hover:bg-gray-900': isActiveLink(linkAddJob) }"
                 class="text-white hover:bg-green-900 rounded-md px-3 py-2"
                 >Add Job</RouterLink
               >
